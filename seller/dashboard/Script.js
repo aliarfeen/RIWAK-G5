@@ -5,8 +5,8 @@ let incomeChart = null;
 
 
 Promise.all([
-  fetch("sellers.json").then(res => res.json()),
-  fetch("products.json").then(res => res.json())
+  fetch("../assets/json/sellers.json").then(res => res.json()),
+  fetch("../assets/json/products.json").then(res => res.json())
 ])
 .then(([sellersData, productsData]) => {
   sellers = sellersData;
