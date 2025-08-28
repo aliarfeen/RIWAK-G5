@@ -3,10 +3,10 @@ let products = [];
 let revenueChart = null;
 let incomeChart = null;
 
-
 Promise.all([
-  fetch("../assets/json/sellers.json").then(res => res.json()),
-  fetch("../assets/json/products.json").then(res => res.json())
+  
+  fetch("/assets/json/sellers.json").then(res => res.json()),
+  fetch("/assets/json/products.json").then(res => res.json())
 ])
 .then(([sellersData, productsData]) => {
   sellers = sellersData;
@@ -15,58 +15,50 @@ Promise.all([
   localStorage.setItem("sellers", JSON.stringify(sellers));
   localStorage.setItem("products", JSON.stringify(products));
 
-  
   const currentSeller = JSON.parse(localStorage.getItem("current_seller"));
   if (currentSeller) {
     updateDashboard(currentSeller.id);
   }
-});
 
+  // Login logic moved inside this block
+  (function () {
+    const form = document.getElementById('loginForm');
 
-
-(function () {
-  const form = document.getElementById('loginForm');
-
- 
-  form.querySelectorAll('input').forEach(el => {
-    el.addEventListener('input', () => {
-      if (el.checkValidity()) {
-        el.classList.remove('is-invalid');
-        el.classList.add('is-valid');
-      } else {
-        el.classList.remove('is-valid');
-      }
+    form.querySelectorAll('input').forEach(el => {
+      el.addEventListener('input', () => {
+        if (el.checkValidity()) {
+          el.classList.remove('is-invalid');
+          el.classList.add('is-valid');
+        } else {
+          el.classList.remove('is-valid');
+        }
+      });
     });
-  });
 
-  
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
 
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
 
-    
-    const seller = sellers.find(s => s.email === email && s.password === password);
+     
+      const seller = sellers.find(s => s.email === email && s.password === password);
 
-    if (!seller) {
-      alert("Account not exist!");
-      return;
-    }
+      if (!seller) {
+        alert("Account not exist!");
+        return;
+      }
 
-   
-    localStorage.setItem("current_seller", JSON.stringify({
-      id: seller.id,
-      email: seller.email
-    }));
+      localStorage.setItem("current_seller", JSON.stringify({
+        id: seller.id,
+        email: seller.email
+      }));
 
-    
-    updateDashboard(seller.id);
-
-    alert("Login successful!");
-  }, false);
-})();
-
+      updateDashboard(seller.id);
+      alert("Login successful!");
+    }, false);
+  })();
+});
 
 
 const pwd = document.getElementById('password');
@@ -78,8 +70,6 @@ toggle.addEventListener('click', () => {
   toggle.setAttribute('aria-label', isHidden ? 'Hide password' : 'Show password');
   pwd.focus();
 });
-
-
 
 function updateDashboard(sellerId) {
   const sellerProducts = products.filter(p => p.sellerId == sellerId);
@@ -103,7 +93,6 @@ function updateDashboard(sellerId) {
 
   document.getElementById("outOfStock").textContent = productStats.filter(p => p.quantity === 0).length;
   document.getElementById("lowStock").textContent = productStats.filter(p => p.quantity > 0 && p.quantity < 10).length;
-
 
   if (revenueChart) revenueChart.destroy();
   if (incomeChart) incomeChart.destroy();
