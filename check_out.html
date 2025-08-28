@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Check out</title>
+    <script type="module" src="assets/js/check_out.js"></script>
+    <script type="module" src="assets/js/nav.js"></script>
+    <link rel="stylesheet" href="assets/css/check_out.css" />
+    <!-- calling ROBOTO font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- calling bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    ></script>
+  </head>
+
+  <body>
+    <div
+      class="d-flex flex-column-reverse flex-md-row g-3 align-items-center align-items-xl-start justify-content-around my-5"
+    >
+      <section class="d-flex flex-column align-items-start justify-content-start">
+        <div class="d-flex  align-items-center justify-content-between w-100 mb-3">
+            
+        <div id="address-alert" class="d-flex flex-column  align-items-start justify-content-center ">
+            <h3>Delivery</h3>
+        </div>  
+        
+<button id="add-address" type="button" class="btn btn-outline-dark rounded-0 ">Add Address</button>
+        </div>
+        
+
+<div id="addresses-group" class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
+
+</div>
+<div class="d-flex  align-items-center justify-content-between w-100 mb-3">
+        <div id="payment-alert" class="d-flex flex-column  align-items-start justify-content-center ">
+            <h3> Payment Method</h3>
+        </div>  
+        
+<button id="add-card" type="button" class="btn btn-outline-dark rounded-0 ">Add Card</button>
+        </div>
+        
+
+<div id="cards-group" class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
+<input type="radio" class="btn-check" name="card" id="vbtn-radio" autocomplete="off">
+      <label class="btn btn-outline-dark w-100 mb-5 rounded-0" for="vbtn-radio">
+        Cash on delivery
+      </label>
+
+
+</div>
+<form action="order_tracker.html">
+    <input
+              type="submit"
+              class="btn"
+              name=""
+              id="submiting"
+              value="Confirm Order"
+            />
+          </form>
+
+
+      </section>
+      <section class="check-out-info p-5 m-5 w-30">
+        <div id="check-out-details"></div>
+
+        <div class="input-group mb-3">
+          <input
+          id="promo"
+            type="text"
+            class="form-control"
+            placeholder="Enter promo code"
+            aria-label="Enter promo code"
+            aria-describedby="button-addon2"
+          />
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            id="apply-code"
+          >
+            Apply
+          </button>
+        </div>
+        <b id="message"></b>
+
+        <div
+          id="total-price"
+          class="d-flex flex-column align-items-center justify-content-between"
+        >
+          <div class="d-flex w-100 justify-content-between mt-5">
+            <p>Subtotal</p>
+            <p><b id="subtotal">750</b> EGP</p>
+          </div>
+          <div class="d-flex w-100 justify-content-between">
+            <p>Shipping</p>
+            <p><b>75</b> EGP</p>
+          </div>
+          <div id="discount-div" class="d-none w-100 justify-content-between">
+            <p>Discount</p>
+            <p>&minus; <b id="discount" >75</b> EGP</p>
+          </div>
+          <hr />
+          <div id class="d-flex w-100 justify-content-between">
+            <p>Total Cost</p>
+            <p><b id="total">775</b> EGP</p>
+          </div>
+        </div>
+      </section>
+    </div>
+    
+  </body>
+</html>

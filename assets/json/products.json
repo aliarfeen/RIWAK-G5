@@ -10,14 +10,24 @@
       "assets/images/images_product_chair/chair_2.jpg",
       "assets/images/images_product_chair/chair_3.jpg"
     ],
-    "colors": ["#d8aa40", "#d9cdb4", "#372f23"],
+    "colors": ["#d8aa40", "#d9cdb4"],
     "sku": "SKU-CHAIR-001",
     "category": "chair",
     "price": 5000,
     "cost": 3500,
     "orderedItems": 12,
     "sellerId": 2,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 15,
     "refund": 1
@@ -33,14 +43,24 @@
       "assets/images/images_product_chair/chair_5.jpg",
       "assets/images/images_product_chair/chair_6.jpg"
     ],
-    "colors": ["#d8aa40", "#d9cdb4", "#372f23"],
+    "colors": ["#d8aa40", "#372f23"],
     "sku": "SKU-CHAIR-002",
     "category": "chair",
     "price": 4000,
     "cost": 2800,
     "orderedItems": 18,
     "sellerId": 3,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 25,
     "refund": 0
@@ -56,14 +76,24 @@
       "assets/images/images_product_chair/chair_8.jpg",
       "assets/images/images_product_chair/chair_9.jpg"
     ],
-    "colors": ["#d8aa40", "#d9cdb4", "#372f23"],
+    "colors": ["#d9cdb4", "#372f23"],
     "sku": "SKU-CHAIR-003",
     "category": "chair",
     "price": 6000,
     "cost": 4200,
     "orderedItems": 9,
     "sellerId": 1,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 12,
     "refund": 2
@@ -79,14 +109,24 @@
       "assets/images/images_product_chair/chair_11.jpg",
       "assets/images/images_product_chair/chair_12.jpg"
     ],
-    "colors": ["#d8aa40", "#d9cdb4", "#372f23"],
+    "colors": ["#d8aa40", "#372f23"],
     "sku": "SKU-CHAIR-004",
     "category": "chair",
     "price": 3500,
     "cost": 2450,
     "orderedItems": 15,
     "sellerId": 4,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 8,
     "refund": 1
@@ -109,7 +149,17 @@
     "cost": 3150,
     "orderedItems": 11,
     "sellerId": 2,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 20,
     "refund": 0
@@ -132,7 +182,17 @@
     "cost": 3500,
     "orderedItems": 7,
     "sellerId": 3,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 18,
     "refund": 1
@@ -148,14 +208,24 @@
       "assets/images/images_product_chair/chair_20.jpg",
       "assets/images/images_product_chair/chair_21.jpg"
     ],
-    "colors": ["#d8aa40", "#d9cdb4", "#372f23"],
+    "colors": ["#d8aa40",  "#372f23"],
     "sku": "SKU-CHAIR-007",
     "category": "chair",
     "price": 3000,
     "cost": 2100,
     "orderedItems": 19,
     "sellerId": 1,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 22,
     "refund": 2
@@ -178,7 +248,17 @@
     "cost": 1750,
     "orderedItems": 14,
     "sellerId": 4,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 10,
     "refund": 0
@@ -190,7 +270,7 @@
     "createdAt": "2025-08-19T14:51:28.259Z",
     "modifyAt": "2025-08-19T14:51:28.259Z",
     "images": [
-      "assets/images/images_product_chair/chair_极5.jpg",
+      "assets/images/images_product_chair/chair_25.jpg",
       "assets/images/images_product_chair/chair_26.jpg",
       "assets/images/images_product_chair/chair_27.jpg"
     ],
@@ -201,7 +281,17 @@
     "cost": 2450,
     "orderedItems": 8,
     "sellerId": 2,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 28,
     "refund": 1
@@ -214,7 +304,7 @@
     "modifyAt": "2025-08-19T14:51:28.259Z",
     "images": [
       "assets/images/images_product_chair/chair_28.jpg",
-      "assets/images/images_product极hair/chair_29.jpg",
+      "assets/images/images_product_chair/chair_29.jpg",
       "assets/images/images_product_chair/chair_30.jpg"
     ],
     "colors": ["#d8aa40", "#d9cdb4", "#372f23"],
@@ -224,7 +314,17 @@
     "cost": 2800,
     "orderedItems": 6,
     "sellerId": 3,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 5,
     "refund": 2
@@ -240,14 +340,24 @@
       "assets/images/images_product_table/table2.jpg",
       "assets/images/images_product_table/table3.jpg"
     ],
-    "colors": ["#d8aa40", "#d9cdb4", "#372f23"],
+    "colors": ["#d8aa40", "#372f23"],
     "sku": "SKU-TABLE-011",
     "category": "table",
     "price": 2600,
     "cost": 1820,
     "orderedItems": 10,
     "sellerId": 1,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 25,
     "refund": 0
@@ -270,7 +380,17 @@
     "cost": 1750,
     "orderedItems": 17,
     "sellerId": 4,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 12,
     "refund": 1
@@ -293,7 +413,17 @@
     "cost": 3150,
     "orderedItems": 13,
     "sellerId": 2,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "极otalQuantity": 8,
     "refund": 2
@@ -316,7 +446,17 @@
     "cost": 2800,
     "orderedItems": 9,
     "sellerId": 3,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 30,
     "refund": 0
@@ -339,7 +479,17 @@
     "cost": 2100,
     "orderedItems": 18,
     "sellerId": 1,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 17,
     "refund": 1
@@ -355,14 +505,24 @@
       "assets/images/images_product_table/table17.jpg",
       "assets/images/images_product_table/table18.jpg"
     ],
-    "colors": ["#d8aa40", "#d9cdb4", "#372f23"],
+    "colors": [ "#d9cdb4", "#372f23"],
     "sku": "SKU-TABLE-016",
     "category": "table",
     "price": 1900,
     "cost": 1330,
     "orderedItems": 11,
     "sellerId": 4,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "totalQuantity": 22,
     "refund": 2
   },
@@ -377,14 +537,24 @@
       "assets/images/images_product_table/table20.jpg",
       "assets/images/images_product_table/table21.jpg"
     ],
-    "colors": ["#d8aa40", "#d9cdb4", "#372f23"],
+    "colors": ["#d8aa40", "#d9cdb4"],
     "sku": "SKU-TABLE-017",
     "category": "table",
     "price": 1500,
     "cost": 1050,
     "orderedItems": 15,
     "sellerId": 2,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 9,
     "refund": 0
@@ -400,14 +570,24 @@
       "assets/images/images_product_table/table23.jpg",
       "assets/images/images_product_table/table24.jpg"
     ],
-    "colors": ["#d8aa40", "#d9cdb4", "#372f23"],
+    "colors": ["#d8aa40", "#372f23"],
     "sku": "SKU-TABLE-018",
     "category": "table",
-    "极rice": 2500,
+    "price": 2500,
     "cost": 1750,
     "orderedItems": 12,
     "sellerId": 3,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 19,
     "refund": 1
@@ -430,7 +610,17 @@
     "cost": 3150,
     "orderedItems": 16,
     "sellerId": 1,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 14,
     "refund": 2
@@ -453,7 +643,17 @@
     "cost": 2450,
     "orderedItems": 14,
     "sellerId": 4,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 26,
     "refund": 0
@@ -476,7 +676,17 @@
     "cost": 1400,
     "orderedItems": 8,
     "sellerId": 2,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 11,
     "refund": 1
@@ -499,7 +709,17 @@
     "cost": 2100,
     "orderedItems": 17,
     "sellerId": 3,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 23,
     "refund": 0
@@ -522,7 +742,17 @@
     "cost": 3500,
     "orderedItems": 13,
     "sellerId": 1,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 16,
     "refund": 2
@@ -533,7 +763,7 @@
     "desc": "Minimal Stand is made of by natural wood. The design that is极 very simple and minimal. This is truly one of the best furnitures in any family for now.",
     "createdAt": "2025-08-19T14:51:28.260Z",
     "modifyAt": "2025-08-19T14:51:28.极60Z",
-    "极mages": [
+    "images": [
       "assets/images/images_product_armchair/product_10.jpg",
       "assets/images/images_product_armchair/product_11.jpg",
       "assets/images/images_product_armchair/product_12.jpg"
@@ -545,7 +775,17 @@
     "cost": 1960,
     "orderedItems": 19,
     "sellerId": 4,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 7,
     "refund": 1
@@ -568,7 +808,17 @@
     "cost": 840,
     "orderedItems": 11,
     "sellerId": 2,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 29,
     "refund": 0
@@ -591,7 +841,17 @@
     "cost": 1750,
     "orderedItems": 15,
     "sellerId": 3,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 13,
     "refund": 1
@@ -614,7 +874,17 @@
     "cost": 2450,
     "orderedItems": 9,
     "sellerId": 1,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 21,
     "refund": 2
@@ -637,7 +907,17 @@
     "极ost": 1050,
     "orderedItems": 16,
     "sellerId": 4,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 18,
     "refund": 0
@@ -660,7 +940,17 @@
     "cost": 3150,
     "orderedItems": 12,
     "sellerId": 2,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 10,
     "refund": 1
@@ -683,7 +973,17 @@
     "cost": 1750,
     "orderedItems": 14,
     "sellerId": 3,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 24,
     "refund": 2
@@ -706,7 +1006,17 @@
     "cost": 1400,
     "orderedItems": 17,
     "sellerId": 1,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 15,
     "refund": 0
@@ -728,7 +1038,17 @@
     "price": 5000,
     "orderedItems": 10,
     "sellerId": 4,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 20,
     "cost": 4000,
@@ -751,7 +1071,17 @@
     "price": 4500,
     "orderedItems": 18,
     "sellerId": 2,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 11,
     "cost": 3600,
@@ -774,7 +1104,17 @@
     "price": 3500,
     "orderedItems": 13,
     "sellerId": 3,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 27,
     "cost": 2800,
@@ -797,7 +1137,17 @@
     "price": 4500,
     "orderedItems": 15,
     "sellerId": 1,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 16,
     "cost": 3600,
@@ -820,7 +1170,17 @@
     "price": 4000,
     "orderedItems": 11,
     "sellerId": 4,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 19,
     "cost": 3200,
@@ -843,7 +1203,17 @@
     "price": 5000,
     "orderedItems": 16,
     "sellerId": 2,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 22,
     "cost": 4000,
@@ -866,7 +1236,17 @@
     "price": 3000,
     "orderedItems": 14,
     "sellerId": 3,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 13,
     "cost": 2400,
@@ -889,7 +1269,17 @@
     "price": 2000,
     "orderedItems": 9,
     "sellerId": 1,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 25,
     "cost": 1600,
@@ -912,7 +1302,17 @@
     "price": 4500,
     "orderedItems": 12,
     "sellerId": 4,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 18,
     "cost": 3600,
@@ -935,7 +1335,17 @@
     "price": 3500,
     "orderedItems": 16,
     "sellerId": 2,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 14,
     "cost": 2800,
@@ -958,7 +1368,17 @@
     "price": 4500,
     "orderedItems": 13,
     "sellerId": 3,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 23,
     "cost": 3600,
@@ -981,7 +1401,17 @@
     "price": 2500,
     "orderedItems": 18,
     "sellerId": 1,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 9,
     "cost": 2000,
@@ -1004,7 +1434,17 @@
     "price": 3500,
     "orderedItems": 11,
     "sellerId": 4,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 28,
     "cost": 2800,
@@ -1027,7 +1467,17 @@
     "price": 1500,
     "orderedItems": 15,
     "sellerId": 2,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 17,
     "cost": 1200,
@@ -1050,7 +1500,17 @@
     "price": 2500,
     "orderedItems": 10,
     "sellerId": 3,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 12,
     "cost": 2000,
@@ -1073,7 +1533,17 @@
     "price": 1500,
     "orderedItems": 14,
     "sellerId": 1,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 26,
     "cost": 1200,
@@ -1096,7 +1566,17 @@
     "price": 1200,
     "orderedItems": 19,
     "sellerId": 4,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 8,
     "cost": 960,
@@ -1119,7 +1599,17 @@
     "price": 1200,
     "orderedItems": 17,
     "sellerId": 2,
-    "review": [],
+    "rating": 3.5,
+       "reviews": {
+       "total": 120,
+       "breakdown": {
+        "5": 72,
+        "4": 30,
+        "3": 10,
+        "2": 5,
+        "1": 3
+      }
+    },
     "isFavorite": false,
     "totalQuantity": 21,
     "cost": 960,

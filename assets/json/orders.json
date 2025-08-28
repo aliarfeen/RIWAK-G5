@@ -1,0 +1,304 @@
+[
+  {
+    "order_details": {
+      "id": "RIWAK_012",
+      "date": "8/27/2025, 1:00:00 PM",
+      "items": [
+        {
+          "productId": "11",
+          "name": "Coffee table",
+          "quantity": 1,
+          "price": 2600,
+          "total": 2600,
+          "sellerId": 1,
+          "status": "shipped"
+        },
+        {
+          "productId": "15",
+          "name": "Coffee table",
+          "quantity": 3,
+          "price": 3000,
+          "total": 9000,
+          "sellerId": 1,
+          "status": "shipped"
+        }
+      ],
+      "shippingInfo": {
+        "address": "Cairo, 456 Pyramid St",
+        "trackingNumber": "RIWAK-m2n3o4p5q6r7s8t9u0v1w"
+      },
+      "totalAmount": 11600,
+      "paymentStatus": "paid"
+    }
+  },
+  {
+    "order_details": {
+      "id": "RIWAK_013",
+      "date": "8/27/2025, 3:45:00 PM",
+      "items": [
+        {
+          "productId": "21",
+          "name": "Armchair",
+          "quantity": 2,
+          "price": 2000,
+          "total": 4000,
+          "sellerId": 2,
+          "status": "delivered"
+        }
+      ],
+      "shippingInfo": {
+        "address": "Alexandria, 789 Lighthouse Rd",
+        "trackingNumber": "RIWAK-z1x2c3v4b5n6m7l8k9j0h"
+      },
+      "totalAmount": 4000,
+      "paymentStatus": "paid"
+    }
+  },
+  {
+    "order_details": {
+      "id": "RIWAK_014",
+      "date": "8/28/2025, 9:30:00 AM",
+      "items": [
+        {
+          "productId": "32",
+          "name": "Bed",
+          "quantity": 1,
+          "price": 5000,
+          "total": 5000,
+          "sellerId": 4,
+          "status": "processing"
+        }
+      ],
+      "shippingInfo": {
+        "address": "Luxor, 101 Temple St",
+        "trackingNumber": "RIWAK-g5f4d3s2a1q9w8e7r6t5"
+      },
+      "totalAmount": 5000,
+      "paymentStatus": "paid"
+    }
+  },
+  {
+    "order_details": {
+      "id": "RIWAK_015",
+      "date": "8/28/2025, 2:00:00 PM",
+      "items": [
+        {
+          "productId": "02",
+          "name": "Coffee Chair",
+          "quantity": 3,
+          "price": 4000,
+          "total": 12000,
+          "sellerId": 3,
+          "status": "pending"
+        },
+        {
+          "productId": "06",
+          "name": "Coffee chair",
+          "quantity": 1,
+          "price": 5000,
+          "total": 5000,
+          "sellerId": 3,
+          "status": "pending"
+        }
+      ],
+      "shippingInfo": {
+        "address": "Aswan, 202 Dam Rd",
+        "trackingNumber": "RIWAK-z8x7c6v5b4n3m2l1k0j9"
+      },
+      "totalAmount": 17000,
+      "paymentStatus": "paid"
+    }
+  },
+  {
+    "order_details": {
+      "id": "RIWAK_016",
+      "date": "8/29/2025, 8:00:00 AM",
+      "items": [
+        {
+          "productId": "18",
+          "name": "Coffee table",
+          "quantity": 1,
+          "price": 2500,
+          "total": 2500,
+          "sellerId": 3,
+          "status": "shipped"
+        },
+        {
+          "productId": "26",
+          "name": "Armchair",
+          "quantity": 2,
+          "price": 2500,
+          "total": 5000,
+          "sellerId": 3,
+          "status": "shipped"
+        }
+      ],
+      "shippingInfo": {
+        "address": "Fayoum, 303 Lake Rd",
+        "trackingNumber": "RIWAK-t5y4u3i2o1p0q9w8e7r6"
+      },
+      "totalAmount": 7500,
+      "paymentStatus": "paid"
+    }
+  },
+  {
+    "order_details": {
+      "id": "RIWAK_017",
+      "date": "8/29/2025, 3:00:00 PM",
+      "items": [
+        {
+          "productId": "04",
+          "name": "Coffee Chair",
+          "quantity": 1,
+          "price": 3500,
+          "total": 3500,
+          "sellerId": 4,
+          "status": "pending"
+        },
+        {
+          "productId": "12",
+          "name": "Coffee table",
+          "quantity": 1,
+          "price": 2500,
+          "total": 2500,
+          "sellerId": 4,
+          "status": "pending"
+        }
+      ],
+      "shippingInfo": {
+        "address": "Ismailia, 404 Canal Dr",
+        "trackingNumber": "RIWAK-h9j8k7l6m5n4b3v2c1x0"
+      },
+      "totalAmount": 6000,
+      "paymentStatus": "paid"
+    }
+  },
+  {
+    "order_details": {
+      "id": "RIWAK_018",
+      "date": "8/30/2025, 11:00:00 AM",
+      "items": [
+        {
+          "productId": "25",
+          "name": "Armchair",
+          "quantity": 4,
+          "price": 1200,
+          "total": 4800,
+          "sellerId": 2,
+          "status": "delivered"
+        }
+      ],
+      "shippingInfo": {
+        "address": "Minya, 505 Museum Rd",
+        "trackingNumber": "RIWAK-p0o9i8u7y6t5r4e3w2q1"
+      },
+      "totalAmount": 4800,
+      "paymentStatus": "paid"
+    }
+  },
+  {
+    "order_details": {
+      "id": "RIWAK_019",
+      "date": "8/30/2025, 4:30:00 PM",
+      "items": [
+        {
+          "productId": "17",
+          "name": "Coffee table",
+          "quantity": 2,
+          "price": 1500,
+          "total": 3000,
+          "sellerId": 2,
+          "status": "processing"
+        },
+        {
+          "productId": "29",
+          "name": "Armchair",
+          "quantity": 1,
+          "price": 4500,
+          "total": 4500,
+          "sellerId": 2,
+          "status": "processing"
+        }
+      ],
+      "shippingInfo": {
+        "address": "Suez, 606 Port Rd",
+        "trackingNumber": "RIWAK-m3n4b5v6c7x8z9l0k1j2"
+      },
+      "totalAmount": 7500,
+      "paymentStatus": "paid"
+    }
+  },
+  {
+    "order_details": {
+      "id": "RIWAK_020",
+      "date": "8/31/2025, 9:00:00 AM",
+      "items": [
+        {
+          "productId": "20",
+          "name": "Coffee table",
+          "quantity": 1,
+          "price": 3500,
+          "total": 3500,
+          "sellerId": 4,
+          "status": "pending"
+        },
+        {
+          "productId": "24",
+          "name": "Armchair",
+          "quantity": 1,
+          "price": 2800,
+          "total": 2800,
+          "sellerId": 4,
+          "status": "pending"
+        },
+        {
+          "productId": "30",
+          "name": "Armchair",
+          "quantity": 1,
+          "price": 2500,
+          "total": 2500,
+          "sellerId": 3,
+          "status": "pending"
+        }
+      ],
+      "shippingInfo": {
+        "address": "Port Said, 707 Canal St",
+        "trackingNumber": "RIWAK-f2g3h4j5k6l7m8n9o0p1"
+      },
+      "totalAmount": 8800,
+      "paymentStatus": "paid"
+    }
+  },
+  {
+    "order_details": {
+      "id": "RIWAK_021",
+      "date": "8/31/2025, 11:30:00 AM",
+      "items": [
+        {
+          "productId": "01",
+          "name": "Coffee Chair",
+          "quantity": 2,
+          "price": 5000,
+          "total": 10000,
+          "sellerId": 2,
+          "status": "shipped"
+        },
+        {
+          "productId": "05",
+          "name": "Coffee Chair",
+          "quantity": 1,
+          "price": 4500,
+          "total": 4500,
+          "sellerId": 2,
+          "status": "shipped"
+        }
+      ],
+      "shippingInfo": {
+        "address": "Shubra El Kheima, 808 Factory Rd",
+        "trackingNumber": "RIWAK-1q2w3e4r5t6y7u8i9o0p"
+      },
+      "totalAmount": 14500,
+      "paymentStatus": "paid"
+    }
+  }
+]

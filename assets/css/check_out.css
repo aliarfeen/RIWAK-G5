@@ -1,0 +1,103 @@
+:root {
+--prem: #1D1D1Dff; 
+--sec: #CECAC1ff; 
+--white: #FEFCFBff;
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto";
+    font-size: 16px;
+    color: var(--prem);
+    
+}
+hr {
+  border: none; /* Remove default border */
+  height: 2px; /* Set thickness */
+  background-color: #333; /* Set color */
+  width: 50%; /* Set width */
+  margin: 20px auto; /* Center and add vertical spacing */
+}
+
+.check-out-info{
+    border: 3px solid var(--sec);
+    
+    border-radius: 1rem;
+    max-width: 70%;
+    min-width: 400px;
+    
+
+}
+
+#promo{
+    
+  border-color: #636363;
+}
+.btn-outline-dark{
+   min-width: 600px;
+}
+#add-address,#add-card{
+    min-width: 100px;
+}
+#promo:focus {
+  border-color: #636363; /* Optional: set a different border color */
+  box-shadow: none;   /* Remove the box shadow */
+  outline: none;      /* Remove the outline */
+}
+
+.check-out-info>p{
+    color: black !important;
+}
+#order-pre-check-out p,#order-pre-check-out span{
+    background-color: var(--sec);
+    color: var(--prem);
+    
+}
+
+td{
+    vertical-align: middle;
+}
+
+/*--------------end of order-pre-check-out div*/
+
+/*end of check-out-details section*/
+#button-group{
+background-color: var(--sec);
+color: var(--prem);
+}
+#add-note-text-area{
+    color: var(--sec);
+    border-radius: 0;
+}
+.alert-txt{
+    color: rgb(150, 45, 45) !important;
+    height: 16px;
+}
+.succeded-txt{
+    color: rgb(54, 150, 45);
+    height: 16px;
+}
+#submiting{
+    background-color: var(--prem);
+    color: var(--white);
+    width: 200px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 0;
+}
+
+.item-name{
+      white-space: nowrap; /* Prevents text from wrapping */
+  overflow: hidden; /* Hides overflowing content */
+  text-overflow: ellipsis; /* Displays ellipsis for clipped text */
+  width: 150px; /* Example: Set a fixed width for the container */
+}
+.price-tag{
+    width: 40px;
+}
+
+@media screen and (max-width: 768px){
+    .btn-outline-dark{
+   min-width: 300px;
+}
+}

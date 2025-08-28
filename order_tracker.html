@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Tracking</title>
+  <link rel="stylesheet" href="assets/css/order_tracker.css">
+   <!-- calling ROBOTO font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    
+
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- calling bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+    ></script>
+
+    <script type="module" src="assets/js/order_tracker.js"></script>
+    <script type="module" src="assets/js/nav.js"></script>
+</head>
+<body>
+  <div class="tracker">
+    <h2>Order Tracking</h2>
+    <p >Order Tracking Number: <b id="order_id"></b></p>
+
+    <!-- Progress Bar -->
+    <div class="progress mt-5">
+      <div class="progress-fill" id="progress"></div>
+    </div>
+
+    <!-- Steps -->
+    <div class="steps d-flex justify-content-between">
+      <div class="step completed" id="step1">
+        <div class=" d-flex align-items-center justify-content-center step-circle"> <i class="bi bi-cart-check-fill"></i></div>
+        <div class="d-flex align-items-start step-label">Placed</div>
+      </div>
+      <div class=" step completed" id="step2">
+        <div class="d-flex align-items-center justify-content-center step-circle">
+                <i class="bi bi-truck"></i></div>
+        <div class="d-flex align-items-start  step-label">Shipped</div>
+      </div>
+      <div class=" step active" id="step3">
+        <div class="d-flex align-items-center justify-content-center step-circle"><i class="bi bi-house-door"></i></div>
+        <div class="d-flex align-items-center step-label">Delivered</div>
+      </div>
+    </div>
+  </div>
+  <section class="check-out-info p-5 m-5 w-30">
+        <div id="check-out-details"></div>
+
+        
+      </section>
+</body>
+</html>

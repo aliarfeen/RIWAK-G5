@@ -1,0 +1,292 @@
+[
+  {
+    "userId": "1",
+    "name": "Fatima Hussein",
+    "email": "fatima@example.com",
+    "password": "pass123",
+    "createdAt": "12.11.2023",
+    "modifyAt": "12.11.2023",
+    "devices": [],
+    "cards": [
+      {
+        "id": "c3",
+        "cardNumber": "4222222222222222",
+        "expiry": "11/27",
+        "cardHolder": "Fatima Hussein",
+        "cvv": "234"
+      }
+    ],
+    "favourites": [],
+    "addresses": [
+      {
+        "id": "a3",
+        "street": "789 Maple Ave",
+        "city": "Alexandria",
+        "zip": "54321"
+      }
+    ]
+  },
+  {
+    "userId": "2",
+    "name": "Tarek Hassan",
+    "email": "tarek@example.com",
+    "password": "secure456",
+    "createdAt": "01.02.2024",
+    "modifyAt": "01.02.2024",
+    "devices": [],
+    "cards": [
+      {
+        "id": "c4",
+        "cardNumber": "5600000000000005",
+        "expiry": "09/29",
+        "cardHolder": "Tarek Hassan",
+        "cvv": "789"
+      },
+      {
+        "id": "c5",
+        "cardNumber": "4333333333333333",
+        "expiry": "05/26",
+        "cardHolder": "Tarek Hassan",
+        "cvv": "321"
+      }
+    ],
+    "favourites": [],
+    "addresses": [
+      {
+        "id": "a4",
+        "street": "101 Oak Blvd",
+        "city": "Giza",
+        "zip": "67891"
+      },
+      {
+        "id": "a5",
+        "street": "202 Pine St",
+        "city": "Cairo",
+        "zip": "12346"
+      }
+    ]
+  },
+  {
+    "userId": "3",
+    "name": "Layla Khaled",
+    "email": "layla@example.com",
+    "password": "login789",
+    "createdAt": "08.08.2023",
+    "modifyAt": "08.08.2023",
+    "devices": [],
+    "cards": [
+      {
+        "id": "c6",
+        "cardNumber": "4444444444444444",
+        "expiry": "03/28",
+        "cardHolder": "Layla Khaled",
+        "cvv": "456"
+      }
+    ],
+    "favourites": [],
+    "addresses": [
+      {
+        "id": "a6",
+        "street": "303 Cedar Dr",
+        "city": "Luxor",
+        "zip": "78901"
+      }
+    ]
+  },
+  {
+    "userId": "4",
+    "name": "Youssef Ali",
+    "email": "youssef@example.com",
+    "password": "account12",
+    "createdAt": "04.10.2024",
+    "modifyAt": "04.10.2024",
+    "devices": [],
+    "cards": [
+      {
+        "id": "c7",
+        "cardNumber": "5700000000000006",
+        "expiry": "10/30",
+        "cardHolder": "Youssef Ali",
+        "cvv": "987"
+      }
+    ],
+    "favourites": [],
+    "addresses": [
+      {
+        "id": "a7",
+        "street": "404 Birch Rd",
+        "city": "Aswan",
+        "zip": "89012"
+      }
+    ]
+  },
+  {
+    "userId": "5",
+    "name": "Sara Fouad",
+    "email": "sara@example.com",
+    "password": "access34",
+    "createdAt": "07.03.2025",
+    "modifyAt": "07.03.2025",
+    "devices": [],
+    "cards": [
+      {
+        "id": "c8",
+        "cardNumber": "4555555555555555",
+        "expiry": "02/26",
+        "cardHolder": "Sara Fouad",
+        "cvv": "654"
+      }
+    ],
+    "favourites": [],
+    "addresses": [
+      {
+        "id": "a8",
+        "street": "505 Willow Ln",
+        "city": "Fayoum",
+        "zip": "90123"
+      }
+    ]
+  },
+  {
+    "userId": "6",
+    "name": "Omar Gamal",
+    "email": "omar@example.com",
+    "password": "user56",
+    "createdAt": "09.12.2023",
+    "modifyAt": "09.12.2023",
+    "devices": [],
+    "cards": [
+      {
+        "id": "c9",
+        "cardNumber": "5800000000000007",
+        "expiry": "08/29",
+        "cardHolder": "Omar Gamal",
+        "cvv": "321"
+      }
+    ],
+    "favourites": [],
+    "addresses": [
+      {
+        "id": "a9",
+        "street": "606 Spruce Ct",
+        "city": "Ismailia",
+        "zip": "01234"
+      }
+    ]
+  },
+  {
+    "userId": "7",
+    "name": "Nour Abdelaziz",
+    "email": "nour@example.com",
+    "password": "hello78",
+    "createdAt": "05.11.2024",
+    "modifyAt": "05.11.2024",
+    "devices": [],
+    "cards": [
+      {
+        "id": "c10",
+        "cardNumber": "4666666666666666",
+        "expiry": "01/28",
+        "cardHolder": "Nour Abdelaziz",
+        "cvv": "111"
+      }
+    ],
+    "favourites": [],
+    "addresses": [
+      {
+        "id": "a10",
+        "street": "707 Poplar Pkwy",
+        "city": "Minya",
+        "zip": "11235"
+      }
+    ]
+  },
+  {
+    "userId": "8",
+    "name": "Karim Salah",
+    "email": "karim@example.com",
+    "password": "mysecret90",
+    "createdAt": "02.04.2025",
+    "modifyAt": "02.04.2025",
+    "devices": [],
+    "cards": [
+      {
+        "id": "c11",
+        "cardNumber": "5900000000000008",
+        "expiry": "04/30",
+        "cardHolder": "Karim Salah",
+        "cvv": "222"
+      }
+    ],
+    "favourites": [],
+    "addresses": [
+      {
+        "id": "a11",
+        "street": "808 Magnolia Sq",
+        "city": "Suez",
+        "zip": "12345"
+      }
+    ]
+  },
+  {
+    "userId": "9",
+    "name": "Dalia Adel",
+    "email": "dalia@example.com",
+    "password": "login11",
+    "createdAt": "08.06.2024",
+    "modifyAt": "08.06.2024",
+    "devices": [],
+    "cards": [
+      {
+        "id": "c12",
+        "cardNumber": "4777777777777777",
+        "expiry": "06/27",
+        "cardHolder": "Dalia Adel",
+        "cvv": "333"
+      }
+    ],
+    "favourites": [],
+    "addresses": [
+      {
+        "id": "a12",
+        "street": "909 Palm St",
+        "city": "Port Said",
+        "zip": "23456"
+      }
+    ]
+  },
+  {
+    "userId": "10",
+    "name": "Hana Mahmoud",
+    "email": "hana@example.com",
+    "password": "user22",
+    "createdAt": "03.09.2023",
+    "modifyAt": "03.09.2023",
+    "devices": [],
+    "cards": [
+      {
+        "id": "c13",
+        "cardNumber": "5000000000000009",
+        "expiry": "12/28",
+        "cardHolder": "Hana Mahmoud",
+        "cvv": "444"
+      },
+      {
+        "id": "c14",
+        "cardNumber": "4888888888888888",
+        "expiry": "11/26",
+        "cardHolder": "Hana Mahmoud",
+        "cvv": "555"
+      }
+    ],
+    "favourites": [],
+    "addresses": [
+      {
+        "id": "a13",
+        "street": "111 Sun St",
+        "city": "Cairo",
+        "zip": "12347"
+      }
+    ]
+  }
+]

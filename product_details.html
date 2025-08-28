@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="assets/css/product_details.css">
+  <script type="module" src="assets/js/nav.js"></script>
+  <title>Product Detail</title>
+
+</head>
+
+<body class="m-0 p-0 container-fluid">
+  <div class="container py-4 ml-md-5">
+    <div class="row">
+      <div class="container-fluid row mt-3 gap-md-4">
+
+        <!-- Thumbnails -->
+        <div class="thumpnails col-md-1 d-flex flex-md-column flex-md-column flex-row">
+          <img src="" class=" mb-3  thumb">
+          <img src="" class=" mb-3  thumb">
+          <img src="" class=" mb-3 thumb">
+        </div>
+        <!-- Main image -->
+        <div class="zoom-container col-md-6 d-flex justify-content-center align-items-center ms-3 m-0 p-0">
+          <img id="mainImage" src="" class="img-fluid" alt="Main product">
+        </div>
+        <!-- price box -->
+        <div class="title-box col-12 col-md-3 ms-md-4 fs-5">
+          <p class="fw-bold text-muted mb-2" id="category"></p>
+          <div class="lh-2">
+            <span class="fw-bolder text-uppercase" id="brand"></span><br>
+            <span id="name"></span>
+            <span class="ms-md-4 p-2 ms-4 text-white" id="stock-status">In-stock</span>
+          </div>
+          <div class=" price pt-2 pb-3 px-4 mt-3 d-flex justify-content-center">
+            <p class="fw-bolder fs-4  m-auto" id="price"><sup class="fw-bold fs-5 me-1">Egp</sup></p>
+          </div>
+          <!-- the rating-->
+          <div class="d-flex flex-row  align-items-center">
+            <div class="rating my-3" id="rating"> </div>
+            <span class="ms-2">(</span><span id="totalPriceBox"></span><span>)</span>
+          </div>
+          <p id="quantity-left"></p>
+          <!-- the counter-->
+          <div class="row my-3 ms-md-4">
+            <div class=" col-12 col-md-2 d-flex justify-content-center align-items-center ms-3 ms-md-auto">
+              <div
+                class="counterbtns bg-black d-flex align-items-center justify-content-between justify-content-md-center border border-1 border-secondary-subtle ">
+                <button id="minusBtn" class="btn btn-outline-dark rounded-0 border-0 m-1 bg-black text-white">-</button>
+                <span id="counter" class="mx-0 text-white">1</span>
+                <button id="plusBtn" class="btn btn-outline-dark rounded-0 border-0 m-1 bg-black text-white">+</button>
+              </div>
+            </div>
+
+            <!-- add to cart button-->
+            <div class="col-12 col-md-10 ">
+              <button id="cartBtn" class="btn cartBtn ms-md-4 fw-bold p-2 ms-3 ">Add to cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- description and article number-->
+    <div class="col-12 col-md-8 my-5">
+      <p class="text-secondary fs-4" id="description"></p>
+    </div>
+    <div class="lh-1">
+      <p class="text-muted small">Article number</p>
+      <div class="border bg-black col-2 col-md-1 d-flex justify-content-center">
+        <p class="fw-bold text-white p-0 m-0 small my-1" id="Product-number"></p>
+      </div>
+    </div>
+
+    <!-- product detail sidebar-->
+    <hr class="col-md-8 bg-mutted mt-5">
+    <div class="col-md-8">
+      <button class="btn w-100 d-flex justify-content-between border-0" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#detailsOffcanvasRight" aria-controls="offcanvasRight"><span
+          class="fs-4 text-dark fw-bold">Product details </span><i class="bi bi-arrow-right fs-4 fw-bold"></i> </button>
+
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="detailsOffcanvasRight"
+        aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <h2 class=" p-3 text-muted">Product details</h2>
+          <p class="text-secondary p-3" id="describtion-sidebar"></p>
+        </div>
+      </div>
+    </div>
+    <hr class="col-md-8 bg-mutted">
+    <!-- Measurements sidebar-->
+    <div class="col-md-8">
+      <button class="btn w-100 d-flex justify-content-between border-0" type="button" data-bs-toggle="offcanvas"
+        data-bs-target="#meaurementsOffcanvasRight" aria-controls="offcanvasRight"><span
+          class="fs-4 text-dark fw-bold">Measurments</span> <i class="bi bi-arrow-right fs-4 fw-bold"></i> </button>
+
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="meaurementsOffcanvasRight"
+        aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <h2 class=" p-3 text-muted">Measurements</h2>
+          <p class="text-secondary p-3" id="measuements-sidebar"></p>
+        </div>
+      </div>
+    </div>
+
+    <hr class=" measurement col-md-8 bg-mutted">
+
+    <div></div>
+    <!-- slider cards----------->
+
+    <div id="productCarousel" class="carousel slide mt-5 d-flex justify-content-center align-items-center flex-column">
+      <h1 class="related-products mb-md-5 display-4">Related Products</h1>
+
+      <div class="carousel-inner" id="carousel-inner"></div>
+      <button class="carousel-control-prev bg-black" type="button" data-bs-target="#productCarousel"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+
+      <button class="carousel-control-next bg-black ms-5" type="button" data-bs-target="#productCarousel"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon text-black"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+
+    <!-- rating modal -->
+    <div class="modal fade" id="ratingModal" tabindex="-1" aria-labelledby="ratingModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <!-- Left side -->
+              <div class="col-md-4 border-end pe-4">
+                <!-- top part with rating -->
+                <h1 class="display-4 fw-bold text-center" id="rating3"></h1>
+                <div class="mb-2 text-center" id="rating2"></div>
+                <p class="text-center text-muted">Based on <span id="star-reviwes"></span> reviews</p>
+                <hr>
+                <!-- bottom part with the stars -->
+                <div id="ratingBreakdown"></div>
+              </div>
+
+              <!-- right side -->
+              <div class="col-md-8 ps-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <h5 class="fw-bold mb-0 fs-2">Customer Reviews</h5>
+
+                  <!-- filter dropdown -->
+                  <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                      <i class="bi bi-funnel"></i> Filter
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <h6 class="dropdown-header">By Rating</h6>
+                      </li>
+                      <li><a class="dropdown-item" href="#">★★★★★</a></li>
+                      <li><a class="dropdown-item" href="#">★★★★☆</a></li>
+                      <li><a class="dropdown-item" href="#">★★★☆☆</a></li>
+                      <li><a class="dropdown-item" href="#">★★☆☆☆</a></li>
+                      <li><a class="dropdown-item" href="#">★☆☆☆☆</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <hr>
+                <!-- customer reviews) -->
+                <div id="reviewsList" style="min-height: 200px;">
+                  <p class="text-muted">No reviews yet.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"></script>
+    <script src="assets/js/product_details.js"></script>
+
+</body>
+
+</html>

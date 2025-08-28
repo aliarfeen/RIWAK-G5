@@ -1,0 +1,64 @@
+:root {
+--prem: #1D1D1Dff; 
+--sec: #CECAC1ff; 
+--white: #FEFCFBff;
+}
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto";
+    font-size: 16px;
+    color: var(--prem);
+}
+
+/*welcome section*/
+
+#cart-welcome span,p:last-of-type{
+color: gray;
+
+}
+/*end of welcome section*/
+/*cart-details section*/
+
+/*--------------order-pre-check-out div*/
+
+.cart-info{
+    background-color: var(--sec);
+    border-radius: 1rem;
+    max-width: 70%;
+}
+.cart-info>p{
+    color: black !important;
+}
+#order-pre-check-out p,#order-pre-check-out span{
+    background-color: var(--sec);
+    color: var(--prem);
+    
+}
+table{
+    min-width: 100%;
+}
+td{
+    vertical-align: middle;
+}
+
+/*--------------end of order-pre-check-out div*/
+
+/*end of cart-details section*/
+#button-group{
+background-color: var(--sec);
+color: var(--prem);
+}
+#add-note-text-area{
+    color: var(--sec);
+    border-radius: 0;
+}
+
+#submiting{
+    background-color: var(--prem);
+    color: var(--white);
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 0;
+}
