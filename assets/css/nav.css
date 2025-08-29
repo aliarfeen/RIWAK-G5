@@ -87,11 +87,11 @@
         }
 
         .login-link:hover {
-            color: var(--prem);
+            color: var(--prem) !important;
         }
 
         .cart-link {
-            color: var(--prem);
+            color: var(--prem) !important;
             font-size: 1.2rem;
             text-decoration: none;
             transition: color 0.3s;
