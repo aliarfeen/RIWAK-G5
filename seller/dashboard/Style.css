@@ -98,4 +98,21 @@ background-color: var(--prem) !important;
     .new{
       margin: auto;
       margin-top: 10%;
+      
     }
+
+
+    /* manage */
+    .wrapper{
+    border-color: lightgray;
+    border-radius: 10px;
+}
+.warning{
+    background-color: rgb(214, 214, 7);
+}
+hr{
+    background-color: gray;
+}
+.form-control{
+    margin-bottom: 10px;
+}
