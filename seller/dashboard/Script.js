@@ -5,6 +5,21 @@ let incomeChart = null;
 let targetdiv = null;
 
 
+
+
+(async function initLocalStorage() {
+    if (!localStorage.getItem("sellers")) {
+        const sellersData = await fetch("/assets/json/sellers.json").then(res => res.json());
+        localStorage.setItem("sellers", JSON.stringify(sellersData));
+    }
+
+    if (!localStorage.getItem("products")) {
+        const productsData = await fetch("/assets/json/products.json").then(res => res.json());
+        localStorage.setItem("products", JSON.stringify(productsData));
+    }
+})();
+
+
 if (window.location.pathname.toLowerCase().includes("login.html")) {
     Promise.all([
         fetch("assets/json/sellers.json").then(res => res.json()),

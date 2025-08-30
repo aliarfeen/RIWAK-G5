@@ -2,7 +2,7 @@
     {
         "id": "ORDER_001",
         "customerId": "CUST_101",
-        "sellerId": 1,
+        "sellerId":1,
         "date": "2025-08-22T10:00:00Z",
         "items": [
             {
