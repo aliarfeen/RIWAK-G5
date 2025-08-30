@@ -83,7 +83,7 @@ function setupCartItemControls(e, quantity) {
     const indexId = quantityElement.id.split("quantityvalue")[1];
     let item = cart.find((product)=>product.id == indexId);
     item.orderedquantity =quantity;
-    localStorage.setItem("order",JSON.stringify(cart))
+    localStorage.setItem("cart",JSON.stringify(cart))
 
   }
 
@@ -103,7 +103,7 @@ function setupCartItemControls(e, quantity) {
   removeButton.addEventListener("click", function () {
     const index = cart.findIndex((el) => el.id == e.id);
     cart.splice(index, 1);
-    localStorage.setItem("order",JSON.stringify(cart))
+    localStorage.setItem("cart",JSON.stringify(cart))
 
     renderCartItems();
     calculateSubtotalAndProgress();
@@ -143,13 +143,4 @@ function calculateSubtotalAndProgress() {
   subTotal.textContent = `Subtotal: ${subtotalSum.toFixed(2)} EGP`;
 }
 
-// ---------------------- Extras ----------------------
-function increaseVal(val) {
-  val++;
-  console.log(val);
-}
 
-function decreaseVal(val) {
-  val--;
-  console.log(val);
-}

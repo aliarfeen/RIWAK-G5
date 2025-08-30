@@ -25,11 +25,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Data Handling
     function saveToLocalStorage() {
-        localStorage.setItem('userProfileData', JSON.stringify(userProfileData));
+        localStorage.setItem('current_user', JSON.stringify(userProfileData));
     }
 
     function loadFromLocalStorage() {
-        const data = localStorage.getItem('userProfileData');
+        const data = localStorage.getItem('current_user');
         if (data) {
             return JSON.parse(data);
         }
@@ -315,7 +315,9 @@ document.addEventListener('DOMContentLoaded', function () {
     //LOGOUT L
     logoutBtn.addEventListener('click', function (e) {
         e.preventDefault();
+
         if (confirm('Are you sure you want to log out?')) {
+            localStorage.removeItem("current_user");
             window.location.href = 'home.html';
         }
     });

@@ -1,13 +1,13 @@
-const swiper = new Swiper('.swiper', {
-      loop: true,
-      autoplay: { delay: 1000 },
-      pagination: { el: '.swiper-pagination', clickable: true },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      effect: "slide"
-    });
+document.addEventListener("DOMContentLoaded", () => {
+  const swiper = new Swiper('.swiper', {
+    loop: true,
+    autoplay: { delay: 2000 },
+    pagination: { el: '.swiper-pagination', clickable: true },
+    navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+    effect: "slide"
+  });
+});
+
 
     const productsJson = localStorage.getItem("products")
   let Alldata = JSON.parse(productsJson);

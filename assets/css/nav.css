@@ -139,7 +139,7 @@
         }
 
         .contact-item p {
-            color: var(--white);
+            color: var(--sec);
             margin-top: 10px;
             font-size: 0.9rem;
             max-width: 220px;
@@ -151,7 +151,7 @@
             width: 36px;
             height: 36px;
             background-color: var(--sec) ;
-            color: var(--white);
+            color: var(--prem);
             border-radius: 50% !important;
             display: flex;
             align-items: center;
@@ -161,10 +161,13 @@
 
         .social-icons {
             margin-bottom: 25px;
+            color: var(--prem);
         }
 
         .social-icons a {
             color: var(--sec) !important;
+            
+            background-color: var(--prem) !important;
             margin: 0 8px;
             font-size: 0.9rem;
             width: 35px;

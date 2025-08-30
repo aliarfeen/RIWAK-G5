@@ -7,7 +7,6 @@ const promoInput = document.getElementById("promo");
 const confirmOrderBtn = document.getElementById("submiting");
 
 document.addEventListener("DOMContentLoaded", function () {
-  loadCurrentUser();
   loadUserData();
   loadCosts();
   const orderJson = localStorage.getItem("order");
@@ -33,13 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /*user logic*/
-function loadCurrentUser() {
-  fetch("./assets/json/users.json")
-    .then((response) => response.json())
-    .then((Alldata) => {
-      localStorage.setItem("current_user", JSON.stringify(Alldata[0]));
-    });
-}
+
 function loadUserData() {
   const addressesGroup = document.getElementById("addresses-group");
 

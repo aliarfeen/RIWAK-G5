@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="./assets/css/user_profile.css">
-    
+    <script type="module" src="assets/js/nav.js"></script>
 </head>
 
 <body>
@@ -181,27 +181,7 @@
 
     
     <script src="./assets/js/user_profile.js"></script>
-      <script>
-    // Function to load HTML and insert into a target position
-    function loadHTML(file, position) {
-      fetch(file)
-        .then(response => response.text())
-        .then(data => {
-          if (position === "start") {
-            document.body.insertAdjacentHTML("afterbegin", data);
-          } else if (position === "end") {
-            document.body.insertAdjacentHTML("beforeend", data);
-          }
-        })
-        .catch(error => console.error("Error loading file:", error));
-    }
-
-    // Append header at the beginning
-    loadHTML("nav.html", "start");
-
-    // Append nav at the end
-    loadHTML("footer.html", "end");
-  </script>
+    
 </body>
 
 </html>
