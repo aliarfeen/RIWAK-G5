@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto";
+    color: var(--prem);                     
+}
+ tbody tr:nth-child(even) {
+  background-color:  #CECAC1ff                 
+}
+.report, .revenue{
+    width:70rem;
+}
+.thead1{                                  
+    background-color:  #1D1D1Dff;      
+    font-size: 1em;
+
+}
+.thead2,.thTd{
+    background-color:  rgb(68, 68, 68); 
+}
+tr th{
+    padding:1rem;
+}
+.firstTb td{
+padding: 0.7rem;
+}
+.RevenueTable td{
+padding-top: 1rem; 
+padding-bottom: 1rem; 
+}
+
+@media (max-width: 768px) {        /*refresh page in phone view*/
+.report, .revenue{
+    max-width:81rem;
+    width: 100%;
+}
+td{
+    padding: 0.5rem;
+
+}
+.thead2,.thTd{
+    padding: 1rem;
+}
+  tbody td:nth-child(even) {
+  background-color:  #CECAC1ff                
+}
+ tbody tr:nth-child(even) {
+  background-color: transparent;                 
+}
+table {
+  writing-mode: vertical-lr; /* the table is filled left to right,meaning headers goes first like a row*/
+}
+th, td {
+   writing-mode: horizontal-tb;  /* the text is horizontal, but now cell that belonged in the same row are stacked in a column not a row*/
+  }
+th:nth-child(even),
+th:nth-child(odd){
+border-bottom: 1px solid rgb(151, 149, 143)  
+}
+/*horizonatal scroll*/
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+.table-wrapper table {
+  width: 100%;
+}
+.report{
+    text-align: center;  
+}
+.RevenueTable{
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    gap:0.2em;
+}
+.firstTb th{
+overflow-wrap: break-word;
+max-width: 13rem;
+}
+.revText{
+display: flex;
+ align-items: center;
+ justify-content: center;
+}
+}
