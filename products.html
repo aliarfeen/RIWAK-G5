@@ -12,9 +12,59 @@
     <script src="assets/js/products.js"></script>
     <script type="module" src="assets/js/nav.js"></script>
     <title>Products List</title>
+<<<<<<< HEAD
 </head>
 
 <body>
+=======
+    <script type="module" src="assets/js/handler.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    
+    <!-- Login Requirwd Modal -->
+<div class="modal fade" id="logInRequiredModal" tabindex="-1" aria-labelledby="emptyCartLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="emptyCartLabel">Login Required</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        You have to have an account to be able to add items to wishlist.
+      </div>
+      <div class="modal-footer">
+        <a href="login.html"><button type="button" class="btn btn-dark rounded-0" data-bs-dismiss="modal">Log In </button></a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End of modal -->
+
+ <!-- added to cart modal -->
+     <div class="modal fade" id="cartModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center p-4">
+        <h5 class="modal-title">Item Added to Cart 🛒</h5>
+      </div>
+    </div>
+  </div>
+
+<!-- End of modal -->
+
+
+    <!-- added to wishlist modal -->
+     <div class="modal fade" id="wishlistModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center p-4">
+        <h5 class="modal-title">Item Added to Wishlist &hearts;</h5>
+      </div>
+    </div>
+  </div>
+
+<!-- End of modal -->
+>>>>>>> admin-hyperlinking
     <section class="container-fluid mt-4">
         <div class="row">
             <!-- filter part -->

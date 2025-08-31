@@ -9,7 +9,11 @@ const confirmOrderBtn = document.getElementById("submiting");
 document.addEventListener("DOMContentLoaded", function () {
   loadUserData();
   loadCosts();
+<<<<<<< HEAD
   const orderJson = localStorage.getItem("order");
+=======
+  const orderJson = localStorage.getItem("cart");
+>>>>>>> admin-hyperlinking
   const order = JSON.parse(orderJson);
   order.map((e) => {
     let newDiv = document.createElement("div");
@@ -20,8 +24,13 @@ document.addEventListener("DOMContentLoaded", function () {
     newDiv.innerHTML = `
        <img src="${e.images["0"]}" alt="" style="height: 40px; width: 40px;">
        <p class="item-name" >${e.name}</p> <p> ${
+<<<<<<< HEAD
       e.orderedquantity
     } Pcs</p> <p class="price-tag"><b> ${(e.price * e.orderedquantity).toFixed(
+=======
+      e.orderedquantity || 1
+    } Pcs</p> <p class="price-tag"><b> ${(e.price * (e.orderedquantity||1)).toFixed(
+>>>>>>> admin-hyperlinking
       2
     )}</b> EGP</p>
     
@@ -176,6 +185,7 @@ confirmOrderBtn.addEventListener("click", function (e) {
     console.log("CARD:", selectedCard);
     
     const now = new Date();
+<<<<<<< HEAD
     const orderJson = localStorage.getItem("order");
     const order = JSON.parse(orderJson);
     console.log(order);
@@ -184,6 +194,22 @@ confirmOrderBtn.addEventListener("click", function (e) {
         "productId": e.id,
         "name": e.name,
         "quantity": e.orderedquantity,
+=======
+    const orderJson = localStorage.getItem("cart");
+    const order = JSON.parse(orderJson);
+
+    console.log(order);
+    const orderItems = order.map((e) => {
+      
+      
+    // e.orderedItems =+ e.orderedquantity || 1;
+    // e.totalQuantity =- e.orderedquantity || 1;
+    // console.log(order);
+    return {
+        "productId": e.id,
+        "name": e.name,
+        "quantity": e.orderedquantity || 1,
+>>>>>>> admin-hyperlinking
         "price": parseFloat(e.price.toFixed(2)),
         "total": e.price * e.orderedquantity,
         "sellerId": e.sellerId
@@ -218,9 +244,14 @@ console.log('Stringified:', JSON.stringify(orderObj));
 
 // Then store it
 localStorage.setItem("order_details", JSON.stringify(orderObj));  
+<<<<<<< HEAD
  this.submit(); 
 }
 
+=======
+
+}
+>>>>>>> admin-hyperlinking
 
 });
 

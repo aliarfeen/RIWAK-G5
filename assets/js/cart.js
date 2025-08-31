@@ -82,7 +82,11 @@ function setupCartItemControls(e, quantity) {
     calculateSubtotalAndProgress();
     const indexId = quantityElement.id.split("quantityvalue")[1];
     let item = cart.find((product)=>product.id == indexId);
+<<<<<<< HEAD
     item.orderedquantity =quantity;
+=======
+    item.orderedquantity =+ quantity || 1;
+>>>>>>> admin-hyperlinking
     localStorage.setItem("cart",JSON.stringify(cart))
 
   }

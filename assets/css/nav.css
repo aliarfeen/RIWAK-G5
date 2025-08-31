@@ -25,9 +25,22 @@
             text-transform: uppercase;
             position: relative;
         }
+<<<<<<< HEAD
 
         .close-top-bar {
             position: absolute;
+=======
+        .fa-user , .fa-shopping-cart{
+            color: var(--prem);
+        }
+        .fa-truck{
+            color: var(--white);
+        }
+
+        .close-top-bar {
+            position: absolute;
+            color: var(--white);
+>>>>>>> admin-hyperlinking
             top: 50%;
             right: 1.5rem;
             transform: translateY(-50%);
