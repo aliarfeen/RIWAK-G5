@@ -9,31 +9,19 @@ const confirmOrderBtn = document.getElementById("submiting");
 document.addEventListener("DOMContentLoaded", function () {
   loadUserData();
   loadCosts();
-<<<<<<< HEAD
-  const orderJson = localStorage.getItem("order");
-=======
+
   const orderJson = localStorage.getItem("cart");
->>>>>>> admin-hyperlinking
   const order = JSON.parse(orderJson);
+
   order.map((e) => {
     let newDiv = document.createElement("div");
-    newDiv.classList.add("mt-3");
-    newDiv.classList.add("d-flex");
-    newDiv.classList.add("justify-content-between");
+    newDiv.classList.add("mt-3", "d-flex", "justify-content-between");
 
     newDiv.innerHTML = `
        <img src="${e.images["0"]}" alt="" style="height: 40px; width: 40px;">
-       <p class="item-name" >${e.name}</p> <p> ${
-<<<<<<< HEAD
-      e.orderedquantity
-    } Pcs</p> <p class="price-tag"><b> ${(e.price * e.orderedquantity).toFixed(
-=======
-      e.orderedquantity || 1
-    } Pcs</p> <p class="price-tag"><b> ${(e.price * (e.orderedquantity||1)).toFixed(
->>>>>>> admin-hyperlinking
-      2
-    )}</b> EGP</p>
-    
+       <p class="item-name">${e.name}</p> 
+       <p>${e.orderedquantity || 1} Pcs</p> 
+       <p class="price-tag"><b>${(e.price * (e.orderedquantity || 1)).toFixed(2)}</b> EGP</p>
     `;
     let checkOutDetails = document.getElementById("check-out-details");
     checkOutDetails.appendChild(newDiv);
@@ -41,15 +29,13 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 /*user logic*/
-
 function loadUserData() {
   const addressesGroup = document.getElementById("addresses-group");
-
   const cardsGroup = document.getElementById("cards-group");
   const currentUser = JSON.parse(localStorage.getItem("current_user"));
-  /*loading Adresses */
-  const addresses = currentUser.addresses;
 
+  /*loading addresses */
+  const addresses = currentUser.addresses;
   addresses.forEach((e) => {
     let newAddress = document.createElement("div");
     newAddress.innerHTML = `
@@ -63,22 +49,15 @@ function loadUserData() {
 
   /*loading cards */
   const cards = currentUser.cards;
-
   cards.forEach((e) => {
-    let newAddress = document.createElement("div");
-    newAddress.innerHTML = `
-      <input type="radio" class="btn-check" name="card" id="vbtn-radio${
-        e.id
-      }" value="${e.id}" autocomplete="off">
-      <label class="btn btn-outline-dark w-100 mb-5 rounded-0" for="vbtn-radio${
-        e.id
-      }">
-        xxxx-xxxx-xxxx-${e.cardNumber.slice(12)}<br>${e.cardHolder}<br>${
-      e.expiry
-    }
+    let newCard = document.createElement("div");
+    newCard.innerHTML = `
+      <input type="radio" class="btn-check" name="card" id="vbtn-radio${e.id}" value="${e.id}" autocomplete="off">
+      <label class="btn btn-outline-dark w-100 mb-5 rounded-0" for="vbtn-radio${e.id}">
+        xxxx-xxxx-xxxx-${e.cardNumber.slice(12)}<br>${e.cardHolder}<br>${e.expiry}
       </label>
     `;
-    cardsGroup.appendChild(newAddress);
+    cardsGroup.appendChild(newCard);
   });
 }
 
@@ -91,40 +70,33 @@ function loadCosts() {
 /*promo code logic*/
 applyCodeBtn.addEventListener("click", function () {
   const message = document.getElementById("message");
-  
   const discount = document.getElementById("discount");
   const discountDiv = document.getElementById("discount-div");
-
   const code = promoInput.value.toLowerCase().trim();
 
   if (code === "dr-nasr") {
     message.innerText = "You Got 100% Discount";
     discountDiv.classList.remove("d-none");
     discountDiv.classList.add("d-flex");
-    
     message.classList.remove("alert-txt");
     message.classList.add("succeded-txt");
-    let newSubTotalVal = subtotalVal;
-    let discountVal = subtotalVal;
-    subtotal.innerText = newSubTotalVal;
-    discount.innerText = discountVal;
 
+    let discountVal = subtotalVal;
+    subtotal.innerText = subtotalVal;
+    discount.innerText = discountVal;
     total.textContent = 75;
   } else if (code === "cst-g5") {
     message.innerText = "You Got 10% Discount";
     discountDiv.classList.remove("d-none");
     discountDiv.classList.add("d-flex");
-    
     message.classList.remove("alert-txt");
     message.classList.add("succeded-txt");
+
     let newSubTotalVal = (subtotalVal * 0.9).toFixed(2);
     subtotal.innerText = newSubTotalVal;
-    
+
     let discountVal = (subtotalVal * 0.1).toFixed(2);
-    
     discount.innerText = discountVal;
-
-
     total.textContent = +newSubTotalVal + 75;
   } else {
     message.innerText = "Invalid promo code";
@@ -147,79 +119,53 @@ confirmOrderBtn.addEventListener("click", function (e) {
     e.preventDefault();
     const paymentTextDiv = document.getElementById("payment-alert");
     paymentTextDiv.innerHTML = `
-    
-        <h5>Payment Method</h5>
-        <p  class="alert-txt">Please select payment method </p>`;
+      <h5>Payment Method</h5>
+      <p class="alert-txt">Please select payment method</p>`;
+    valid = false;
   }
 
   if (!addressRadio) {
     e.preventDefault();
     const addressTextDiv = document.getElementById("address-alert");
     addressTextDiv.innerHTML = `
-    
-        <h5>Delivery</h5>
-        <p class="alert-txt">Please select an address</p>`;
+      <h5>Delivery</h5>
+      <p class="alert-txt">Please select an address</p>`;
+    valid = false;
   }
 
   if (valid) {
-    const finalTotalVal = +(total.textContent);
+    const finalTotalVal = +total.textContent;
     const currentUser = JSON.parse(localStorage.getItem("current_user"));
-    /*loading Adresses */
     const addresses = currentUser.addresses;
-
-    /*loading cards */
     const cards = currentUser.cards;
 
     const selectedAddressId = addressRadio.value;
+    const selectedCardId = cardRadio.value;
 
-    console.log("Selected address ID:", selectedAddressId);
-    const selectedcardId = cardRadio.value;
+    const selectedAddress = addresses.find((a) => a.id == selectedAddressId);
+    const selectedCard = cards.find((c) => c.id == selectedCardId);
 
-    // If you need the full address object, you can find it in your addresses array
-    const selectedAddress = addresses.find(
-      (address) => address.id == selectedAddressId
-    );
-    console.log("Full address:", selectedAddress);
-
-    const selectedCard = cards.find((card) => card.id == selectedcardId);
-    console.log("CARD:", selectedCard);
-    
     const now = new Date();
-<<<<<<< HEAD
-    const orderJson = localStorage.getItem("order");
-    const order = JSON.parse(orderJson);
-    console.log(order);
-    const orderItems = order.map((e) => {
-    return {
-        "productId": e.id,
-        "name": e.name,
-        "quantity": e.orderedquantity,
-=======
     const orderJson = localStorage.getItem("cart");
     const order = JSON.parse(orderJson);
 
-    console.log(order);
     const orderItems = order.map((e) => {
-      
-      
-    // e.orderedItems =+ e.orderedquantity || 1;
-    // e.totalQuantity =- e.orderedquantity || 1;
-    // console.log(order);
-    return {
-        "productId": e.id,
-        "name": e.name,
-        "quantity": e.orderedquantity || 1,
->>>>>>> admin-hyperlinking
-        "price": parseFloat(e.price.toFixed(2)),
-        "total": e.price * e.orderedquantity,
-        "sellerId": e.sellerId
-    };
-});
+      return {
+        productId: e.id,
+        name: e.name,
+        quantity: e.orderedquantity || 1,
+        price: parseFloat(e.price.toFixed(2)),
+        total: e.price * (e.orderedquantity || 1),
+        sellerId: e.sellerId
+      };
+    });
+
     alert("accepted");
     const userJson = localStorage.getItem("current_user");
     const user = JSON.parse(userJson);
+
     let orderObj = {
-      id: `RIWAK_${generateUUIDTracking().slice(1,6)}`,
+      id: `RIWAK_${generateUUIDTracking().slice(1, 6)}`,
       customerId: user.id,
       date: `${now.toLocaleString()}`,
       items: orderItems,
@@ -232,29 +178,23 @@ confirmOrderBtn.addEventListener("click", function (e) {
         },
       ],
       shippingInfo: {
-        address: `${selectedAddress.city},${selectedAddress.street}`,
+        address: `${selectedAddress.city}, ${selectedAddress.street}`,
         trackingNumber: `${generateUUIDTracking()}`,
       },
       totalAmount: finalTotalVal,
       paymentStatus: `paid`,
     };
-// Debug what you're trying to store
-console.log('orderObj:', orderObj);
-console.log('Stringified:', JSON.stringify(orderObj));
 
-// Then store it
-localStorage.setItem("order_details", JSON.stringify(orderObj));  
-<<<<<<< HEAD
- this.submit(); 
-}
-
-=======
-
-}
->>>>>>> admin-hyperlinking
-
+    console.log("orderObj:", orderObj);
+    localStorage.setItem("order_details", JSON.stringify(orderObj));
+    this.submit(); 
+  }
 });
 
 function generateUUIDTracking() {
-    return 'RIWAK-' + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+  return (
+    "RIWAK-" +
+    Math.random().toString(36).substring(2, 15) +
+    Math.random().toString(36).substring(2, 15)
+  );
 }

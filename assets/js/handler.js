@@ -2,11 +2,7 @@ window.addEventListener("DOMContentLoaded", function () {
   const products = localStorage.getItem("products");
   const categories = localStorage.getItem("categories");
   const users = localStorage.getItem("users");
-<<<<<<< HEAD
-=======
   const orders = localStorage.getItem("orders");
-
->>>>>>> admin-hyperlinking
 
   if (!products) {
     console.log("products was not found!");
@@ -38,16 +34,14 @@ window.addEventListener("DOMContentLoaded", function () {
     }, 300);
   }
 
-<<<<<<< HEAD
-=======
   if (!orders) {
     console.log("orders was not found!");
-    let xhrorders = new XMLHttpRequest();
-    xhrorders.open("GET", "../assets/json/orders.json", true);
-    xhrorders.send("");
-    xhrorders.onreadystatechange = function () {
-      if (xhrorders.readyState === 4 && xhrorders.status === 200) {
-        localStorage.setItem("orders", xhrorders.responseText);
+    let xhrOrders = new XMLHttpRequest();
+    xhrOrders.open("GET", "../assets/json/orders.json", true);
+    xhrOrders.send("");
+    xhrOrders.onreadystatechange = function () {
+      if (xhrOrders.readyState === 4 && xhrOrders.status === 200) {
+        localStorage.setItem("orders", xhrOrders.responseText);
       }
     };
     setTimeout(() => {
@@ -55,7 +49,6 @@ window.addEventListener("DOMContentLoaded", function () {
     }, 300);
   }
 
->>>>>>> admin-hyperlinking
   if (!users) {
     console.log("users were not found!");
     let xhrUsers = new XMLHttpRequest();
@@ -70,5 +63,4 @@ window.addEventListener("DOMContentLoaded", function () {
       window.location.reload();
     }, 300);
   }
-  
 });

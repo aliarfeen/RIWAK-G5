@@ -2,10 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const orderJson = localStorage.getItem("order_details");
   const order = JSON.parse(orderJson);
   console.log(order);
-<<<<<<< HEAD
-=======
   localStorage.setItem("cart", JSON.stringify([]));
->>>>>>> admin-hyperlinking
   const orderItems = order.items;
   const progress = document.getElementById("progress");
     if(order.status === "pending"){
