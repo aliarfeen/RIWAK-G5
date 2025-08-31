@@ -9,7 +9,10 @@ const confirmOrderBtn = document.getElementById("submiting");
 document.addEventListener("DOMContentLoaded", function () {
   loadUserData();
   loadCosts();
-
+  if(JSON.parse(subtotalVal) >= 10000){
+    const shippingAmount = document.getElementById("shipping-amount");
+    shippingAmount.innerHTML = "<s>75.00</s>";
+  }
   const orderJson = localStorage.getItem("cart");
   const order = JSON.parse(orderJson);
 
@@ -64,7 +67,12 @@ function loadUserData() {
 /* loading costs on load */
 function loadCosts() {
   subtotal.innerText = subtotalVal;
+  if(+subtotalVal >= 10000){
+total.textContent = +subtotalVal 
+  }else{
+    
   total.textContent = +subtotalVal + 75;
+  }
 }
 
 /*promo code logic*/
@@ -84,6 +92,10 @@ applyCodeBtn.addEventListener("click", function () {
     let discountVal = subtotalVal;
     subtotal.innerText = subtotalVal;
     discount.innerText = discountVal;
+    if(+subtotalVal>=10000){
+      
+    total.textContent = 0;
+    }else
     total.textContent = 75;
   } else if (code === "cst-g5") {
     message.innerText = "You Got 10% Discount";
@@ -97,6 +109,10 @@ applyCodeBtn.addEventListener("click", function () {
 
     let discountVal = (subtotalVal * 0.1).toFixed(2);
     discount.innerText = discountVal;
+    if(+subtotalVal>=10000){
+      
+    total.textContent = +newSubTotalVal;
+    }else
     total.textContent = +newSubTotalVal + 75;
   } else {
     message.innerText = "Invalid promo code";
