@@ -69,6 +69,9 @@ background-color: var(--prem) !important;
   .main-content {
     padding: 15px;
   }
+  .main2{
+    flex-direction: column;
+  }
 }
 
 .login-card{

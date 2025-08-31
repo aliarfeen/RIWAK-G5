@@ -3,6 +3,19 @@
 // (ممكن تجيبها من الـ login page)
 const currentSellerId = parseInt(localStorage.getItem("current_seller")) || 1;
 
+
+fetch("/assets/json/sellers.json")
+  .then(res => res.json())
+  .then(sellers => {
+    let seller = sellers.find(s => s.id === currentSellerId);
+    let nameDiv = document.getElementById("name");
+    if (nameDiv) {
+      nameDiv.textContent = seller ? seller.name : "Unknown Seller";
+    }
+  })
+  .catch(err => console.error("Error loading sellers:", err));
+
+
 fetch("/assets/json/orders.json")
   .then(res => res.json())
   .then(data => {
@@ -99,6 +112,7 @@ fetch("/assets/json/orders.json")
     });
   })
   .catch(error => console.error("Error loading:", error));
+
 
 
 

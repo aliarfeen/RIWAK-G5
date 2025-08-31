@@ -29,7 +29,7 @@ padding-top: 1rem;
 padding-bottom: 1rem; 
 }
 
-@media (max-width: 768px) {        /*refresh page in phone view*/
+@media (max-width: 768px) {        
 .report, .revenue{
     max-width:81rem;
     width: 100%;
@@ -48,16 +48,16 @@ td{
   background-color: transparent;                 
 }
 table {
-  writing-mode: vertical-lr; /* the table is filled left to right,meaning headers goes first like a row*/
+  writing-mode: vertical-lr; 
 }
 th, td {
-   writing-mode: horizontal-tb;  /* the text is horizontal, but now cell that belonged in the same row are stacked in a column not a row*/
+   writing-mode: horizontal-tb; 
   }
 th:nth-child(even),
 th:nth-child(odd){
 border-bottom: 1px solid rgb(151, 149, 143)  
 }
-/*horizonatal scroll*/
+
 .table-wrapper {
   width: 100%;
   overflow-x: auto;
@@ -86,4 +86,52 @@ display: flex;
  align-items: center;
  justify-content: center;
 }
+ .sidebar {
+    min-height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .sidebar .links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .sidebar .links a {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  .name {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .main-content {
+    padding: 15px;
+  }
 }
+
+.sidebar {
+      min-height: 100vh;
+      background: #343a40;
+      color: white;
+    }
+  .sidebar a {
+      display: block;
+      padding: 10px;
+      color: #ddd;
+      text-decoration: none;
+    }
+    .sidebar a:hover {
+      background: #495057;
+      color: #fff;
+    }
+    .main-content {
+      padding: 20px;
+    }

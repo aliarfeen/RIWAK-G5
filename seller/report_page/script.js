@@ -1,3 +1,24 @@
+fetch("/assets/json/sellers.json")
+  .then(res => res.json())
+  .then(sellers => {
+    let currentSeller = localStorage.getItem("current_seller");
+    currentSeller = currentSeller ? JSON.parse(currentSeller) : null;
+
+    let seller = sellers.find(s => s.id == currentSeller?.id);
+
+    let nameDiv = document.getElementById("name");
+    if (nameDiv) {
+      nameDiv.textContent = seller ? seller.name : "Unknown Seller";
+    }
+  })
+  .catch(err => console.error("Error loading sellers:", err));
+
+
+
+
+
+
+
 async function salesReport() {
   
   let currentSeller = localStorage.getItem("current_seller");
