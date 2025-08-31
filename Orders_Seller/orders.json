@@ -1,0 +1,302 @@
+[
+    {
+        "id": "ORDER_001",
+        "customerId": "CUST_101",
+        "sellerId": "SELLER_456",
+        "date": "2025-08-22T10:00:00Z",
+        "items": [
+            {
+                "productId": "01",
+                "name": "Coffee Chair",
+                "quantity": 1,
+                "price": 5000,
+                "total": 5000
+            }
+        ],
+        "status": "CONFIRMED",
+        "statusHistory": [
+            {
+                "status": "pending",
+                "timestamp": "2025-08-22T10:00:00Z",
+                "updatedBy": "system"
+            }
+        ],
+        "shippingInfo": {
+            "address": "123 Main St, Cairo",
+            "trackingNumber": "",
+            "shippingCompany": ""
+        },
+        "totalAmount": 5000,
+        "paymentStatus": "paid"
+    },
+    {
+        "id": "ORDER_002",
+        "customerId": "CUST_102",
+        "sellerId": "SELLER_456",
+        "date": "2025-08-22T10:10:00Z",
+        "items": [
+            {
+                "productId": "02",
+                "name": "Modern Sofa",
+                "quantity": 1,
+                "price": 15000,
+                "total": 15000
+            }
+        ],
+        "status": "pending",
+        "statusHistory": [
+            {
+                "status": "pending",
+                "timestamp": "2025-08-22T10:10:00Z",
+                "updatedBy": "system"
+            }
+        ],
+        "shippingInfo": {
+            "address": "456 Nile St, Cairo",
+            "trackingNumber": "",
+            "shippingCompany": ""
+        },
+        "totalAmount": 15000,
+        "paymentStatus": "paid"
+    },
+    {
+        "id": "ORDER_003",
+        "customerId": "CUST_103",
+        "sellerId": "SELLER_456",
+        "date": "2025-08-22T10:20:00Z",
+        "items": [
+            {
+                "productId": "03",
+                "name": "Dining Table",
+                "quantity": 1,
+                "price": 12000,
+                "total": 12000
+            }
+        ],
+        "status": "pending",
+        "statusHistory": [
+            {
+                "status": "pending",
+                "timestamp": "2025-08-22T10:20:00Z",
+                "updatedBy": "system"
+            }
+        ],
+        "shippingInfo": {
+            "address": "789 Tahrir Sq, Cairo",
+            "trackingNumber": "",
+            "shippingCompany": ""
+        },
+        "totalAmount": 12000,
+        "paymentStatus": "paid"
+    },
+    {
+        "id": "ORDER_004",
+        "customerId": "CUST_104",
+        "sellerId": "SELLER_456",
+        "date": "2025-08-22T10:30:00Z",
+        "items": [
+            {
+                "productId": "04",
+                "name": "Office Desk",
+                "quantity": 1,
+                "price": 8000,
+                "total": 8000
+            }
+        ],
+        "status": "pending",
+        "statusHistory": [
+            {
+                "status": "pending",
+                "timestamp": "2025-08-22T10:30:00Z",
+                "updatedBy": "system"
+            }
+        ],
+        "shippingInfo": {
+            "address": "321 Ramses St, Cairo",
+            "trackingNumber": "",
+            "shippingCompany": ""
+        },
+        "totalAmount": 8000,
+        "paymentStatus": "paid"
+    },
+    {
+        "id": "ORDER_005",
+        "customerId": "CUST_105",
+        "sellerId": "SELLER_456",
+        "date": "2025-08-22T10:40:00Z",
+        "items": [
+            {
+                "productId": "05",
+                "name": "Ergonomic Chair",
+                "quantity": 1,
+                "price": 4500,
+                "total": 4500
+            }
+        ],
+        "status": "pending",
+        "statusHistory": [
+            {
+                "status": "pending",
+                "timestamp": "2025-08-22T10:40:00Z",
+                "updatedBy": "system"
+            }
+        ],
+        "shippingInfo": {
+            "address": "654 Garden City, Cairo",
+            "trackingNumber": "",
+            "shippingCompany": ""
+        },
+        "totalAmount": 4500,
+        "paymentStatus": "paid"
+    },
+    {
+        "id": "ORDER_006",
+        "customerId": "CUST_106",
+        "sellerId": "SELLER_456",
+        "date": "2025-08-22T10:50:00Z",
+        "items": [
+            {
+                "productId": "06",
+                "name": "Bookshelf",
+                "quantity": 1,
+                "price": 6000,
+                "total": 6000
+            }
+        ],
+        "status": "pending",
+        "statusHistory": [
+            {
+                "status": "pending",
+                "timestamp": "2025-08-22T10:50:00Z",
+                "updatedBy": "system"
+            }
+        ],
+        "shippingInfo": {
+            "address": "987 Zamalek, Cairo",
+            "trackingNumber": "",
+            "shippingCompany": ""
+        },
+        "totalAmount": 6000,
+        "paymentStatus": "paid"
+    },
+    {
+        "id": "ORDER_007",
+        "customerId": "CUST_107",
+        "sellerId": "SELLER_456",
+        "date": "2025-08-22T11:00:00Z",
+        "items": [
+            {
+                "productId": "07",
+                "name": "Bed Frame",
+                "quantity": 1,
+                "price": 20000,
+                "total": 20000
+            }
+        ],
+        "status": "pending",
+        "statusHistory": [
+            {
+                "status": "pending",
+                "timestamp": "2025-08-22T11:00:00Z",
+                "updatedBy": "system"
+            }
+        ],
+        "shippingInfo": {
+            "address": "246 Heliopolis, Cairo",
+            "trackingNumber": "",
+            "shippingCompany": ""
+        },
+        "totalAmount": 20000,
+        "paymentStatus": "paid"
+    },
+    {
+        "id": "ORDER_008",
+        "customerId": "CUST_108",
+        "sellerId": "SELLER_456",
+        "date": "2025-08-22T11:10:00Z",
+        "items": [
+            {
+                "productId": "08",
+                "name": "Wardrobe",
+                "quantity": 1,
+                "price": 18000,
+                "total": 18000
+            }
+        ],
+        "status": "pending",
+        "statusHistory": [
+            {
+                "status": "pending",
+                "timestamp": "2025-08-22T11:10:00Z",
+                "updatedBy": "system"
+            }
+        ],
+        "shippingInfo": {
+            "address": "135 Maadi, Cairo",
+            "trackingNumber": "",
+            "shippingCompany": ""
+        },
+        "totalAmount": 18000,
+        "paymentStatus": "paid"
+    },
+    {
+        "id": "ORDER_009",
+        "customerId": "CUST_109",
+        "sellerId": "SELLER_456",
+        "date": "2025-08-22T11:20:00Z",
+        "items": [
+            {
+                "productId": "09",
+                "name": "Nightstand",
+                "quantity": 1,
+                "price": 3000,
+                "total": 3000
+            }
+        ],
+        "status": "pending",
+        "statusHistory": [
+            {
+                "status": "pending",
+                "timestamp": "2025-08-22T11:20:00Z",
+                "updatedBy": "system"
+            }
+        ],
+        "shippingInfo": {
+            "address": "753 Dokki, Giza",
+            "trackingNumber": "",
+            "shippingCompany": ""
+        },
+        "totalAmount": 3000,
+        "paymentStatus": "paid"
+    },
+    {
+        "id": "ORDER_010",
+        "customerId": "CUST_110",
+        "sellerId": "SELLER_456",
+        "date": "2025-08-22T11:30:00Z",
+        "items": [
+            {
+                "productId": "10",
+                "name": "TV Stand",
+                "quantity": 1,
+                "price": 7000,
+                "total": 7000
+            }
+        ],
+        "status": "pending",
+        "statusHistory": [
+            {
+                "status": "pending",
+                "timestamp": "2025-08-22T11:30:00Z",
+                "updatedBy": "system"
+            }
+        ],
+        "shippingInfo": {
+            "address": "159 New Cairo, Cairo",
+            "trackingNumber": "",
+            "shippingCompany": ""
+        },
+        "totalAmount": 7000,
+        "paymentStatus": "paid"
+    }
+]
