@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto";
+    color: var(--prem);
+}
+
+.zoom-container {
+    max-width: 40rem;
+    width: 100%;
+    height: 35rem;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+}
+
+.zoom-container img {
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.1s ease;
+    cursor: zoom-in;
+}
+
+.measurement {
+    margin-bottom: 5rem;
+}
+
+.price {
+    width: 6.5rem;
+    background-color: #FEFCFBff;
+}
+
+.bi {
+    color: #1D1D1Dff;
+}
+
+.progress-bar {
+    background-color: #1D1D1Dff;
+}
+
+.card-title {
+    font-size: 1.1em;
+}
+
+.thumb {
+    width: 5rem;
+    height: 5rem;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 2.5rem;
+    height: 2.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: black;
+    opacity: 0.8;
+}
+
+.carousel-control-prev {
+    left: -3rem;
+}
+
+.carousel-control-next {
+    right: -3rem;
+
+}
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.carousel-item {
+    height: 27rem;
+}
+
+.card {
+    height: 27rem;
+    border: none;
+    font-size: 1em;
+}
+
+.product-img {
+    height: 60%;
+
+}
+
+.cartBtn,
+.cartBtn:hover,
+#cartBtn:active,
+.cardbtns,
+.cardbtns:hover,
+#cardbtns:active {
+    background-color: black;
+    color: white;
+    border-radius: 0;
+}
+
+.cartBtn {
+    width: 15rem;
+    
+    background-color: black !important;
+    color: white !important;
+}
+
+.active {
+    border: 1px solid #1D1D1Dff
+}
+
+.sucess {
+    background-color: #CECAC1ff;
+    color: black;
+}
+
+#stock-status {
+    background-color: #1D1D1Dff;
+}
+
+#quantity-left {
+    font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+    .carousel-control-prev {
+        left: 0;
+    }
+
+    .carousel-control-next {
+        right: -0.5rem;
+    }
+
+    .card {
+        height: 27rem;
+    }
+
+    .related-products {
+        margin-bottom: 3rem;
+    }
+
+    .thumpnails {
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+    }
+
+    .thumb {
+        width: 5.5rem;
+    }
+
+    #category {
+        margin-top: 2rem;
+    }
+
+    #cartBtn {
+        width: 100%;
+    }
+
+    .counterbtns {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .zoom-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .zoom-container {
+        width: 100%;
+        height: auto;
+        min-height: 75vh;
+        overflow: hidden;
+        position: relative;
+        margin: 0 auto;
+    }
+
+    .title-box {
+        margin-left: 0.4rem;
+    }
+}
