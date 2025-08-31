@@ -1,0 +1,34 @@
+#main-img{
+    width: 80vw;/*78rem;*/
+    max-height:40vh; /*58rem;*/
+    
+    object-fit: cover;
+    object-position:right;
+}
+
+.text {
+    width:94vw; /*78rem;*/
+    font-family: "Roboto";
+}
+
+body {
+    background-color: #CECAC1ff; 
+    color: #1D1D1Dff;
+    font-family: "Roboto";
+    font-size: 23px;
+}
+
+@media(max-width:768px) {
+    body {
+        font-size: 16px;
+    }
+
+    img {
+        width: 60vw;
+        height: 60vh;
+    }
+
+    .text {
+        width: 60vw;
+    }
+}
