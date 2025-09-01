@@ -4,6 +4,12 @@
     font-family: "Roboto";
     color: var(--prem);                     
 }
+
+:root {
+  --prem: #1d1d1d;
+  --sec: #cecac1;
+  --white: #fefcfb;
+}
  tbody tr:nth-child(even) {
   background-color:  #CECAC1ff                 
 }
@@ -119,7 +125,7 @@ display: flex;
 
 .sidebar {
       min-height: 100vh;
-      background: #343a40;
+      background: var(--prem);
       color: white;
     }
   .sidebar a {
@@ -127,9 +133,12 @@ display: flex;
       padding: 10px;
       color: #ddd;
       text-decoration: none;
+      font-size: 20px;
+        
+        font-family: Arial, Helvetica, sans-serif;
     }
     .sidebar a:hover {
-      background: #495057;
+     
       color: #fff;
     }
     .main-content {

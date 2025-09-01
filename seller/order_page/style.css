@@ -257,9 +257,9 @@
 
 /* 📚 Sidebar */
 .sidebar {
-  width: 260px;
+  width: 310px;
   min-height: 98vh;
-  background: #2c2f33;
+  background: var(--prem);
   color: white;
   display: flex;
   flex-direction: column;
@@ -271,35 +271,32 @@
 
 .sidebar h2 {
   text-align: center;
-  margin-bottom: 20px;
   font-size: 24px;
   font-weight: bold;
 }
 
 .sidebar hr {
   border: 1px solid #444;
-  margin: 10px 0;
 }
 
 .sidebar .links {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+ 
 }
 
 .sidebar .links a {
   color: #bbb;
   text-decoration: none;
   padding: 10px;
-  border-radius: 6px;
   transition: 0.3s;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 .sidebar .links a:hover,
 .sidebar .links a.active {
-  background: #007bff;
+  
   color: white;
 }
 

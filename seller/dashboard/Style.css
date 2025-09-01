@@ -10,7 +10,7 @@
     }
      .sidebar {
       min-height: 100vh;
-      background: #343a40;
+      background: var(--prem);
       color: white;
     }
   .sidebar a {
@@ -18,9 +18,10 @@
       padding: 10px;
       color: #ddd;
       text-decoration: none;
+      font-size: 20px;
     }
     .sidebar a:hover {
-      background: #495057;
+      
       color: #fff;
     }
     .main-content {
