@@ -98,9 +98,11 @@ document.addEventListener("DOMContentLoaded", function () {
     let allOrders = JSON.parse(localStorage.getItem("orders")) || [];
 
     // Filter orders for the current user
+    const userProfileData =JSON.parse(localStorage.getItem("current_user"))
     let orders = allOrders.filter(
-      (order) => order.customerId === userProfileData.id
-    );
+  (order) => String(order.order_details.customerId) === String(userProfileData.userId)
+
+);
 
     orderListContainer.innerHTML =
       orders.length === 0 ? "<p>You have no orders yet.</p>" : "";
