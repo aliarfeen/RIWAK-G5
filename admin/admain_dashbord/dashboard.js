@@ -23,8 +23,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 products=JSON.parse(localStorage.getItem("products"));
                 allProductsData = products;
+
                 orders=JSON.parse(localStorage.getItem("orders"));
                 allOrdersData = [...orders];
+
                 sellers=JSON.parse(localStorage.getItem("sellers"));
 
                 sellerNameMap = new Map(sellers.map(s => [s.id, s.name]));
@@ -37,11 +39,13 @@ document.addEventListener('DOMContentLoaded', function () {
             } catch (error) { console.error("Error loading or processing data:", error); }
         }
 
+
         function calculateDashboardMetrics() {
             const yearlyOrders = allOrdersData;
             
             // Sales Metrics
             const grandTotalSales = allOrdersData.reduce((sum, o) => sum + o.order_details.totalAmount, 0);
+
 
             // General & Detailed Metrics
             const categorySales = {}, categoryQuantities = {}, sellerStats = {}, productStats = {};

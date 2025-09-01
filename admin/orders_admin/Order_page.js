@@ -51,7 +51,8 @@
         });
     }
 
-    let orders = buildOrders(ordersData);
+    // let orders = buildOrders(ordersData);
+    let orders = ordersData || [];
 
 
     // Function for Render Ordars ::
@@ -140,24 +141,27 @@
             let newStatus = statusSelect.value;
             let statusEl = currentOrderEl.querySelector(".order_id p.status");
 
+            // Change Class + Text
             statusEl.className = "status " + newStatus;
             statusEl.textContent = newStatus.toUpperCase();
 
+            // The Same Object (Change In Data)
             let orderId = currentOrderEl.querySelector(".order_id h4").textContent.replace("#", "");
             let orderObj = orders.find(o => o.id == orderId);
+
             if (orderObj) {
                 orderObj.status = newStatus;
             }
 
             // Save In localStorare:
-            // localStorage.setItem("orders", JSON.stringify(orders));
+            localStorage.setItem("orders", JSON.stringify(orders));
 
             console.log(localStorage.getItem("orders"));
 
 
             // orders = buildOrders(orders);
+            // Show Data After Updates 
             Orders(orders);
-
 
             update.style.display = "none"; 
         }
