@@ -3,6 +3,10 @@ window.addEventListener("DOMContentLoaded", function () {
   const categories = localStorage.getItem("categories");
   const users = localStorage.getItem("users");
   const orders = localStorage.getItem("orders");
+  const admins = localStorage.getItem("admins");
+  const sellers = localStorage.getItem("sellers");
+
+
 
   if (!products) {
     console.log("products was not found!");
@@ -63,4 +67,36 @@ window.addEventListener("DOMContentLoaded", function () {
       window.location.reload();
     }, 300);
   }
+
+  
+  if (!admins) {
+    console.log("admins were not found!");
+    let xhradmins = new XMLHttpRequest();
+    xhradmins.open("GET", "../assets/json/admins.json", true);
+    xhradmins.send("");
+    xhradmins.onreadystatechange = function () {
+      if (xhradmins.readyState === 4 && xhradmins.status === 200) {
+        localStorage.setItem("admins", xhradmins.responseText);
+      }
+    };
+    setTimeout(() => {
+      window.location.reload();
+    }, 300);
+  }
+
+  if (!sellers) {
+    console.log("sellers were not found!");
+    let xhrsellers = new XMLHttpRequest();
+    xhrsellers.open("GET", "../assets/json/sellers.json", true);
+    xhrsellers.send("");
+    xhrsellers.onreadystatechange = function () {
+      if (xhrsellers.readyState === 4 && xhrsellers.status === 200) {
+        localStorage.setItem("sellers", xhrsellers.responseText);
+      }
+    };
+    setTimeout(() => {
+      window.location.reload();
+    }, 300);
+  }
+
 });
