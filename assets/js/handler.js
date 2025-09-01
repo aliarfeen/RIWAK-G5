@@ -1,4 +1,7 @@
+
+
 window.addEventListener("DOMContentLoaded", function () {
+  
   const products = localStorage.getItem("products");
   const categories = localStorage.getItem("categories");
   const users = localStorage.getItem("users");
