@@ -150,14 +150,14 @@
                 orderObj.status = newStatus;
             }
 
-            // Save In localStorare:
-            localStorage.setItem("orders", JSON.stringify(ordersData));
+            update.style.display = "none"; 
 
-            orders = buildOrders(orders);
+            // Save In localStorare:
+            localStorage.setItem("orders", JSON.stringify(orders));
+            // orders = buildOrders(orders);
+            
             Orders(orders);
 
-
-            update.style.display = "none"; 
 
         }
     });
