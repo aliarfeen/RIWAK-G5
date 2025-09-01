@@ -5,7 +5,12 @@ let incomeChart = null;
 let targetdiv = null;
 
 
+let currentSeller = localStorage.getItem("current_seller");
 
+if (!currentSeller) {
+ 
+  window.location.href = "login.html"; 
+}
 
 (async function initLocalStorage() {
     if (!localStorage.getItem("sellers")) {
@@ -396,3 +401,12 @@ function deleteProduct(id) {
     localStorage.setItem("products", JSON.stringify(products));
     displayProducts();
 }
+
+
+document.getElementById("logoutBtn").addEventListener("click", function () {
+ 
+  localStorage.removeItem("current_seller");
+  
+
+  window.location.href = "login.html";
+});

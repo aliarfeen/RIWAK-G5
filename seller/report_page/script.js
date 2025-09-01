@@ -1,3 +1,15 @@
+
+let currentSeller = localStorage.getItem("current_seller");
+
+if (!currentSeller) {
+  
+window.location.href = "../dashboard/login.html";
+} 
+
+
+
+
+
 fetch("/assets/json/sellers.json")
   .then(res => res.json())
   .then(sellers => {
@@ -114,3 +126,13 @@ async function salesReport() {
 }
 
 salesReport();
+
+
+
+document.getElementById("logoutBtn").addEventListener("click", function () {
+ 
+  localStorage.removeItem("current_seller");
+  
+
+  window.location.href = "../dashboard/login.html";
+});

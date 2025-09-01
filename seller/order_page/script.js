@@ -1,6 +1,13 @@
-// نفترض إن الـ seller عمل تسجيل دخول قبل كده
-// و خزنّا الـ sellerId بتاعه (كـ رقم) في localStorage
-// (ممكن تجيبها من الـ login page)
+
+
+
+let currentSeller = localStorage.getItem("current_seller");
+
+if (!currentSeller) {
+  
+window.location.href = "../dashboard/login.html";
+} 
+
 const currentSellerId = parseInt(localStorage.getItem("current_seller")) || 1;
 
 
@@ -115,4 +122,10 @@ fetch("/assets/json/orders.json")
 
 
 
+document.getElementById("logoutBtn").addEventListener("click", function () {
+ 
+  localStorage.removeItem("current_seller");
+  
 
+ window.location.href = "../dashboard/login.html";
+});
