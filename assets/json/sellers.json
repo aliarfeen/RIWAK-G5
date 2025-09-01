@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "Furniture Emporium",
+    "email": "contact@furniture-emporium.com",
+    "phone": "+1-555-0123",
+    "address": {
+      "street": "123 Almethak st",
+      "city": "Cairo",
+      "state": "FC",
+      "zipCode": "12345",
+      "country": "Egypt"
+    },
+    "password": "$1234"
+  },
+  {
+    "id": 2,
+    "name": "Home Comforts",
+    "email": "info@home-comforts.com",
+    "phone": "+1-555-0124",
+    "address": {
+      "street": "456 Oak Avenue",
+      "city": "Alexandria",
+      "state": "ALX",
+      "zipCode": "21548",
+      "country": "Egypt"
+    },
+    "password": "$5678"
+  },
+  {
+    "id": 3,
+    "name": "Modern Living",
+    "email": "sales@modern-living.com",
+    "phone": "+1-555-0125",
+    "address": {
+      "street": "789 Palm Street",
+      "city": "Giza",
+      "state": "GZ",
+      "zipCode": "12589",
+      "country": "Egypt"
+    },
+    "password": "$9012"
+  },
+  {
+    "id": 4,
+    "name": "Elite Furnishings",
+    "email": "support@elite-furnishings.com",
+    "phone": "+1-555-0126",
+    "address": {
+      "street": "321 Pine Road",
+      "city": "Luxor",
+      "state": "LX",
+      "zipCode": "85963",
+      "country": "Egypt"
+    },
+    "password": "$3456"
+  }
+]
