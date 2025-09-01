@@ -3,6 +3,7 @@
     "id": 1,
     "name": "Furniture Emporium",
     "email": "contact@furniture-emporium.com",
+    "role":"seller",
     "phone": "+1-555-0123",
     "address": {
       "street": "123 Almethak st",
@@ -17,6 +18,7 @@
     "id": 2,
     "name": "Home Comforts",
     "email": "info@home-comforts.com",
+    "role":"seller",
     "phone": "+1-555-0124",
     "address": {
       "street": "456 Oak Avenue",
@@ -31,6 +33,7 @@
     "id": 3,
     "name": "Modern Living",
     "email": "sales@modern-living.com",
+    "role":"seller",
     "phone": "+1-555-0125",
     "address": {
       "street": "789 Palm Street",
@@ -45,6 +48,7 @@
     "id": 4,
     "name": "Elite Furnishings",
     "email": "support@elite-furnishings.com",
+    "role":"seller",
     "phone": "+1-555-0126",
     "address": {
       "street": "321 Pine Road",
