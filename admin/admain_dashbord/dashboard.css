@@ -1,0 +1,165 @@
+    
+        :root {
+            --prem: #1D1D1D;
+            --sec: #CECAC1;
+            --white: #FEFCFB;
+        
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Roboto", sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fc;
+        }
+
+        .sidebar {
+            background-color: var(--prem);
+            width: 250px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .sidebar-header {
+            color: var(--white);
+            padding: 20px;
+            font-weight: 700;
+            border-bottom: 1px solid var(--sec);
+        }
+        .sidebar .nav-link {
+            color: var(--sec);
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            transition: all .2s;
+            cursor: pointer; 
+        }
+        .sidebar .nav-link .material-icons {
+            margin-right: 15px;
+        }
+        .sidebar .nav-item.active .nav-link,
+        .sidebar .nav-link:hover {
+            color: var(--white);
+            background-color: var(--prem); 
+        }
+        .sidebar-footer {
+            margin-top: auto;
+            padding: 20px;
+            border-top: 1px solid var(--sec);
+        }
+        .sidebar-footer .admin-info,
+        .sidebar-footer .admin-info small {
+            color: var(--white);
+        }
+        .sign-out {
+            color: var(--sec);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        .sign-out:hover {
+            color: var(--white);
+        }
+
+        .main-content {
+            background-color: var(--white);
+        }
+
+        .summary-card {
+            background-color: var(--prem);
+            padding: 25px 30px;
+            border-radius: 30px;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            box-shadow: none;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+        .summary-card:hover {
+            transform: scale(1.05);
+        }
+        .summary-card p {
+            margin: 0 0 10px 0;
+            color: var(--sec);
+            font-size: 1.15rem;
+            font-weight: 400;
+        }
+        .summary-card h2 {
+            color: var(--sec);
+            font-size: 2.1rem;
+            font-weight: 400;
+            margin: 0;
+            line-height: 1.2;
+        }
+        .summary-card .indicator {
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-top: 5px;
+        }
+       
+
+
+        .chart-card, .list-card {
+            background-color:var(--white);
+            border-radius: 20px;
+            padding: 20px;
+            height: 100%;
+            box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+        }
+        
+        .chart-header, .list-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 0 10px;
+        }
+
+        .chart-header h5, .list-header h5 {
+            margin: 0;
+            font-weight: 700;
+            color: var(--prem);
+        }
+        .chart-header select {
+            font-size: .8rem;
+            padding: .25rem .5rem;
+            border-radius: .3rem;
+            border: 1px solid var(--sec);
+            background-color: var(--white)
+        }
+        
+        .chart-wrapper { max-width: 420px; margin: 0 auto; }
+        
+        .list-group-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0.5rem;
+            border-bottom: 1px solid var(--white);
+        }
+        .list-group-item:last-child { border-bottom: none; }
+        
+        .status-link {
+            transition: all 0.2s ease-in-out;
+        }
+        .status-link:hover {
+            background-color:var(--white);
+            transform: translateX(5px);
+            font-weight: 500;
+        }
+
+        .item-info .name { font-weight: 500; color: #333; margin: 0; }
+        .item-info .details { font-size: 0.85rem; color: #888; margin: 0; }
+        .item-metric { font-weight: 700; color: var(--prem); font-size: 1.1rem; text-align: right; }
+
+        .page-content { display: none; }
+        .page-content.active { display: block; }
+        .modal-header { border-bottom: 1px solid var(--white); }
+        .modal-footer { border-top: 1px solid var(--white); }
+
+    

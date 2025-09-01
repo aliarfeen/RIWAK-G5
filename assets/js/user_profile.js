@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Filter orders for the current user
     let orders = allOrders.filter(
-      (order) => order.userId === userProfileData.id
+      (order) => order.customerId === userProfileData.id
     );
 
     orderListContainer.innerHTML =

@@ -3,7 +3,6 @@
     "id": 1,
     "name": "Furniture Emporium",
     "email": "contact@furniture-emporium.com",
-    "role":"seller",
     "phone": "+1-555-0123",
     "address": {
       "street": "123 Almethak st",
@@ -12,13 +11,13 @@
       "zipCode": "12345",
       "country": "Egypt"
     },
-    "password": "$1234"
+    "password": "$1234",
+    "status": "Active"
   },
   {
     "id": 2,
     "name": "Home Comforts",
     "email": "info@home-comforts.com",
-    "role":"seller",
     "phone": "+1-555-0124",
     "address": {
       "street": "456 Oak Avenue",
@@ -27,13 +26,13 @@
       "zipCode": "21548",
       "country": "Egypt"
     },
-    "password": "$5678"
+    "password": "$5678",
+    "status": "Active"
   },
   {
     "id": 3,
     "name": "Modern Living",
     "email": "sales@modern-living.com",
-    "role":"seller",
     "phone": "+1-555-0125",
     "address": {
       "street": "789 Palm Street",
@@ -42,13 +41,13 @@
       "zipCode": "12589",
       "country": "Egypt"
     },
-    "password": "$9012"
+    "password": "$9012",
+    "status": "Active"
   },
   {
     "id": 4,
     "name": "Elite Furnishings",
     "email": "support@elite-furnishings.com",
-    "role":"seller",
     "phone": "+1-555-0126",
     "address": {
       "street": "321 Pine Road",
@@ -57,6 +56,7 @@
       "zipCode": "85963",
       "country": "Egypt"
     },
-    "password": "$3456"
+    "password": "$3456",
+    "status": "Active"
   }
 ]
