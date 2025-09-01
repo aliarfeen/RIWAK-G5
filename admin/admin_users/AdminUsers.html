@@ -11,10 +11,15 @@
 
 
   <!-- Dashboard CSS -->
-  <link rel="stylesheet" href="/Admain dashbord/dashboard.css">
+  <link rel="stylesheet" href="/admin/admain_dashbord/dashboard.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <title>Admin users managment</title>
+
+
+      <script type="module" src="../js/handler.js"></script>
+
+
 </head>
 
 <body>
@@ -23,183 +28,183 @@
 
 
 
-  <nav class="sidebar">
-    <h3 class="sidebar-header">RIWAK</h3>
-    <ul class="nav flex-column">
-      <li class="nav-item active"><a href="/Admain dashbord/admin_dashboard.html" class="nav-link" data-target="dashboard-page"><span
-            class="material-icons">dashboard</span> Dashboard</a></li>
-      <li class="nav-item"><a href="/Admin_Users/AdminUsers.html" class="nav-link" data-target="users-page"><span class="material-icons">group</span>
-          Users</a></li>
-      <li class="nav-item"><a href="/Products_Admin/adminProductManagement.html" class="nav-link" data-target="products-page"><span
-            class="material-icons">inventory_2</span> Products</a></li>
-            
-      <li class="nav-item"><a href="/Orders_Admin/Orders_Page.html" class="nav-link" data-target="orders-page"><span
-            class="material-icons">shopping_cart</span> Orders</a></li>
-    </ul>
-    <div class="sidebar-footer">
-      <div class="admin-info">ADMIN <small id="admin-username">admin_name</small></div>
-      <a href="#" id="sign-out-btn" class="sign-out"><span class="material-icons">logout</span> Sign Out</a>
-    </div>
-  </nav>
-
-
-
-
-
-
-<div class="p-5" id="changeWidth_container">
-
-  <nav class="nav nav-pills mb-3">
-    <a class="nav-link rounded-0 active" data-bs-toggle="tab" href="#sellersGrid"><i
-        class="fa-solid fa-store me-1"></i>Sellers</a>
-    <a class="nav-link rounded-0" data-bs-toggle="tab" href="#customersGrid"><i class="fa fa-shopping-cart me-1"
-        aria-hidden="true"></i>Customers</a>
-  </nav>
-  <input type="text" id="searchInput" class="form-control me-2 w-100 " placeholder="Search by Name">
-  <div id="messageDiv"></div>
-
-  <hr class=" mt-2" id="changeWidth">
-  <div class="d-flex flex-row justify-content-between" id="changeWidth">
-    <h4 class="mb-4"><span id="header" class="sellerToCustomer fs-4">Seller</span> Accounts</h4>
-    <button type="button" class="btn p-2 px-4 btn-primary align-self-start sellerToCustomer"
-      onclick="openAddModal(currentType)">+ Add Seller</button>
-  </div>
-
-  <div class="tab-content" id="changeWidth">
-    <!-- sellers  -->
-    <div id="sellersGrid" class=" tab-pane fade active show">
-      <div class="row fw-bold border-bottom py-1">
-        <div class="col-md-3 col" id="type">Seller</div>
-        <div class="col-md-2 col">Store Name</div>
-        <div class="col-md-2 col">Contact</div>
-        <div class="col-md-2 col">Location</div>
-        <div class="col">Status</div>
-        <div class="col">Actions</div>
+    <nav class="sidebar">
+      <h3 class="sidebar-header">RIWAK</h3>
+      <ul class="nav flex-column">
+        <li class="nav-item active"><a href="/admin/admain_dashbord/admin_dashboard.html" class="nav-link"
+            data-target="dashboard-page"><span class="material-icons">dashboard</span> Dashboard</a></li>
+        <li class="nav-item"><a href="/admin/admin_users/AdminUsers.html" class="nav-link"
+            data-target="users-page"><span class="material-icons">group</span> Users</a></li>
+        <li class="nav-item"><a href="/admin/products_admin/adminProductManagement.html" class="nav-link"
+            data-target="products-page"><span class="material-icons">inventory_2</span> Products</a></li>
+        <li class="nav-item"><a href="/admin/orders_admin/Orders_Page.html" class="nav-link"
+            data-target="orders-page"><span class="material-icons">shopping_cart</span> Orders</a></li>
+      </ul>
+      <div class="sidebar-footer">
+        <div class="admin-info">ADMIN <small id="admin-username">admin_name</small></div>
+        <a href="#" id="sign-out-btn" class="sign-out"><span class="material-icons">logout</span> Sign Out</a>
       </div>
-      <div id="sellersBody"></div>
-    </div>
+    </nav>
 
-    <!-- customers  -->
-    <div id="customersGrid" class="tab-pane fade">
-      <div class="row fw-bold border-bottom py-1">
-        <div class="col-md-3 col">Customer</div>
-        <div class="col-md-2 col">Contact</div>
-        <div class="col-md-2 col">Addresses</div>
-        <div class="col">Status</div>
-        <div class="col">Joined</div>
-        <div class="col">Actions</div>
+
+
+
+
+
+    <div class="p-5" id="changeWidth_container">
+
+      <nav class="nav nav-pills mb-3">
+        <a class="nav-link rounded-0 active" data-bs-toggle="tab" href="#sellersGrid"><i
+            class="fa-solid fa-store me-1"></i>Sellers</a>
+        <a class="nav-link rounded-0" data-bs-toggle="tab" href="#customersGrid"><i class="fa fa-shopping-cart me-1"
+            aria-hidden="true"></i>Customers</a>
+      </nav>
+      <input type="text" id="searchInput" class="form-control me-2 w-100 " placeholder="Search by Name">
+      <div id="messageDiv"></div>
+
+      <hr class=" mt-2" id="changeWidth">
+      <div class="d-flex flex-row justify-content-between" id="changeWidth">
+        <h4 class="mb-4"><span id="header" class="sellerToCustomer fs-4">Seller</span> Accounts</h4>
+        <button type="button" class="btn p-2 px-4 btn-primary align-self-start sellerToCustomer"
+          onclick="openAddModal(currentType)">+ Add Seller</button>
       </div>
-      <div id="customersBody"></div>
-    </div>
-  </div>
 
-  <!-- modal -->
-  <div class="modal fade" id="editAddModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel"><span class="addToEdit fs-5">Add </span> <span
-              class="sellerToCustomer fs-5">Seller </span> Information</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="tab-content" id="changeWidth">
+        <!-- sellers  -->
+        <div id="sellersGrid" class=" tab-pane fade active show">
+          <div class="row fw-bold border-bottom py-1">
+            <div class="col-md-3 col" id="type">Seller</div>
+            <div class="col-md-2 col">Store Name</div>
+            <div class="col-md-2 col">Contact</div>
+            <div class="col-md-2 col">Location</div>
+            <div class="col">Status</div>
+            <div class="col">Actions</div>
+          </div>
+          <div id="sellersBody"></div>
         </div>
 
-        <div class="modal-body">
-          <form class="row g-3 needs-validation" novalidate>
-
-            <!-- madal body -->
-            <div class="col-md-6">
-              <label for="Name" class="form-label">Name</label>
-              <input type="text" class="form-control" id="Name" placeholder="Enter name" pattern="^[A-Za-z\s]+$"
-                required>
-              <div class="invalid-feedback">
-                Please enter name.
-              </div>
-            </div>
-
-
-            <div class="col-md-6">
-              <label for="Email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="Email" placeholder="Enter email"
-                pattern="^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$" required>
-              <div class="invalid-feedback">
-                Please enter email.
-              </div>
-            </div>
-
-
-            <div class="col-md-6">
-              <label for="Phone" class="form-label">Phone</label>
-              <input type="text" class="form-control" id="Phone" placeholder="Enter phone number"
-                pattern="^\+?[0-9\-]{7,15}$" required>
-              <div class="invalid-feedback">
-                Please enter phone number.
-              </div>
-            </div>
-
-
-            <div class="col-md-6">
-              <label for="Status" class="form-label">Status</label>
-              <select id="Status" class="form-select" required>
-                <option value="" disabled selected>Choose...</option>
-                <option value="Active">Active</option>
-                <option value="Inactive">Inactive</option>
-              </select>
-              <div class="invalid-feedback">
-                Please select status.
-              </div>
-            </div>
-
-
-            <div class="col-md-6">
-              <label for="Street" class="form-label">Street</label>
-              <input type="text" class="form-control" id="Street" placeholder="Street address" required>
-              <div class="invalid-feedback">
-                Please enter street address.
-              </div>
-            </div>
-
-
-            <div class="col-md-3">
-              <label for="City" class="form-label">City</label>
-              <input type="text" class="form-control" id="City" placeholder="City" pattern="^[A-Za-z\s]+$" required>
-              <div class="invalid-feedback">
-                Please enter city.
-              </div>
-            </div>
-
-            <div class="col-md-3">
-              <label for="Zip" class="form-label">Zip</label>
-              <input type="text" class="form-control" id="Zip" placeholder="Zip Code" pattern="[0-9]{4,10}" required>
-              <div class="invalid-feedback">
-                Please enter a valid zip code.
-              </div>
-            </div>
-
-
-            <div class="col-md-6">
-              <label for="Country" class="form-label">Country</label>
-              <input type="text" class="form-control" id="Country" placeholder="Country" pattern="^[A-Za-z\s]+$"
-                required>
-              <div class="invalid-feedback">
-                Please enter country.
-              </div>
-            </div>
-            <div class="col-md-12" id="addressesContainer"></div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Save</button>
-            </div>
-          </form>
+        <!-- customers  -->
+        <div id="customersGrid" class="tab-pane fade">
+          <div class="row fw-bold border-bottom py-1">
+            <div class="col-md-3 col">Customer</div>
+            <div class="col-md-2 col">Contact</div>
+            <div class="col-md-2 col">Addresses</div>
+            <div class="col">Status</div>
+            <div class="col">Joined</div>
+            <div class="col">Actions</div>
+          </div>
+          <div id="customersBody"></div>
         </div>
-
-
-
       </div>
+
+      <!-- modal -->
+      <div class="modal fade" id="editAddModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel"><span class="addToEdit fs-5">Add </span> <span
+                  class="sellerToCustomer fs-5">Seller </span> Information</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+              <form class="row g-3 needs-validation" novalidate>
+
+                <!-- madal body -->
+                <div class="col-md-6">
+                  <label for="Name" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="Name" placeholder="Enter name" pattern="^[A-Za-z\s]+$"
+                    required>
+                  <div class="invalid-feedback">
+                    Please enter name.
+                  </div>
+                </div>
+
+
+                <div class="col-md-6">
+                  <label for="Email" class="form-label">Email</label>
+                  <input type="email" class="form-control" id="Email" placeholder="Enter email"
+                    pattern="^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$" required>
+                  <div class="invalid-feedback">
+                    Please enter email.
+                  </div>
+                </div>
+
+
+                <div class="col-md-6">
+                  <label for="Phone" class="form-label">Phone</label>
+                  <input type="text" class="form-control" id="Phone" placeholder="Enter phone number"
+                    pattern="^\+?[0-9\-]{7,15}$" required>
+                  <div class="invalid-feedback">
+                    Please enter phone number.
+                  </div>
+                </div>
+
+
+                <div class="col-md-6">
+                  <label for="Status" class="form-label">Status</label>
+                  <select id="Status" class="form-select" required>
+                    <option value="" disabled selected>Choose...</option>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please select status.
+                  </div>
+                </div>
+
+
+                <div class="col-md-6">
+                  <label for="Street" class="form-label">Street</label>
+                  <input type="text" class="form-control" id="Street" placeholder="Street address" required>
+                  <div class="invalid-feedback">
+                    Please enter street address.
+                  </div>
+                </div>
+
+
+                <div class="col-md-3">
+                  <label for="City" class="form-label">City</label>
+                  <input type="text" class="form-control" id="City" placeholder="City" pattern="^[A-Za-z\s]+$" required>
+                  <div class="invalid-feedback">
+                    Please enter city.
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="Zip" class="form-label">Zip</label>
+                  <input type="text" class="form-control" id="Zip" placeholder="Zip Code" pattern="[0-9]{4,10}"
+                    required>
+                  <div class="invalid-feedback">
+                    Please enter a valid zip code.
+                  </div>
+                </div>
+
+
+                <div class="col-md-6">
+                  <label for="Country" class="form-label">Country</label>
+                  <input type="text" class="form-control" id="Country" placeholder="Country" pattern="^[A-Za-z\s]+$"
+                    required>
+                  <div class="invalid-feedback">
+                    Please enter country.
+                  </div>
+                </div>
+                <div class="col-md-12" id="addressesContainer"></div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+              </form>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+
+
     </div>
-  </div>
-
-
-</div>
 
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"

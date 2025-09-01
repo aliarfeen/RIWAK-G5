@@ -17,29 +17,11 @@ window.addEventListener('load', function () {
         }
     });
 
-    // loadProducts()
     displayProducts();
     displayRequests();
 
 }); //end of load
 
-
-// load json
-function loadProducts() {
-    // ajax call using xmlhttprequest
-    //1- create object from xmlhttprequest
-    // var xhr = new XMLHttpRequest();
-    // xhr.open("GET", "products.json", true);
-    // xhr.send('');
-    // xhr.onreadystatechange = function () {
-    //     if (xhr.readyState == 4 && xhr.status == 200) {
-    //         var result = JSON.parse(xhr.responseText);
-    //         localStorage.setItem("products", JSON.stringify(result));
-    //         displayProducts(result);
-    //     }
-    // };//end of load JSON Locally
-
-}
 
 function displayProducts(filteredProducts) {
 
@@ -102,7 +84,7 @@ function displayProducts(filteredProducts) {
 // load product data to modal to be auto filled when open 
 function loadProductToModal(id) {
     let products = JSON.parse(localStorage.getItem("products")) || [];
-    let product = products.find(p => p.id === id);
+    let product = products.find(p => p.id == id);
     if (!product) return;
 
     // fill modal inputs
@@ -124,7 +106,7 @@ function loadProductToModal(id) {
 function updateProduct(btn) {
     let id = btn.getAttribute("data-id");
     let products = JSON.parse(localStorage.getItem("products")) || [];
-    let index = products.findIndex(p => p.id == id);
+    let index = products.findIndex(p => p.id == id);
     if (index === -1) return;
 
     // update product values
@@ -301,7 +283,7 @@ function deleteProduct(id) {
     }
     let products = JSON.parse(localStorage.getItem("products")) || [];
     id = parseInt(id);
-    products = products.filter(p => p.id !== id);
+    products = products.filter(p => parseInt(p.id) !== id);
     localStorage.setItem("products", JSON.stringify(products));
     displayProducts();
 }

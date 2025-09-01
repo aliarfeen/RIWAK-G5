@@ -7,15 +7,26 @@ document.addEventListener('DOMContentLoaded', function () {
         
         async function loadAndProcessData() {
             try {
-                const [products, orders, newOrders, sellers] = await Promise.all([
-                    fetch('products.json').then(res => res.json()),
-                    fetch('orders.json').then(res => res.json()),
-                    fetch('orders_new.json').then(res => res.json()),
-                    fetch('sellers.json').then(res => res.json())
-                ]);
+                // const [products, orders, newOrders, sellers] = await Promise.all([
+                //     fetch('products.json').then(res => res.json()),
+                //     fetch('orders.json').then(res => res.json()),
+                //     fetch('orders_new.json').then(res => res.json()),
+                //     fetch('sellers.json').then(res => res.json())
+                // ]);
                 
+
+                // allProductsData = products;
+                // allOrdersData = [...orders, ...newOrders];
+                // sellerNameMap = new Map(sellers.map(s => [s.id, s.name]));
+                // productNameMap = new Map(products.map(p => [p.id, {name: p.name, price: p.price, cost: p.cost}]));
+
+
+                products=JSON.parse(localStorage.getItem("products"));
                 allProductsData = products;
-                allOrdersData = [...orders, ...newOrders];
+                orders=JSON.parse(localStorage.getItem("orders"));
+                allOrdersData = [...orders];
+                sellers=JSON.parse(localStorage.getItem("sellers"));
+
                 sellerNameMap = new Map(sellers.map(s => [s.id, s.name]));
                 productNameMap = new Map(products.map(p => [p.id, {name: p.name, price: p.price, cost: p.cost}]));
                 
