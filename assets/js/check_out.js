@@ -1,3 +1,11 @@
+window.addEventListener("DOMContentLoaded", function () {
+  const cart = JSON.parse(localStorage.getItem("cart") || "[]"); // default to []
+  if (cart.length === 0) {
+    window.location.href = "home.html";
+  }
+});
+
+
 const subtotalVal = localStorage.getItem("subtotal");
 const subtotal = document.getElementById("subtotal");
 const total = document.getElementById("total");
@@ -181,11 +189,11 @@ confirmOrderBtn.addEventListener("click", function (e) {
     const user = JSON.parse(userJson);
 
     let orderObj = {
-      id: `RIWAK_${generateUUIDTracking().slice(1, 6)}`,
+      id: `${generateUUIDTracking()}`,
       customerId: user.id,
       date: `${now.toLocaleString()}`,
       items: orderItems,
-      status: `pending`,
+      status: `CONFIRMED`,
       statusHistory: [
         {
           status: `pending`,

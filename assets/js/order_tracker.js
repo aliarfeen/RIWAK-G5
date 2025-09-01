@@ -5,10 +5,24 @@ document.addEventListener("DOMContentLoaded", () => {
   localStorage.setItem("cart", JSON.stringify([]));
   const orderItems = order.items;
   const progress = document.getElementById("progress");
-    if(order.status === "pending"){
+  const trackingProgressDiv = document.getElementById("tracking-progress");
+    if(order.status === "CONFIRMED"){
         
-  progress.style.width = "100%";
+  progress.style.width = "0%";
   
+    }else if(order.status ==="SHIPPED"){
+      
+  progress.style.width = "50%";
+    }else if(order.status ==="DELIVERED"){
+      
+  progress.style.width = "100%";
+
+    } else if(order.status ==="CANCELLED"){
+      
+  trackingProgressDiv.innerHTML = "<h1> YOUR ORDER WAS CANCELLED</h1>"
+    }else{
+  trackingProgressDiv.innerHTML = "<h1> SOMETHING WENT WRONG</h1>"
+
     }
 
   orderItems.map((e) => {

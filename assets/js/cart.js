@@ -24,6 +24,18 @@ function setCart() {
       renderCartItems();
 }
 
+window.addEventListener("DOMContentLoaded", function () {
+  const thead = this.document.getElementsByTagName("thead")[0];
+  const msgDiv = this.document.getElementById("ordered-products");
+  const cart = JSON.parse(localStorage.getItem("cart") || "[]"); // default to []
+  if (cart.length === 0) {
+    thead.classList.add("d-none");
+    msgDiv.innerHTML = "<h3 class='text-center '> ADD ITEMS TO CART, NOTHING IS HERE! </h3>"
+
+  }
+});
+
+
 function renderCartItems() {
   let tableBody = document.getElementsByTagName("tbody")[0];
   tableBody.innerHTML = "";

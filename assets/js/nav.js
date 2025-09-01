@@ -27,47 +27,47 @@ const checkHeader = setInterval(() => {
 }, 200);
 
    // Function to load HTML and insert into a target position
-    function loadHTML(file, position) {
-      fetch(file)
-        .then(response => response.text())
-        .then(data => {
-          if (position === "start") {
-            document.body.insertAdjacentHTML("afterbegin", data);
-          } else if (position === "end") {
-            document.body.insertAdjacentHTML("beforeend", data);
-          }
-        })
-        .catch(error => console.error("Error loading file:", error));
-    }
+    function loadHTML(file, position, callback) {
+  fetch(file)
+    .then(response => response.text())
+    .then(data => {
+      if (position === "start") {
+        document.body.insertAdjacentHTML("afterbegin", data);
+      } else if (position === "end") {
+        document.body.insertAdjacentHTML("beforeend", data);
+      }
 
-    // Append header at the beginning
-    loadHTML("nav.html", "start");
+      if (typeof callback === "function") {
+        callback(); // Run extra logic after HTML is injected
+      }
+    })
+    .catch(error => console.error("Error loading file:", error));
+}
+// Append header at the beginning
+loadHTML("nav.html", "start", initHeaderEvents);
 
-    // Append nav at the end
-    loadHTML("footer.html", "end");
-   document.addEventListener('DOMContentLoaded', function() {
+// Append footer at the end
+loadHTML("footer.html", "end", initFooterEvents);
 
-            const mainNav = document.querySelector('.main-nav');
+function initHeaderEvents() {
+  const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      navLinks.forEach(navLink => navLink.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
 
-       
+  const topBar = document.querySelector('.top-bar');
+  const closeTopBarBtn = document.querySelector('.close-top-bar');
 
-            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+  if (closeTopBarBtn && topBar) {
+    closeTopBarBtn.addEventListener('click', function() {
+      topBar.style.display = 'none';
+    });
+  }
+}
 
-            navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    navLinks.forEach(navLink => navLink.classList.remove('active'));
-                    
-                    this.classList.add('active');
-                });
-            });
-
-            const topBar = document.querySelector('.top-bar');
-            const closeTopBarBtn = document.querySelector('.close-top-bar');
-
-            if (closeTopBarBtn && topBar) {
-                closeTopBarBtn.addEventListener('click', function() {
-                    topBar.style.display = 'none';
-                });
-            }
-
-        });
+function initFooterEvents() {
+  // Add footer-specific JS here later if needed
+}
