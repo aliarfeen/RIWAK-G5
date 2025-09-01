@@ -150,9 +150,12 @@
             }
 
             // Save In localStorare:
-            localStorage.setItem("orders", JSON.stringify(orders));
+            // localStorage.setItem("orders", JSON.stringify(orders));
 
-            orders = buildOrders(orders);
+            console.log(localStorage.getItem("orders"));
+
+
+            // orders = buildOrders(orders);
             Orders(orders);
 
 
