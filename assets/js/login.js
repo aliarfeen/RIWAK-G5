@@ -174,17 +174,34 @@ registerForm.addEventListener("submit", (e) => {
     }
 
     const newUser = {
-      id: Date.now(),
-      firstName: fn.value.trim(),
-      lastName: ln.value.trim(),
-      email: em.value.trim(),
-      password: pw.value.trim(),
-    };
+  userId: Date.now().toString(), 
+  name: `${fn.value.trim()} ${ln.value.trim()}`, 
+  email: em.value.trim(),
+  password: pw.value.trim(),
+  createdAt: new Date().toLocaleDateString("en-GB"), 
+  modifyAt: new Date().toLocaleDateString("en-GB"), 
+  devices: [],
+  cards: [
+    
+  ],
+  favourites: [],
+  addresses: [
+    
+  ]
+};
+
 
     users.push(newUser);
     localStorage.setItem("users", JSON.stringify(users));
 
-    alert("Account created successfully!");
+    // const accCreated = new bootstrap.Modal(
+    //     document.getElementById("accCreated")
+    //   );
+    //   accCreated.show();
+    //   setTimeout(() => {
+    //     accCreated.hide();
+    //   }, 1000);
+    
     registerForm.reset();
 
     registerBox.style.display = "none";
