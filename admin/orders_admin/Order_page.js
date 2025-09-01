@@ -12,11 +12,10 @@
 // get data from file json (orders.json):
 
 // Promise.all([
-//     fetch("orders_new.json").then(res => res.json()),
-//     fetch("sellers.json").then(res => res.json())
+//     fetch("/assets/json/orders.json").then(res => res.json()),
+//     fetch("/assets/json/sellers.json").then(res => res.json())
 // ])
 // .then(([ordersData, sellersData]) => {
-
 
     let ordersData = JSON.parse(localStorage.getItem("orders"));
     let sellersData = JSON.parse(localStorage.getItem("sellers"));
@@ -35,24 +34,21 @@
     });
 
 
-    // // .........Convert object to array : 
+    // .........Convert object to array : 
 
-    function buildOrders(data) {
-        return data.map(item => {
-            let order = item.order_details;
-            return {
-                id: order.id,
-                date: order.date,
-                items: order.items || [],
-                totalAmount: order.totalAmount,
-                paymentStatus: order.paymentStatus,
-                status: order.status || (order.items[0]?.status || "pending")
-            };
-        });
-    }
+    let orders = ordersData.map(item => {
+        let order = item.order_details;
+        return {
+            id: order.id,
+            date: order.date,
+            items: order.items || [],
+            totalAmount: order.totalAmount,
+            paymentStatus: order.paymentStatus,
+            status: order.status || (order.items[0]?.status || "pending")
+        };
+    });
 
-    // let orders = buildOrders(ordersData);
-    let orders = ordersData || [];
+    console.log(orders);
 
 
     // Function for Render Ordars ::
@@ -141,34 +137,18 @@
             let newStatus = statusSelect.value;
             let statusEl = currentOrderEl.querySelector(".order_id p.status");
 
-            // Change Class + Text
             statusEl.className = "status " + newStatus;
             statusEl.textContent = newStatus.toUpperCase();
 
-            // The Same Object (Change In Data)
             let orderId = currentOrderEl.querySelector(".order_id h4").textContent.replace("#", "");
             let orderObj = orders.find(o => o.id == orderId);
-
             if (orderObj) {
                 orderObj.status = newStatus;
             }
 
-            // Save In localStorare:
-            localStorage.setItem("orders", JSON.stringify(orders));
-
-            console.log(localStorage.getItem("orders"));
-
-
-            // orders = buildOrders(orders);
-            // Show Data After Updates 
-            Orders(orders);
-
             update.style.display = "none"; 
         }
     });
-
-
-
 
     // Cancel Btn
     cancelBtn.addEventListener("click", () => {
@@ -269,9 +249,6 @@
         sellerFilter.appendChild(option);
     });
 
-
-
-
     // Event
     sellerFilter.addEventListener("change", (e) => {
         let selectedSeller = e.target.value;
@@ -314,8 +291,7 @@
 
 // })
 
-    // .catch(error => console.error("Error loading:", error));
-
+//     .catch(error => console.error("Error loading:", error));
 
 
 
