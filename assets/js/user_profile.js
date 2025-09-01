@@ -26,9 +26,24 @@ document.addEventListener("DOMContentLoaded", function () {
   let userProfileData;
 
   // Data Handling
-  function saveToLocalStorage() {
-    localStorage.setItem("current_user", JSON.stringify(userProfileData));
+  // function updateCurrentUser(userProfileData) {
+  //   localStorage.setItem("current_user", JSON.stringify(userProfileData));
+  // }
+function updateCurrentUser(userData) {
+  localStorage.setItem("current_user", JSON.stringify(userData));
+
+  // جلب قائمة المستخدمين الكاملة
+  let allUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+  // البحث عن المستخدم الحالي في القائمة الكاملة
+  const userIndex = allUsers.findIndex(u => u.userId === userData.userId);
+
+  // إذا تم العثور عليه، قم بتحديث بياناته في القائمة واحفظها
+  if (userIndex > -1) {
+    allUsers[userIndex] = userData;
+    localStorage.setItem("users", JSON.stringify(allUsers));
   }
+}
 // الكود الذي يجلب بيانات المستخدم
   function loadFromLocalStorage() {
     const data = localStorage.getItem("current_user");
@@ -237,7 +252,7 @@ function renderWishlist() {
       if (!isFirstNameValid || !isLastNameValid) return;
 
       userProfileData.name = `${firstNameInput.value.trim()} ${lastNameInput.value.trim()}`;
-      saveToLocalStorage();
+      updateCurrentUser(userProfileData);
       renderAccountInfo();
       firstNameInput.disabled = true;
       lastNameInput.disabled = true;
@@ -291,7 +306,7 @@ function renderWishlist() {
     } else {
       userProfileData.addresses.push(addressData);
     }
-    saveToLocalStorage();
+    updateCurrentUser(userProfileData);
     renderAddresses();
     this.style.display = "none";
   });
@@ -301,7 +316,7 @@ function renderWishlist() {
     if (e.target.classList.contains("delete-address-btn")) {
       if (confirm("Are you sure?")) {
         userProfileData.addresses.splice(index, 1);
-        saveToLocalStorage();
+        updateCurrentUser(userProfileData);
         renderAddresses();
       }
     }
@@ -370,7 +385,7 @@ function renderWishlist() {
       cardHolder: this.querySelector("#cardName").value,
     };
     userProfileData.cards.push(newCard);
-    saveToLocalStorage();
+    updateCurrentUser(userProfileData);
     renderCards();
     this.style.display = "none";
     alert("Card added successfully!");
@@ -380,7 +395,7 @@ function renderWishlist() {
     if (e.target.classList.contains("delete-card-btn")) {
       if (confirm("Are you sure?")) {
         userProfileData.cards.splice(e.target.getAttribute("data-index"), 1);
-        saveToLocalStorage();
+        updateCurrentUser(userProfileData);
         renderCards();
       }
     }
@@ -451,7 +466,7 @@ function renderWishlist() {
     }
 
     userProfileData.password = newPasswordInput.value;
-    saveToLocalStorage();
+    updateCurrentUser(userProfileData);
     alert("Password changed successfully!");
     this.reset();
     strengthFeedback.textContent = "";
@@ -481,7 +496,7 @@ document.getElementById('wishlist').addEventListener('click', function (e) {
             
             userProfileData.favourites.splice(index, 1);
             
-            saveToLocalStorage(); 
+            updateCurrentUser(userProfileData); 
             
             renderWishlist();     
         }
@@ -520,7 +535,7 @@ document.getElementById('wishlist').addEventListener('click', function (e) {
             .then((data) => {
                 userProfileData = data;
                 console.log("User data fetched from data.json:", userProfileData);
-                saveToLocalStorage();
+                updateCurrentUser(userProfileData);
                 renderAccountInfo();
                 renderAddresses();
                 renderCards();

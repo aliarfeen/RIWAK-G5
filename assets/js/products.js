@@ -1,3 +1,14 @@
+
+function updateCurrentUser(userData) {
+  localStorage.setItem("current_user", JSON.stringify(userData));
+  let allUsers = JSON.parse(localStorage.getItem("users")) || [];
+  const userIndex = allUsers.findIndex(u => u.userId === userData.userId);
+  if (userIndex > -1) {
+    allUsers[userIndex] = userData;
+    localStorage.setItem("users", JSON.stringify(allUsers));
+  }
+}
+
 window.addEventListener("load", function () {
   // of json product
   targetdiv = document.getElementById("targetdiv");
@@ -224,6 +235,23 @@ function filterProductsByCategory() {
 // wishlist
 let currentUser = JSON.parse(localStorage.getItem("current_user"));
 
+// function addToFav(product) {
+//   if (!currentUser) {
+//     const logInRequiredModal = new bootstrap.Modal(
+//       document.getElementById("logInRequiredModal")
+//     );
+//     logInRequiredModal.show();
+//   } else {
+//     let fav = currentUser.favourites || [];
+//     let isFound = fav.find((e) => e.id == product.id);
+//     if (!isFound) {
+//       fav.push(product);
+//       currentUser.favourites = fav;
+//       localStorage.setItem("current_user", JSON.stringify(currentUser));
+//     }
+//   }
+// }
+// الكود الجديد والصحيح
 function addToFav(product) {
   if (!currentUser) {
     const logInRequiredModal = new bootstrap.Modal(
@@ -236,7 +264,7 @@ function addToFav(product) {
     if (!isFound) {
       fav.push(product);
       currentUser.favourites = fav;
-      localStorage.setItem("current_user", JSON.stringify(currentUser));
+      updateCurrentUser(currentUser); // <--- هذا هو التعديل الصحيح
     }
   }
 }
