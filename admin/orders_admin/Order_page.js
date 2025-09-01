@@ -144,21 +144,19 @@
             statusEl.textContent = newStatus.toUpperCase();
 
             let orderId = currentOrderEl.querySelector(".order_id h4").textContent.replace("#", "");
-
             let orderObj = orders.find(o => o.id == orderId);
             if (orderObj) {
                 orderObj.status = newStatus;
             }
 
-            update.style.display = "none"; 
-
             // Save In localStorare:
             localStorage.setItem("orders", JSON.stringify(orders));
-            // orders = buildOrders(orders);
-            
+
+            orders = buildOrders(orders);
             Orders(orders);
 
 
+            update.style.display = "none"; 
         }
     });
 

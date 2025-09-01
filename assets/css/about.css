@@ -6,9 +6,11 @@
     object-position:right;
 }
 
+
 .text {
     width:94vw; /*78rem;*/
     font-family: "Roboto";
+    
 }
 
 body {

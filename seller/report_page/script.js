@@ -1,64 +1,46 @@
-
 let currentSeller = localStorage.getItem("current_seller");
 
 if (!currentSeller) {
-  
-window.location.href = "../dashboard/login.html";
-} 
+  window.location.href = "../dashboard/login.html";
+}
 
+(function loadSellerName() {
+  let sellers = JSON.parse(localStorage.getItem("sellers")) || [];
+  let currentSeller = localStorage.getItem("current_seller");
+  currentSeller = currentSeller ? JSON.parse(currentSeller) : null;
 
+  let seller = sellers.find(s => s.id == currentSeller?.id);
 
-
-
-fetch("/assets/json/sellers.json")
-  .then(res => res.json())
-  .then(sellers => {
-    let currentSeller = localStorage.getItem("current_seller");
-    currentSeller = currentSeller ? JSON.parse(currentSeller) : null;
-
-    let seller = sellers.find(s => s.id == currentSeller?.id);
-
-    let nameDiv = document.getElementById("name");
-    if (nameDiv) {
-      nameDiv.textContent = seller ? seller.name : "Unknown Seller";
-    }
-  })
-  .catch(err => console.error("Error loading sellers:", err));
-
-
-
-
-
+  let nameDiv = document.getElementById("name");
+  if (nameDiv) {
+    nameDiv.textContent = seller ? seller.name : "Unknown Seller";
+  }
+})();
 
 
 async function salesReport() {
-  
   let currentSeller = localStorage.getItem("current_seller");
- 
-    currentSeller = JSON.parse(currentSeller);
+  currentSeller = JSON.parse(currentSeller);
 
-  
-  let response = await fetch("/assets/json/products.json");
-  let data = await response.json();
+  // المنتجات من localStorage بدل fetch
+  let data = JSON.parse(localStorage.getItem("products")) || [];
 
-  
   let sellerProducts = data.filter(
     p => p.sellerId == currentSeller.id && p.orderedItems > 0
   );
 
   if (sellerProducts.length === 0) {
-    console.warn("⚠️ مفيش منتجات للبائع ده");
+ 
     let tbody = document.querySelector("#first-table");
     if (tbody) {
       let row = document.createElement("tr");
-      row.innerHTML = `<td colspan="11" style="text-align:center; color:gray;">⚠️ مفيش منتجات للبائع ده</td>`;
+      row.innerHTML = `<td colspan="11" style="text-align:center; color:gray;">مفيش منتجات للبائع ده</td>`;
       tbody.appendChild(row);
     }
     return;
   }
 
-  console.log("✅ منتجات البائع:", sellerProducts);
-
+  
 
   let tbody = document.querySelector("#first-table");
   let totalRev = [];
@@ -88,7 +70,6 @@ async function salesReport() {
     tbody.appendChild(row);
   });
 
- 
   let ravenueHeader = document.getElementById("ravenueHeader");
   sellerProducts.forEach(p => {
     let th = document.createElement("th");
@@ -127,12 +108,7 @@ async function salesReport() {
 
 salesReport();
 
-
-
 document.getElementById("logoutBtn").addEventListener("click", function () {
- 
   localStorage.removeItem("current_seller");
-  
-
   window.location.href = "../dashboard/login.html";
 });
