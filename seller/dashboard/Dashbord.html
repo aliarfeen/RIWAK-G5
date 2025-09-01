@@ -39,7 +39,7 @@
         
         <div class="row g-3 mb-4">
           <div class="col-6 col-md-4 col-lg-2">
-            <div class="card text-center text-white shadow card1">
+            <div class=" text-center text-white shadow card1 same">
               <div class="card-body">
                 <h5>Total Products</h5>
                 <p class="fs-4" id="totalProducts">0</p>
@@ -47,7 +47,7 @@
             </div>
           </div>
           <div class="col-6 col-md-4 col-lg-2">
-            <div class="card text-center text-white shadow card2">
+            <div class=" text-center text-white shadow card2 same">
               <div class="card-body">
                 <h5>Total Revenue</h5>
                 <p class="fs-4" id="totalRevenue">0</p>
@@ -55,7 +55,7 @@
             </div>
           </div>
           <div class="col-6 col-md-4 col-lg-2">
-            <div class="card text-center text-white shadow card3">
+            <div class=" text-center text-white shadow card3 same">
               <div class="card-body">
                 <h5>Top Product</h5>
                 <p class="fs-5" id="topProduct">-</p>
@@ -63,7 +63,7 @@
             </div>
           </div>
           <div class="col-6 col-md-4 col-lg-2">
-            <div class="card text-center text-white shadow card4">
+            <div class="text-center text-white shadow card4 same">
               <div class="card-body">
                 <h5>Out of Stock</h5>
                 <p class="fs-4" id="outOfStock">0</p>
@@ -71,7 +71,7 @@
             </div>
           </div>
           <div class="col-6 col-md-4 col-lg-2">
-            <div class="card text-center text-white shadow card5">
+            <div class=" text-center text-white shadow card5 same">
               <div class="card-body">
                 <h5>Low Stock</h5>
                 <p class="fs-4" id="lowStock">0</p>
@@ -98,6 +98,39 @@
               </div>
             </div>
           </div>
+          <!-- Low Stock & Top Products Sections -->
+<div class="row g-4 mt-2">
+  
+  <div class="col-md-6">
+    <div class="card shadow">
+      <div class="card-body">
+        <h5 class="card-title">
+          <i class="fa-solid fa-boxes-stacked text-warning"></i> Low Stock Items
+        </h5>
+        <div id="lowStockList">
+          
+          <p class="text-muted">No low stock items</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+  <div class="col-md-6">
+    <div class="card shadow">
+      <div class="card-body">
+        <h5 class="card-title">
+          <i class="fa-solid fa-star text-success"></i> Top Products
+        </h5>
+        <div id="topProductsList">
+       
+          <p class="text-muted">No top products yet</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
         </div>
       </div>
     </div>

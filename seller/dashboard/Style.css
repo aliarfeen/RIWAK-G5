@@ -120,3 +120,31 @@ hr{
 .form-control{
     margin-bottom: 10px;
 }
+
+.same{
+     
+            background-color: var(--prem);
+            padding: 25px 30px;
+            border-radius: 30px;
+            height: 120px !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            box-shadow: none;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+      
+}
+.same h5{
+  margin-bottom: 0;
+  color: var(--sec);
+}
+.same .special{
+  margin-bottom: 20px !important;
+}
+.same p{
+  margin-bottom: 0;
+}
+.same:hover {
+            transform: scale(1.05);
+        }

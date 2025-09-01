@@ -108,68 +108,161 @@ else if (window.location.pathname.toLowerCase().includes("dashbord.html") || win
 
 
 
-function updateDashboard(sellerId) {
-    const products = JSON.parse(localStorage.getItem("products")) || [];
-    const sellers = JSON.parse(localStorage.getItem("sellers")) || [];
-    const sellerProducts = products.filter(p => p.sellerId == sellerId);
-    const productStats = sellerProducts.map(p => ({
-        name: p.name,
-        quantity: p.totalQuantity,
-        ordered: p.orderedItems,
-        revenue: p.price * p.orderedItems
-    }));
-    const seller = sellers.find(s => s.id == sellerId);
+
+function updateDashboard(sellerIdParam) {
+  try {
     
-    if (document.getElementById("name")) {
-        document.getElementById("name").textContent = seller ? seller.name : "Unknown Seller";
-        document.getElementById("totalProducts").textContent = sellerProducts.length;
-        document.getElementById("totalRevenue").textContent = productStats.reduce((sum, p) => sum + p.revenue, 0).toLocaleString() + " EGP";
-        const top = productStats.reduce((a, b) => (a.ordered > b.ordered ? a : b), { name: "-", ordered: 0 });
-        document.getElementById("topProduct").textContent = top.name;
-        document.getElementById("outOfStock").textContent = productStats.filter(p => p.quantity === 0).length;
-        document.getElementById("lowStock").textContent = productStats.filter(p => p.quantity > 0 && p.quantity < 10).length;
 
-        if (revenueChart) revenueChart.destroy();
-        if (incomeChart) incomeChart.destroy();
-
-        const ctx1 = document.getElementById("revenueChart").getContext("2d");
-        revenueChart = new Chart(ctx1, {
-            type: "pie",
-            data: {
-                labels: productStats.map(p => p.name),
-                datasets: [{
-                    data: productStats.map(p => p.revenue),
-                    backgroundColor: [
-                        "rgba(255, 99, 132, 0.7)",
-                        "rgba(54, 162, 235, 0.7)",
-                        "rgba(255, 206, 86, 0.7)",
-                        "rgba(75, 192, 192, 0.7)",
-                        "rgba(153, 102, 255, 0.7)"
-                    ]
-                }]
-            }
-        });
-
-        const ctx2 = document.getElementById("incomeChart").getContext("2d");
-        incomeChart = new Chart(ctx2, {
-            type: "bar",
-            data: {
-                labels: productStats.map(p => p.name),
-                datasets: [{
-                    label: "Total Income",
-                    data: productStats.map(p => p.revenue),
-                    backgroundColor: "rgba(54, 162, 235, 0.7)"
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: { beginAtZero: true }
-                }
-            }
-        });
+   
+    let sellerId = sellerIdParam;
+    if (!sellerId) {
+      const csRaw = localStorage.getItem("current_seller");
+      if (!csRaw) {
+        console.error("No current_seller in localStorage. Aborting updateDashboard.");
+        console.groupEnd();
+        return;
+      }
+      try {
+        const csParsed = JSON.parse(csRaw);
+       
+        sellerId = csParsed?.id ?? csParsed?.sellerId ?? csParsed;
+      } catch {
+        sellerId = csRaw;
+      }
     }
+ 
+  
+
+   
+    const products = JSON.parse(localStorage.getItem("products")) || [];
+    const sellers  = JSON.parse(localStorage.getItem("sellers"))  || [];
+    console.log("Products length:", products.length, "Sellers length:", sellers.length);
+
+   
+    const sellerProducts = products.filter(p => {
+      
+      return p && p.sellerId != null && String(p.sellerId) == String(sellerId);
+    });
+    
+
+   
+    const productStats = sellerProducts.map(p => {
+      const quantity = p.totalQuantity ?? p.total_quantity ?? p.quantity ?? p.stock ?? 0;
+      const ordered  = p.orderedItems ?? p.ordered_items ?? p.ordered ?? 0;
+      const price    = Number(p.price ?? 0) || 0;
+      const cost     = Number(p.cost ?? 0) || 0;
+      return {
+        id: p.id ?? p.sku ?? null,
+        name: p.name ?? "-",
+        quantity,
+        ordered,
+        price,
+        cost,
+        revenue: price * ordered
+      };
+    });
+
+    const sellerObj = sellers.find(s => String(s.id) == String(sellerId));
+    if (document.getElementById("name")) {
+      document.getElementById("name").textContent = sellerObj ? sellerObj.name : "Unknown Seller";
+      document.getElementById("totalProducts").textContent = sellerProducts.length;
+      document.getElementById("totalRevenue").textContent =
+        (productStats.reduce((sum, x) => sum + x.revenue, 0)).toLocaleString() + " EGP";
+
+      const top = productStats.reduce((a, b) => (a.ordered > b.ordered ? a : b), { name: "-", ordered: 0 });
+      document.getElementById("topProduct").textContent = top.name || "-";
+      document.getElementById("outOfStock").textContent = productStats.filter(p => (p.quantity || 0) === 0).length;
+      document.getElementById("lowStock").textContent = productStats.filter(p => (p.quantity || 0) > 0 && (p.quantity || 0) < 10).length;
+    } else {
+      console.warn("#name element not found in DOM");
+    }
+
+    
+    if (document.getElementById("revenueChart") && typeof Chart !== "undefined") {
+      if (window.revenueChart) { try { window.revenueChart.destroy(); } catch(e){} }
+      const ctx1 = document.getElementById("revenueChart").getContext("2d");
+      window.revenueChart = new Chart(ctx1, {
+        type: "pie",
+        data: {
+          labels: productStats.map(p => p.name),
+          datasets: [{ data: productStats.map(p => p.revenue), backgroundColor: ["rgba(255,99,132,0.7)","rgba(54,162,235,0.7)","rgba(255,206,86,0.7)","rgba(75,192,192,0.7)","rgba(153,102,255,0.7)"] }]
+        }
+      });
+    } else {
+      console.warn("revenueChart element not found or Chart.js missing");
+    }
+
+    if (document.getElementById("incomeChart") && typeof Chart !== "undefined") {
+      if (window.incomeChart) { try { window.incomeChart.destroy(); } catch(e){} }
+      const ctx2 = document.getElementById("incomeChart").getContext("2d");
+      window.incomeChart = new Chart(ctx2, {
+        type: "bar",
+        data: {
+          labels: productStats.map(p => p.name),
+          datasets: [{ label: "Total Income", data: productStats.map(p => p.revenue), backgroundColor: "rgba(54,162,235,0.7)" }]
+        },
+        options: { responsive: true, scales: { y: { beginAtZero: true } } }
+      });
+    } else {
+      console.warn("incomeChart element not found or Chart.js missing");
+    }
+
+   
+    let lowStockListEl = document.getElementById('lowStockList');
+    if (!lowStockListEl) {
+      const main = document.querySelector('.main-content') || document.body;
+      const wrapper = document.createElement('div');
+      wrapper.className = 'card shadow my-3';
+      wrapper.innerHTML = `<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-boxes-stacked text-warning"></i> Low Stock Items</h5><div id="lowStockList"></div></div>`;
+      main.appendChild(wrapper);
+      lowStockListEl = document.getElementById('lowStockList');
+      console.warn("Created fallback #lowStockList in DOM");
+    }
+
+    const LOW_STOCK_THRESHOLD = 10;
+    const lowStockItems = productStats
+      .filter(p => (p.quantity || 0) > 0 && (p.quantity || 0) <= LOW_STOCK_THRESHOLD)
+      .sort((a,b) => a.quantity - b.quantity);
+
+    lowStockListEl.innerHTML = lowStockItems.length ? lowStockItems.map(p => `
+      <div class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <div class="fw-semibold">${p.name}</div>
+          <div class="text-muted" style="font-size:.95rem">Stock: ${p.quantity}</div>
+        </div>
+        <div class="badge bg-warning text-dark">${p.quantity} left</div>
+      </div>
+    `).join('') : `<div class="text-muted p-3">No low stock items</div>`;
+
+
+    let topProductsListEl = document.getElementById('topProductsList');
+    if (!topProductsListEl) {
+      const main = document.querySelector('.main-content') || document.body;
+      const wrapper2 = document.createElement('div');
+      wrapper2.className = 'card shadow my-3';
+      wrapper2.innerHTML = `<div class="card-body"><h5 class="card-title"><i class="fa-solid fa-star text-success"></i> Top Products</h5><div id="topProductsList"></div></div>`;
+      main.appendChild(wrapper2);
+      topProductsListEl = document.getElementById('topProductsList');
+      console.warn("Created fallback #topProductsList in DOM");
+    }
+
+    const topProducts = [...productStats].sort((a,b) => (b.ordered||0) - (a.ordered||0)).slice(0,5);
+    topProductsListEl.innerHTML = topProducts.length ? topProducts.map(p => `
+      <div class="list-group-item d-flex justify-content-between align-items-center">
+        <div class="item-info">
+          <p class="name mb-1 fw-semibold">${p.name}</p>
+          <p class="details text-muted mb-0">Price: ${p.price.toLocaleString()} EGP</p>
+        </div>
+        <div class="item-metric">${p.ordered} ordered</div>
+      </div>
+    `).join('') : `<div class="text-muted p-3">No top products yet</div>`;
+
+    console.groupEnd();
+  } catch (err) {
+    console.error("updateDashboard error:", err);
+  }
 }
+
 
 function displayProducts(filteredProducts) {
     const currentSeller = JSON.parse(localStorage.getItem("current_seller"));
