@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const orderJson = localStorage.getItem("order_details");
-  const order = JSON.parse(orderJson);
+  const order = JSON.parse(orderJson).order_details;
   console.log(order);
   localStorage.setItem("cart", JSON.stringify([]));
   const orderItems = order.items;

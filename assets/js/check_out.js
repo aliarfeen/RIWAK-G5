@@ -1,5 +1,6 @@
-window.addEventListener("DOMContentLoaded", function () {
   const cart = JSON.parse(localStorage.getItem("cart") || "[]"); // default to []
+
+window.addEventListener("DOMContentLoaded", function () {
   if (cart.length === 0) {
     window.location.href = "home.html";
   }
@@ -187,10 +188,20 @@ confirmOrderBtn.addEventListener("click", function (e) {
     alert("accepted");
     const userJson = localStorage.getItem("current_user");
     const user = JSON.parse(userJson);
+    let allorders = JSON.parse(localStorage.getItem("orders")) || [];
+   let lastOrder = allorders[allorders.length - 1];
+let lastIdNum = 0;
 
-    let orderObj = {
-      id: `${generateUUIDTracking()}`,
-      customerId: user.id,
+if (lastOrder && lastOrder.id) {
+  let parts = lastOrder.id.split("_");
+  if (parts.length > 1 && !isNaN(parts[1])) {
+    lastIdNum = parseInt(parts[1]);
+  }
+}
+
+    let orderObj = {"order_details" :{
+      id: "RIWAK_" + String(lastIdNum + 1).padStart(3, "0"),
+      customerId: user.userId,
       date: `${now.toLocaleString()}`,
       items: orderItems,
       status: `CONFIRMED`,
@@ -207,11 +218,13 @@ confirmOrderBtn.addEventListener("click", function (e) {
       },
       totalAmount: finalTotalVal,
       paymentStatus: `paid`,
-    };
-
-    console.log("orderObj:", orderObj);
+    }};
+      const orders = JSON.parse(localStorage.getItem("orders") || "[]"); 
+    orders.push( orderObj);
+    console.log(orders)
+    localStorage.setItem("orders",JSON.stringify(orders))
+      console.log("orderObj:", orderObj);
     localStorage.setItem("order_details", JSON.stringify(orderObj));
-    this.submit(); 
   }
 });
 
