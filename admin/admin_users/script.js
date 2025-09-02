@@ -20,32 +20,36 @@ el.textContent = el.textContent.replace("Customer", "Seller");
 });
 
 //json into local storage
-async function sellersToLocalStorage() {
-let sellersResponse = await fetch("sellers.json");
-let sellersData = await sellersResponse.json();
-localStorage.setItem("sellersData", JSON.stringify(sellersData));
-return sellersData;
-};
+
+// async function sellersToLocalStorage() {
+// let sellersResponse = await fetch("sellers.json");
+// let sellersData = await sellersResponse.json();
+// localStorage.setItem("sellersData", JSON.stringify(sellersData));
+// return sellersData;
+// };
+
+// let sellersData =JSON.parse(localStorage.getItem("sellers"));
+// let usersData =JSON.parse(localStorage.getItem("users"));
 
 
-async function usersToLocalStorage() {
-let usersResponse = await fetch("users.json");
-let usersData = await usersResponse.json();
-localStorage.setItem("usersData", JSON.stringify(usersData));
-return usersData;
-};
+// async function usersToLocalStorage() {
+// let usersResponse = await fetch("users.json");
+// let usersData = await usersResponse.json();
+// localStorage.setItem("usersData", JSON.stringify(usersData));
+// return usersData;
+// };
 
 async function All() {
-    let sellers = JSON.parse(localStorage.getItem("sellersData"));
-    if (!sellers){
-        sellers = await sellersToLocalStorage();
-    }
+    let sellers = JSON.parse(localStorage.getItem("sellers"));
+    // if (!sellers){
+    //     sellers = await sellersToLocalStorage();
+    // }
     sellersGrid(sellers);
 
-    let users = JSON.parse(localStorage.getItem("usersData"));
-    if(!users){
-        users = await usersToLocalStorage();
-    }
+    let users = JSON.parse(localStorage.getItem("users"));
+    // if(!users){
+    //     users = await usersToLocalStorage();
+    // }
     usersGrid(users);
 }
 
@@ -93,6 +97,7 @@ sellers.forEach((seller, i) => {
  }
 
 
+
 function usersGrid(users){
 let usersBody = document.getElementById("customersBody");
 usersBody.innerHTML="";
@@ -129,18 +134,18 @@ users.forEach((user, i) => {
 //delete
 function deleteSeller(i) {
   if (confirm("Are you sure you want to delete this seller?")) {
-    let sellers = JSON.parse(localStorage.getItem("sellersData")) || [];
+    let sellers = JSON.parse(localStorage.getItem("sellers")) || [];
     sellers.splice(i, 1);
-    localStorage.setItem("sellersData", JSON.stringify(sellers));
+    localStorage.setItem("sellers", JSON.stringify(sellers));
     sellersGrid(sellers);
   }
 }
 
 function deleteUser(i) {
   if (confirm("Are you sure you want to delete this user?")) {
-    let users = JSON.parse(localStorage.getItem("usersData")) || [];
+    let users = JSON.parse(localStorage.getItem("users")) || [];
     users.splice(i, 1);
-    localStorage.setItem("usersData", JSON.stringify(users));
+    localStorage.setItem("users", JSON.stringify(users));
     usersGrid(users);
   }
 }
@@ -181,11 +186,11 @@ let messageDiv = document.getElementById("messageDiv");
    let filtered = [];
 
   if (activeTab === "sellersGrid") {
-    let sellers = JSON.parse(localStorage.getItem("sellersData")) || [];
+    let sellers = JSON.parse(localStorage.getItem("sellers")) || [];
     filtered = sellers.filter(s => s.name.toLowerCase().includes(query));
     sellersGrid(filtered);
   } else if (activeTab === "customersGrid") {
-    let users = JSON.parse(localStorage.getItem("usersData")) || [];
+    let users = JSON.parse(localStorage.getItem("users")) || [];
     filtered = users.filter(u => u.name.toLowerCase().includes(query));
     usersGrid(filtered);
   }
@@ -233,7 +238,7 @@ function openEditModal(type, i) {
   editIndex = i;        
   currentType = type;
 
-  let list = JSON.parse(localStorage.getItem(type + "Data")) || [];
+  let list = JSON.parse(localStorage.getItem(type)) || [];
   let item = list[i];
 
   // placeholder with values
@@ -336,7 +341,7 @@ document.querySelector("#editAddModal form").addEventListener("submit", function
   let country = document.getElementById("Country").value;
   let zip = document.getElementById("Zip").value;
 
-  let list = JSON.parse(localStorage.getItem(currentType + "Data")) || [];
+  let list = JSON.parse(localStorage.getItem(currentType)) || [];
 
   if (editIndex === null) {
     // add
@@ -371,7 +376,7 @@ document.querySelector("#editAddModal form").addEventListener("submit", function
     }
   }
 
-  localStorage.setItem(currentType + "Data", JSON.stringify(list));
+  localStorage.setItem(currentType, JSON.stringify(list));
 
   // refresh grids
   if (currentType === "sellers") sellersGrid(list);

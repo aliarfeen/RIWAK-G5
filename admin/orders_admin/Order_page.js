@@ -11,11 +11,15 @@
 
 // get data from file json (orders.json):
 
-Promise.all([
-    fetch("orders_new.json").then(res => res.json()),
-    fetch("sellers.json").then(res => res.json())
-])
-.then(([ordersData, sellersData]) => {
+// Promise.all([
+//     fetch("orders_new.json").then(res => res.json()),
+//     fetch("sellers.json").then(res => res.json())
+// ])
+// .then(([ordersData, sellersData]) => {
+
+
+    let ordersData = JSON.parse(localStorage.getItem("orders"));
+    let sellersData = JSON.parse(localStorage.getItem("sellers"));
 
     console.log(ordersData);
     
@@ -31,21 +35,23 @@ Promise.all([
     });
 
 
-    // .........Convert object to array : 
+    // // .........Convert object to array : 
 
-    let orders = ordersData.map(item => {
-        let order = item.order_details;
-        return {
-            id: order.id,
-            date: order.date,
-            items: order.items || [],
-            totalAmount: order.totalAmount,
-            paymentStatus: order.paymentStatus,
-            status: order.status || (order.items[0]?.status || "pending")
-        };
-    });
+    function buildOrders(data) {
+        return data.map(item => {
+            let order = item.order_details;
+            return {
+                id: order.id,
+                date: order.date,
+                items: order.items || [],
+                totalAmount: order.totalAmount,
+                paymentStatus: order.paymentStatus,
+                status: order.status || (order.items[0]?.status || "pending")
+            };
+        });
+    }
 
-    console.log(orders);
+    let orders = buildOrders(ordersData);
 
 
     // Function for Render Ordars ::
@@ -138,14 +144,26 @@ Promise.all([
             statusEl.textContent = newStatus.toUpperCase();
 
             let orderId = currentOrderEl.querySelector(".order_id h4").textContent.replace("#", "");
+            console.log(orders)
             let orderObj = orders.find(o => o.id == orderId);
             if (orderObj) {
                 orderObj.status = newStatus;
             }
 
+            // Save In localStorare:
+            localStorage.setItem("orders", JSON.stringify(orders));
+
+            orders = buildOrders(orders);
+            Orders(orders);
+
+
             update.style.display = "none"; 
+
         }
     });
+
+
+
 
     // Cancel Btn
     cancelBtn.addEventListener("click", () => {
@@ -246,6 +264,9 @@ Promise.all([
         sellerFilter.appendChild(option);
     });
 
+
+
+
     // Event
     sellerFilter.addEventListener("change", (e) => {
         let selectedSeller = e.target.value;
@@ -286,9 +307,9 @@ Promise.all([
         Orders(orders);
     });
 
-})
+// })
 
-    .catch(error => console.error("Error loading:", error));
+    // .catch(error => console.error("Error loading:", error));
 
 
 
