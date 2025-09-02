@@ -10,7 +10,6 @@
   --sec: #cecac1;
   --white: #fefcfb;
 }
-
  tbody tr:nth-child(even) {
   background-color:  #CECAC1ff                 
 }
@@ -26,6 +25,8 @@
     }
 
 }
+
+
 .thead2,.thTd{
     background-color:  rgb(68, 68, 68); 
 }

@@ -30,7 +30,8 @@ function displayProducts(filteredProducts) {
     // clear to not override filteredProducts that coming from category filter function
     targetdiv.innerHTML = "";
 
-    products.forEach(product => {
+    products
+  .filter(product => product.current_status !== "binding"  && product.current_status !== "rejected").forEach(product => {
         // button for status
         let status, statusClass;
 

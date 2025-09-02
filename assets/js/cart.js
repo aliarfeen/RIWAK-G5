@@ -42,7 +42,7 @@ function renderCartItems() {
   cart.map((e) => {
     let quantity = 1;
     var createdtr = document.createElement("tr");
-    e.orderedquantity= quantity;
+    e.orderedquantity ? e.orderedquantity : quantity;
     createdtr.innerHTML = `
       <td>
         <img src=${e.images["0"]} alt="" style="height: 40px; width: 40px;">
@@ -59,18 +59,18 @@ function renderCartItems() {
           }" type="button" class="btn">&minus;</button>
           <button id="quantityvalue${
             e.id
-          }" type="button" class="btn" disabled style="border: none; color: black;">${quantity}</button>
+          }" type="button" class="btn" disabled style="border: none; color: black;">${e.orderedquantity ||quantity}</button>
           <button id="increamentbutton${
             e.id
           }" type="button" class="btn">&plus;</button>
         </div>
       </td>
-      <td id="pricecell${e.id}">${e.price.toFixed(2)} EGP</td>
+      <td id="pricecell${e.id}">${((e.orderedquantity||quantity )* e.price).toFixed(2)} EGP</td>
       <td>`;
 
     tableBody.appendChild(createdtr);
 
-    setupCartItemControls(e, quantity);
+    setupCartItemControls(e, e.orderedquantity);
   });
 }
 

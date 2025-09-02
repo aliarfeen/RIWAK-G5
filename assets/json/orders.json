@@ -23,6 +23,7 @@
           "status": "shipped"
         }
       ],
+      "customerId":"7",
       "shippingInfo": {
         "address": "Cairo, 456 Pyramid St",
         "trackingNumber": "RIWAK-m2n3o4p5q6r7s8t9u0v1w"
@@ -46,6 +47,7 @@
           "status": "delivered"
         }
       ],
+      "customerId":"2",
       "shippingInfo": {
         "address": "Alexandria, 789 Lighthouse Rd",
         "trackingNumber": "RIWAK-z1x2c3v4b5n6m7l8k9j0h"
@@ -69,6 +71,7 @@
           "status": "processing"
         }
       ],
+      "customerId":"4",
       "shippingInfo": {
         "address": "Luxor, 101 Temple St",
         "trackingNumber": "RIWAK-g5f4d3s2a1q9w8e7r6t5"
@@ -101,6 +104,7 @@
           "status": "pending"
         }
       ],
+      "customerId":"9",
       "shippingInfo": {
         "address": "Aswan, 202 Dam Rd",
         "trackingNumber": "RIWAK-z8x7c6v5b4n3m2l1k0j9"
@@ -112,6 +116,7 @@
   {
     "order_details": {
       "id": "RIWAK_016",
+
       "date": "8/29/2025, 8:00:00 AM",
       "items": [
         {
@@ -133,6 +138,7 @@
           "status": "shipped"
         }
       ],
+      "customerId":"3",
       "shippingInfo": {
         "address": "Fayoum, 303 Lake Rd",
         "trackingNumber": "RIWAK-t5y4u3i2o1p0q9w8e7r6"
@@ -165,6 +171,7 @@
           "status": "pending"
         }
       ],
+      "customerId":"5",
       "shippingInfo": {
         "address": "Ismailia, 404 Canal Dr",
         "trackingNumber": "RIWAK-h9j8k7l6m5n4b3v2c1x0"
@@ -188,6 +195,7 @@
           "status": "delivered"
         }
       ],
+      "customerId":"3",
       "shippingInfo": {
         "address": "Minya, 505 Museum Rd",
         "trackingNumber": "RIWAK-p0o9i8u7y6t5r4e3w2q1"
@@ -220,6 +228,7 @@
           "status": "processing"
         }
       ],
+      "customerId":"2",
       "shippingInfo": {
         "address": "Suez, 606 Port Rd",
         "trackingNumber": "RIWAK-m3n4b5v6c7x8z9l0k1j2"
@@ -261,6 +270,7 @@
           "status": "pending"
         }
       ],
+      "customerId":"1",
       "shippingInfo": {
         "address": "Port Said, 707 Canal St",
         "trackingNumber": "RIWAK-f2g3h4j5k6l7m8n9o0p1"
@@ -293,6 +303,7 @@
           "status": "shipped"
         }
       ],
+      "customerId":"1",
       "shippingInfo": {
         "address": "Shubra El Kheima, 808 Factory Rd",
         "trackingNumber": "RIWAK-1q2w3e4r5t6y7u8i9o0p"

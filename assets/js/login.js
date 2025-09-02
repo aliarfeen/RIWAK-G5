@@ -90,10 +90,13 @@ loginForm.addEventListener("submit", (e) => {
         );
 
         if (account) {
-            localStorage.setItem("current_user", JSON.stringify(account));
-
             // التوجيه حسب الدور
-            if (account.role === "seller") {
+            if(account.role ==="user"){
+                
+            localStorage.setItem("current_user", JSON.stringify(account));
+                window.location.href = "home.html"; 
+
+            }else if (account.role === "seller") {
                 localStorage.setItem("current_seller", JSON.stringify(account));
                 window.location.href = "../../seller/dashboard/dashbord.html";
             } else if (account.role === "admin") {
