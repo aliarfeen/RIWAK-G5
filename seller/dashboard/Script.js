@@ -1,6 +1,11 @@
+/* script.js — Consolidated for dashboard / products pages
+   - يعتمد كليًا على localStorage
+   - يعرض المنتجات المعتمدة للبائع الحالي
+   - أي إضافة/تعديل => current_status = "binding"
+   - يعرض binding و rejected في تاب منفصل
+*/
 
-
-
+/* ---------- Helpers ---------- */
 function safeParse(json) {
     try { return JSON.parse(json); } catch { return null; }
 }
@@ -8,12 +13,11 @@ function getCurrentSeller() {
     const raw = localStorage.getItem("current_seller");
     if (!raw) return null;
     const parsed = safeParse(raw);
-    
+    // support both {id:...} or a primitive id stored
     if (parsed && typeof parsed === "object") return parsed;
     return { id: parsed };
 }
 function ensureLocalStorageKeys() {
-    
     if (!localStorage.getItem("products")) localStorage.setItem("products", JSON.stringify([]));
     if (!localStorage.getItem("sellers")) localStorage.setItem("sellers", JSON.stringify([]));
     if (!localStorage.getItem("admins")) localStorage.setItem("admins", JSON.stringify([]));
@@ -30,16 +34,17 @@ if (window.location.pathname.toLowerCase().includes("dashbord.html") ||
     window.addEventListener('load', function () {
         ensureLocalStorageKeys();
 
+        // ⚠️ WARNING: Removed login redirection for testing purposes
         const currentSeller = getCurrentSeller();
         if (!currentSeller) {
-            // لو مش متسجل، نروح للـ login
-            try { window.location.href = "../Login.html"; } catch (e) { }
-            return;
+            console.warn("No seller logged in. Some features may not work as expected.");
+            // You may want to create a mock seller for testing if needed
+            // const currentSeller = { id: 1, name: "Test Seller" };
         }
 
         // set name in sidebar if موجود
         const sellers = safeParse(localStorage.getItem("sellers")) || [];
-        const sellerObj = sellers.find(s => String(s.id) === String(currentSeller.id));
+        const sellerObj = currentSeller ? sellers.find(s => String(s.id) === String(currentSeller.id)) : null;
         const nameEl = document.getElementById("name");
         if (nameEl) nameEl.textContent = sellerObj ? sellerObj.name : "Unknown Seller";
 
@@ -66,7 +71,7 @@ if (window.location.pathname.toLowerCase().includes("dashbord.html") ||
         // عرض المنتجات و إحصائيات
         displayProducts();
         displayBindingAndRejected();
-        updateDashboard(currentSeller.id);
+        updateDashboard(currentSeller ? currentSeller.id : null);
 
         // logout handler
         const logoutBtn = document.getElementById("logoutBtn");
