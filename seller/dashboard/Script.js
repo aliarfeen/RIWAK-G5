@@ -12,56 +12,56 @@ let targetdiv = null;
 
 // The script runs on both Login.html and Dashbord.html.
 // This block handles the login logic on the Login page.
-if (window.location.pathname.toLowerCase().includes("login.html")) {
-    const form = document.getElementById('loginForm');
-    if (form) {
-        form.querySelectorAll('input').forEach(el => {
-            el.addEventListener('input', () => {
-                if (el.checkValidity()) {
-                    el.classList.remove('is-invalid');
-                    el.classList.add('is-valid');
-                } else {
-                    el.classList.remove('is-valid');
-                }
-            });
-        });
+// if (window.location.pathname.toLowerCase().includes("login.html")) {
+//     const form = document.getElementById('loginForm');
+//     if (form) {
+//         form.querySelectorAll('input').forEach(el => {
+//             el.addEventListener('input', () => {
+//                 if (el.checkValidity()) {
+//                     el.classList.remove('is-invalid');
+//                     el.classList.add('is-valid');
+//                 } else {
+//                     el.classList.remove('is-valid');
+//                 }
+//             });
+//         });
 
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-            const email = document.getElementById("email").value.trim();
-            const password = document.getElementById("password").value.trim();
-            const storedSellers = JSON.parse(localStorage.getItem("sellers")) || [];
-            const seller = storedSellers.find(s => s.email === email && s.password === password);
+//         form.addEventListener('submit', function (e) {
+//             e.preventDefault();
+//             const email = document.getElementById("email").value.trim();
+//             const password = document.getElementById("password").value.trim();
+//             const storedSellers = JSON.parse(localStorage.getItem("sellers")) || [];
+//             const seller = storedSellers.find(s => s.email === email && s.password === password);
 
-            if (!seller) {
-                alert("Account not exist!");
-                return;
-            }
+//             if (!seller) {
+//                 alert("Account not exist!");
+//                 return;
+//             }
 
-            localStorage.setItem("current_seller", JSON.stringify({
-                id: seller.id,
-                email: seller.email
-            }));
+//             localStorage.setItem("current_seller", JSON.stringify({
+//                 id: seller.id,
+//                 email: seller.email
+//             }));
             
-            // This is the corrected redirection path
-            window.location.href = "dashbord.html"; 
-            alert("Login successful!");
-        }, false);
-    }
+//             // This is the corrected redirection path
+//             window.location.href = "dashbord.html"; 
+//             alert("Login successful!");
+//         }, false);
+//     }
 
-    const pwd = document.getElementById('password');
-    if(pwd){
-        const toggle = document.getElementById('togglePwd');
-        toggle.addEventListener('click', () => {
-            const isHidden = pwd.type === 'password';
-            pwd.type = isHidden ? 'text' : 'password';
-            toggle.innerHTML = isHidden ? '<i class="bi bi-eye-slash"></i>' : '<i class="bi bi-eye"></i>';
-            pwd.focus();
-        });
-    }
-} 
+//     const pwd = document.getElementById('password');
+//     if(pwd){
+//         const toggle = document.getElementById('togglePwd');
+//         toggle.addEventListener('click', () => {
+//             const isHidden = pwd.type === 'password';
+//             pwd.type = isHidden ? 'text' : 'password';
+//             toggle.innerHTML = isHidden ? '<i class="bi bi-eye-slash"></i>' : '<i class="bi bi-eye"></i>';
+//             pwd.focus();
+//         });
+//     }
+// } 
 // This block handles the dashboard and products logic on the Dashbord page.
-else if (window.location.pathname.toLowerCase().includes("dashbord.html") || window.location.pathname.toLowerCase().includes("products.html")) {
+ if (window.location.pathname.toLowerCase().includes("dashbord.html") || window.location.pathname.toLowerCase().includes("products.html")) {
     window.addEventListener('load', function () {
         const currentSeller = JSON.parse(localStorage.getItem("current_seller"));
         if (!currentSeller) {
