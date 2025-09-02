@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     font-family: "Roboto";
-    color: var(--prem);
+    /*color: var(--prem);*/
 }
 
 .zoom-container {
@@ -36,7 +36,7 @@
 }
 
 .progress-bar {
-    background-color: #1D1D1Dff;
+    background-color: #1D1D1Dff !important;
 }
 
 .card-title {
@@ -50,20 +50,20 @@
 
 .carousel-control-prev,
 .carousel-control-next {
-    width: 2.5rem;
+    width: 2.5rem !important;
     height: 2.5rem;
-    top: 50%;
+   top: 50% !important; 
     transform: translateY(-50%);
     background-color: black;
     opacity: 0.8;
 }
 
 .carousel-control-prev {
-    left: -3rem;
+    left: -3rem !important;
 }
 
 .carousel-control-next {
-    right: -3rem;
+    right: -3rem !important;
 
 }
 
@@ -78,8 +78,8 @@
     height: 27rem;
 }
 
-.card {
-    height: 27rem;
+.card-box {
+    height: 27rem !important;
     border: none;
     font-size: 1em;
 }
@@ -95,17 +95,15 @@
 .cardbtns,
 .cardbtns:hover,
 #cardbtns:active {
-    background-color: black;
-    color: white;
+    background-color: black!important;
+    color: white!important;
     border-radius: 0;
 }
 
 .cartBtn {
     width: 15rem;
-
-    
-    background-color: black !important;
-    color: white !important;
+    /*background-color: black;
+    color: white !important;*/
 }
 
 .active {
@@ -113,8 +111,8 @@
 }
 
 .sucess {
-    background-color: #CECAC1ff;
-    color: black;
+    background-color: #CECAC1ff !important;
+    color: black !important;
 }
 
 #stock-status {
@@ -124,18 +122,51 @@
 #quantity-left {
     font-size: 0.9em;
 }
+@media (max-width: 990px) {
+    .counterbtns {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    #cartBtn {
+        display: block;
+        width: 100%;
+        margin-left: 0 !important;
+    }
+
+    .row .col-12.col-lg-2 {
+        margin-left: 0 !important;
+    }
+
+    .thumpnails {
+        flex-direction: row;
+        justify-content: center;
+        gap: 0.4rem;
+
+    }
+
+    .thumb {
+        width: 5.5rem;
+        height: 5rem;
+    }
+
+    .title-box {
+        width: 100%;
+    }
+}
+
 
 @media (max-width: 768px) {
     .carousel-control-prev {
-        left: 0;
+        left: 0 !important;
     }
 
     .carousel-control-next {
-        right: -0.5rem;
+        right: -0.5rem !important;
     }
 
-    .card {
-        height: 27rem;
+    .card-box {
+        height: 27rem !important;
     }
 
     .related-products {
@@ -174,7 +205,7 @@
     .zoom-container {
         width: 100%;
         height: auto;
-        min-height: 75vh;
+       /* min-height: 75vh;*/
         overflow: hidden;
         position: relative;
         margin: 0 auto;

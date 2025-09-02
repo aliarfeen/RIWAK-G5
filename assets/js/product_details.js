@@ -150,8 +150,8 @@ async function loadProducts() {
             };
 
             col.innerHTML = `
-    <div class="card ">
-    <img src="${product.images[0]}" class="card-img-top product-img mb-3" alt="${product.name}" style="cursor: pointer;">
+    <div class="card-box p-1">
+    <img src="${product.images[0]}" class="card-img-top product-img" alt="${product.name}" style="cursor: pointer;">
     <div class="card-body">
       <h5 class="card-title ">${product.name}</h5>
     <span class="small">${starsHtml} <span class="text-muted small">(${product.reviews.total})</span>
@@ -180,8 +180,9 @@ async function loadProducts() {
             btn.classList.toggle("sucess");
             let productId = btn.dataset.id;
 
-            let response = await fetch("products_may.json");
-            let products = await response.json();
+          //  let response = await fetch("products_may.json");
+           // let products = await response.json();
+           let products = JSON.parse(localStorage.getItem("products")) || [];
             let productObj = products.find(p => p.id == productId);
 
 
@@ -221,7 +222,7 @@ mainImg.addEventListener("click", function () {
 
 mainImg.addEventListener("mousemove", function (e) {
     //if click didn't happen the function zoom won't start
-    if (!zooonEnabled) retuen;
+    if (!zooonEnabled) return;  //mispilling, now it's correct
     // get the size (width, height) and position(left and top) of the image
     let dims = mainImg.getBoundingClientRect();
 
@@ -318,7 +319,9 @@ cartBtn.addEventListener("click", () => {
 
     let existingIndex = cart.findIndex(item => item.id === product.id);
     if (existingIndex > -1) {
-        cart[existingIndex].quantity = (cart[existingIndex].quantity || 1) + counterValue;
+      //  cart[existingIndex].quantity = (cart[existingIndex].quantity || 1) + counterValue;
+      cart[existingIndex].quantity = counterValue;
+
     } else {
         cart.push({ ...product, quantity: counterValue });
     }
