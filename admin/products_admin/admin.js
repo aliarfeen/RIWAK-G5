@@ -17,7 +17,7 @@ window.addEventListener('load', function () {
         }
     });
 
-    loadProducts()
+    // loadProducts()
     displayProducts();
     displayRequests();
 
@@ -28,16 +28,17 @@ window.addEventListener('load', function () {
 function loadProducts() {
     // ajax call using xmlhttprequest
     //1- create object from xmlhttprequest
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", "products.json", true);
-    xhr.send('');
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            var result = JSON.parse(xhr.responseText);
-            localStorage.setItem("products", JSON.stringify(result));
-            displayProducts(result);
-        }
-    };//end of load JSON Locally
+    // var xhr = new XMLHttpRequest();
+    // xhr.open("GET", "products.json", true);
+    // xhr.send('');
+    // xhr.onreadystatechange = function () {
+    //     if (xhr.readyState == 4 && xhr.status == 200) {
+    //         var result = JSON.parse(xhr.responseText);
+    //         localStorage.setItem("products", JSON.stringify(result));
+    //         displayProducts(result);
+    //     }
+    // };//end of load JSON Locally
+
 }
 
 function displayProducts(filteredProducts) {
