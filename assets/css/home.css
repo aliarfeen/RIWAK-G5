@@ -23,7 +23,7 @@ h5,p{
     font-size: 30px;
 }
 button{
-  background-color: var(--sec);
+  background-color: var(--prem);
   color: var(--white);
   border: none;
   width: 100px;
