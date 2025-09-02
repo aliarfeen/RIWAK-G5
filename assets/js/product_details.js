@@ -154,7 +154,7 @@ async function loadProducts() {
     <img src="${product.images[0]}" class="card-img-top product-img" alt="${product.name}" style="cursor: pointer;">
     <div class="card-body">
       <h5 class="card-title ">${product.name}</h5>
-    <span class="small">${starsHtml} <span class="text-muted small">(${product.reviews.total})</span>
+    <span class="small">${starsHtml} <span class="text-muted small">(${product.reviews?.total??0})</span>
     </span>
     <p class="card-text m-0"> EGP ${product.price}</p>
     <button id="cardbtns" class="border btn cardbtns w-100" data-id="${product.id}"> Add to cart</button>
