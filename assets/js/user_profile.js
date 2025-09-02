@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
   function saveToLocalStorage() {
     localStorage.setItem("current_user", JSON.stringify(userProfileData));
   }
-
+// الكود الذي يجلب بيانات المستخدم
   function loadFromLocalStorage() {
     const data = localStorage.getItem("current_user");
     if (data) {
@@ -98,9 +98,11 @@ document.addEventListener("DOMContentLoaded", function () {
     let allOrders = JSON.parse(localStorage.getItem("orders")) || [];
 
     // Filter orders for the current user
+    const userProfileData =JSON.parse(localStorage.getItem("current_user"))
     let orders = allOrders.filter(
-      (order) => order.customerId === userProfileData.id
-    );
+  (order) => String(order.order_details.customerId) === String(userProfileData.userId)
+
+);
 
     orderListContainer.innerHTML =
       orders.length === 0 ? "<p>You have no orders yet.</p>" : "";
@@ -125,6 +127,90 @@ document.addEventListener("DOMContentLoaded", function () {
                 </div>`;
     });
   }
+//  يتم استدعاء الكود الذي يجلب بيانات المستخدم
+function renderWishlist() {
+    const wishlistContainer = document.getElementById('wishlist-items-container');
+    if (!wishlistContainer) {
+        console.error("خطأ: لم أجد العنصر id='wishlist-items-container'");
+        return;
+    }
+
+    const wishlist = userProfileData && userProfileData.favourites ? userProfileData.favourites : [];
+    wishlistContainer.innerHTML = ''; 
+
+    if (wishlist.length === 0) {
+        wishlistContainer.innerHTML = '<p class="col-12">The favorites list is currently empty.</p>';
+        return;
+    }
+
+    wishlist.forEach((product, index) => {
+        let productCol = document.createElement("div");
+        productCol.className = "col-lg-4 col-md-6 d-flex justify-content-center my-3";
+
+        let card = document.createElement("div");
+        card.className = "card h-100 d-flex flex-column align-items-center border-0";
+        card.style.width = "18rem";
+
+        let img = document.createElement("img");
+        img.src = product.images[0];
+        img.alt = product.name;
+        
+        img.style.width = "100%";
+        img.style.height = "350px";
+        img.style.objectFit = "contain";
+        img.style.padding = "1rem";
+        img.style.cursor = "pointer";
+
+        img.addEventListener("mouseenter", () => {
+            if (product.images && product.images[1]) {
+                img.src = product.images[1];
+            }
+        });
+        img.addEventListener("mouseleave", () => {
+            img.src = product.images[0];
+        });
+
+        let cardBody = document.createElement("div");
+        cardBody.className = "card-body d-flex flex-column align-items-center text-center";
+
+        let title = document.createElement("h5");
+        title.className = "card-title mb-2";
+        title.textContent = product.name;
+
+        let price = document.createElement("p");
+        price.className = "card-text fw-bold";
+        price.textContent = product.price + " EGP";
+
+        let iconsRow = document.createElement("div");
+        iconsRow.className = "d-flex justify-content-center gap-3 my-2";
+
+        let removeBtn = document.createElement("button");
+        removeBtn.className = "btn btn-light rounded-circle d-flex align-items-center justify-content-center shadow-sm fav wishlist-remove-btn";
+        removeBtn.innerHTML = `<i class="fa fa-trash"></i>`;
+        removeBtn.style.width = "60px";
+        removeBtn.style.height = "60px";
+        removeBtn.title ="Remove from Favorites";
+        removeBtn.setAttribute('data-index', index);
+
+        let cartBtn = document.createElement("button");
+        cartBtn.className = "btn btn-dark rounded-0 d-flex align-items-center justify-content-center shadow-sm cart wishlist-cart-btn";
+        cartBtn.innerHTML = `Add cart ` ;
+        cartBtn.style.width = "120px";
+        cartBtn.style.height = "50px";
+        cartBtn.setAttribute('data-product', JSON.stringify(product));
+
+        // تجميع الكارت
+        iconsRow.appendChild(removeBtn);
+        iconsRow.appendChild(cartBtn);
+        cardBody.appendChild(title);
+        cardBody.appendChild(price);
+        card.appendChild(img);
+        card.appendChild(cardBody);
+        card.appendChild(iconsRow);
+        productCol.appendChild(card);
+        wishlistContainer.appendChild(productCol);
+    });
+}
 
   navLinks.forEach((link) => {
     link.addEventListener("click", function (e) {
@@ -381,28 +467,68 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  function initializePage() {
+function initializePage() {
     const storedData = loadFromLocalStorage();
-    if (storedData) {
-      userProfileData = storedData;
-      renderAccountInfo();
-      renderAddresses();
-      renderCards();
-      renderOrders();
-    } else {
-      fetch("data.json")
-        .then((response) => response.json())
-        .then((data) => {
-          userProfileData = data;
-          saveToLocalStorage();
-          renderAccountInfo();
-          renderAddresses();
-          renderCards();
-          renderOrders();
-        })
-        .catch((error) => console.error("Error loading initial data:", error));
-    }
-  }
 
+document.getElementById('wishlist').addEventListener('click', function (e) {
+    const removeBtn = e.target.closest('.wishlist-remove-btn');
+    
+    const cartBtn = e.target.closest('.wishlist-cart-btn');
+
+    if (removeBtn) {
+        if (confirm('Are you sure you want to remove this product?')) {
+            const index = removeBtn.getAttribute('data-index');
+            
+            userProfileData.favourites.splice(index, 1);
+            
+            saveToLocalStorage(); 
+            
+            renderWishlist();     
+        }
+    }
+
+    // If the clicked element was the add-to-cart button
+    if (cartBtn) {
+        const product = JSON.parse(cartBtn.getAttribute('data-product'));
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let isFound = cart.find((item) => item.id === product.id);
+        if (!isFound) {
+            cart.push(product);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            alert(product.name + " has been added to the cart!");
+        } else {
+            alert(product.name + " is already in the cart.");
+        }
+    }
+});
+
+    // المسار الأول: إذا وجدنا بيانات للمستخدم في الذاكرة
+    if (storedData) {
+        userProfileData = storedData;
+
+        console.log("User data loaded from localStorage:", userProfileData);
+
+        renderAccountInfo();
+        renderAddresses();
+        renderCards();
+        renderOrders();
+        renderWishlist();
+    } 
+    else {
+        fetch("data.json")
+            .then((response) => response.json())
+            .then((data) => {
+                userProfileData = data;
+                console.log("User data fetched from data.json:", userProfileData);
+                saveToLocalStorage();
+                renderAccountInfo();
+                renderAddresses();
+                renderCards();
+                renderOrders();
+                renderWishlist();
+            })
+            .catch((error) => console.error("Error loading initial data:", error));
+    }
+}
   initializePage();
 });
