@@ -191,9 +191,9 @@ async function loadProducts() {
 
             if (btn.classList.contains("sucess")) {
                 if (existingIndex > -1) {
-                    cart[existingIndex].quantity = (cart[existingIndex].quantity || 1) + 1;
+                    cart[existingIndex].orderedquantity = (cart[existingIndex].orderedquantity || 1) + 1;
                 } else {
-                    cart.push({ ...productObj, quantity: 1 });
+                    cart.push({ ...productObj, orderedquantity: 1 });
                 }
                 btn.textContent = "Added";
             } else {
@@ -320,10 +320,10 @@ cartBtn.addEventListener("click", () => {
     let existingIndex = cart.findIndex(item => item.id === product.id);
     if (existingIndex > -1) {
       //  cart[existingIndex].quantity = (cart[existingIndex].quantity || 1) + counterValue;
-      cart[existingIndex].quantity = counterValue;
+      cart[existingIndex].orderedquantity = counterValue;
 
     } else {
-        cart.push({ ...product, quantity: counterValue });
+        cart.push({ ...product, orderedquantity: counterValue });
     }
 
     localStorage.setItem("cart", JSON.stringify(cart));

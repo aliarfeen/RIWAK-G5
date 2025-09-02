@@ -124,7 +124,7 @@ function updateCurrentUser(userData) {
     orders.forEach((order) => {
       let itemsTable =
         '<table class="table table-sm mb-2"><thead><tr><th>Product</th><th>Qty</th><th>Price</th><th>Total</th></tr></thead><tbody>';
-      (order.items || []).forEach((item) => {
+      (order.order_details.items || []).forEach((item) => {
         itemsTable += `<tr><td>${item.name}</td><td>${item.quantity}</td><td>${item.price}</td><td>${item.total}</td></tr>`;
       });
       itemsTable += "</tbody></table>";
