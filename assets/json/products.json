@@ -114,7 +114,7 @@
     "category": "chair",
     "price": 3500,
     "cost": 2450,
-    "orderedItems": 15,
+    "orderedItems": 8,
     "sellerId": 4,
     "rating": 3.5,
        "reviews": {
@@ -128,7 +128,7 @@
       }
     },
     "isFavorite": false,
-    "totalQuantity": 8,
+    "totalQuantity": 15,
     "refund": 1
   },
   {
@@ -246,7 +246,7 @@
     "category": "chair",
     "price": 2500,
     "cost": 1750,
-    "orderedItems": 14,
+    "orderedItems": 10,
     "sellerId": 4,
     "rating": 3.5,
        "reviews": {
@@ -260,7 +260,7 @@
       }
     },
     "isFavorite": false,
-    "totalQuantity": 10,
+    "totalQuantity": 14,
     "refund": 0
   },
   {
@@ -312,7 +312,7 @@
     "category": "chair",
     "price": 4000,
     "cost": 2800,
-    "orderedItems": 6,
+    "orderedItems": 2,
     "sellerId": 3,
     "rating": 3.5,
        "reviews": {
@@ -378,7 +378,7 @@
     "category": "table",
     "price": 2500,
     "cost": 1750,
-    "orderedItems": 17,
+    "orderedItems": 12,
     "sellerId": 4,
     "rating": 3.5,
        "reviews": {
@@ -392,7 +392,7 @@
       }
     },
     "isFavorite": false,
-    "totalQuantity": 12,
+    "totalQuantity": 17,
     "refund": 1
   },
   {
@@ -411,7 +411,7 @@
     "category": "table",
     "price": 4500,
     "cost": 3150,
-    "orderedItems": 13,
+    "orderedItems": 8,
     "sellerId": 2,
     "rating": 3.5,
        "reviews": {
@@ -425,7 +425,7 @@
       }
     },
     "isFavorite": false,
-    "极otalQuantity": 8,
+    "极otalQuantity": 13,
     "refund": 2
   },
   {
@@ -477,7 +477,7 @@
     "category": "table",
     "price": 3000,
     "cost": 2100,
-    "orderedItems": 18,
+    "orderedItems": 17,
     "sellerId": 1,
     "rating": 3.5,
        "reviews": {
@@ -491,7 +491,7 @@
       }
     },
     "isFavorite": false,
-    "totalQuantity": 17,
+    "totalQuantity": 18,
     "refund": 1
   },
   {
@@ -542,7 +542,7 @@
     "category": "table",
     "price": 1500,
     "cost": 1050,
-    "orderedItems": 15,
+    "orderedItems": 9,
     "sellerId": 2,
     "rating": 3.5,
        "reviews": {
@@ -556,7 +556,7 @@
       }
     },
     "isFavorite": false,
-    "totalQuantity": 9,
+    "totalQuantity": 15,
     "refund": 0
   },
   {
@@ -608,7 +608,7 @@
     "category": "table",
     "price": 4500,
     "cost": 3150,
-    "orderedItems": 16,
+    "orderedItems": 14,
     "sellerId": 1,
     "rating": 3.5,
        "reviews": {
@@ -622,7 +622,7 @@
       }
     },
     "isFavorite": false,
-    "totalQuantity": 14,
+    "totalQuantity": 16,
     "refund": 2
   },
   {
@@ -773,7 +773,7 @@
     "category": "armchair",
     "price": 2800,
     "cost": 1960,
-    "orderedItems": 19,
+    "orderedItems": 7,
     "sellerId": 4,
     "rating": 3.5,
        "reviews": {
@@ -787,7 +787,7 @@
       }
     },
     "isFavorite": false,
-    "totalQuantity": 7,
+    "totalQuantity": 19,
     "refund": 1
   },
   {
@@ -839,7 +839,7 @@
     "category": "armchair",
     "price": 2500,
     "cost": 1750,
-    "orderedItems": 15,
+    "orderedItems": 13,
     "sellerId": 3,
     "rating": 3.5,
        "reviews": {
@@ -853,7 +853,7 @@
       }
     },
     "isFavorite": false,
-    "totalQuantity": 13,
+    "totalQuantity": 15,
     "refund": 1
   },
   {
@@ -938,7 +938,7 @@
     "category": "armchair",
     "price": 4500,
     "cost": 3150,
-    "orderedItems": 12,
+    "orderedItems": 10,
     "sellerId": 2,
     "rating": 3.5,
        "reviews": {
@@ -952,7 +952,7 @@
       }
     },
     "isFavorite": false,
-    "totalQuantity": 10,
+    "totalQuantity": 12,
     "refund": 1
   },
   {
@@ -1004,7 +1004,7 @@
     "category": "bed",
     "price": 2000,
     "cost": 1400,
-    "orderedItems": 17,
+    "orderedItems": 15,
     "sellerId": 1,
     "rating": 3.5,
        "reviews": {
@@ -1018,7 +1018,7 @@
       }
     },
     "isFavorite": false,
-    "totalQuantity": 15,
+    "totalQuantity": 17,
     "refund": 0
   },
   {
@@ -1069,7 +1069,7 @@
     "sku": "SKU-BED-033",
     "category": "bed",
     "price": 4500,
-    "orderedItems": 18,
+    "orderedItems": 11,
     "sellerId": 2,
     "rating": 3.5,
        "reviews": {
@@ -1083,7 +1083,7 @@
       }
     },
     "isFavorite": false,
-    "totalQuantity": 11,
+    "totalQuantity": 18,
     "cost": 3600,
     "refund": 1
   },
@@ -1248,7 +1248,7 @@
       }
     },
     "isFavorite": false,
-    "totalQuantity": 13,
+    "totalQuantity": 15,
     "cost": 2400,
     "refund": 2
   },
@@ -1347,7 +1347,7 @@
       }
     },
     "isFavorite": false,
-    "totalQuantity": 14,
+    "totalQuantity": 18,
     "cost": 2800,
     "refund": 1
   },
@@ -1413,7 +1413,7 @@
       }
     },
     "isFavorite": false,
-    "totalQuantity": 9,
+    "totalQuantity": 23,
     "cost": 2000,
     "refund": 0
   },
@@ -1578,7 +1578,7 @@
       }
     },
     "isFavorite": false,
-    "totalQuantity": 8,
+    "totalQuantity": 28,
     "cost": 960,
     "refund": 2
   },
