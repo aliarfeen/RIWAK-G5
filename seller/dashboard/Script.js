@@ -74,13 +74,13 @@ if (window.location.pathname.toLowerCase().includes("dashbord.html") ||
         updateDashboard(currentSeller ? currentSeller.id : null);
 
         // logout handler
-        const logoutBtn = document.getElementById("logoutBtn");
-        if (logoutBtn) {
-            logoutBtn.addEventListener("click", function () {
-                localStorage.removeItem("current_seller");
-                try { window.location.href = "login.html"; } catch (e) { }
-            });
-        }
+         document.getElementById('logoutBtn').addEventListener('click', function(e) { e.preventDefault(); console.log('Logging out...');  
+                localStorage.removeItem('current_seller'); 
+
+            window.location.href = '/home.html'; });
+     
+   
+    
     });
 }
 

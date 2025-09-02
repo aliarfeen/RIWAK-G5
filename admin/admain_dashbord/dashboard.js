@@ -344,5 +344,10 @@ document.addEventListener('DOMContentLoaded', function () {
         const navLinks = document.querySelectorAll('.sidebar .nav-link');
         const pageContents = document.querySelectorAll('.page-content');
         navLinks.forEach(link => { link.addEventListener('click', function() { const targetId = this.getAttribute('data-target'); navLinks.forEach(l=>l.parentElement.classList.remove('active')); pageContents.forEach(p=>p.classList.remove('active')); this.parentElement.classList.add('active'); document.getElementById(targetId).classList.add('active'); }); });
-        document.getElementById('sign-out-btn').addEventListener('click', function(e) { e.preventDefault(); console.log('Logging out...'); window.location.href = 'login.html'; });
+        document.getElementById('sign-out-btn').addEventListener('click', function(e) { e.preventDefault(); console.log('Logging out...');  
+                localStorage.removeItem('current_admin'); 
+
+            window.location.href = '/home.html'; });
+     
+   
     });
