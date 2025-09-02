@@ -114,7 +114,9 @@ function loadProducts() {
 
 function displayProducts(products) {
   targetdiv.innerHTML = "";
-  products.forEach((product) => {
+  products
+  .filter(product => product.current_status !== "binding"  && product.current_status !== "rejected")
+  .forEach(product => {
     let productDiv = document.createElement("div");
     productDiv.className =
       "col-6 col-md-3 d-flex justify-content-center zoom-container my-3";
