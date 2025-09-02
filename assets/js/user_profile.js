@@ -129,19 +129,37 @@ function updateCurrentUser(userData) {
       });
       itemsTable += "</tbody></table>";
       orderListContainer.innerHTML += `
-                <div class="order-item mb-3 p-3 border rounded">
-                    <div class="order-item-header">
-                        <h6 class="mb-0 fw-bold">Order #${order.order_details.id}</h6>
-                        <span class="badge bg-secondary order-status">${order.order_details.items[0].status}</span>
-                    </div>
-                    <div class="order-item-body text-muted">
-                        <p class="mb-1">Date: ${order.order_details.date}</p>
-                        ${itemsTable}
-                        <p class="mb-0">Total: <span class="fw-bold text-dark">${order.order_details.totalAmount}</span></p>
-                    </div>
-                </div>`;
+  <div class="order-item mb-3 p-3 border rounded" data-id="${order.order_details.id}">
+      <div class="order-item-header">
+          <h6 class="mb-0 fw-bold">Order #${order.order_details.id}</h6>
+          <span class="badge bg-secondary order-status">${order.order_details.items[0].status}</span>
+      </div>
+      <div class="order-item-body text-muted">
+          <p class="mb-1">Date: ${order.order_details.date}</p>
+          ${itemsTable}
+          <p class="mb-0">Total: <span class="fw-bold text-dark">${order.order_details.totalAmount}</span></p>
+      </div>
+  </div>`;
+
     });
+    
+ // Use event delegation so it works for dynamically added items
+orderListContainer.addEventListener('click', function (ev) {
+  const itemEl = ev.target.closest('.order-item');
+  if (!itemEl) return;
+
+  const orderId = itemEl.dataset.id;
+  if (!orderId) return;
+
+  // just store the order id
+  localStorage.setItem("current_order_id", orderId);
+
+  // redirect
+  window.location.href = "order_tracker.html";
+});
+
   }
+  
 //  يتم استدعاء الكود الذي يجلب بيانات المستخدم
 function renderWishlist() {
     const wishlistContainer = document.getElementById('wishlist-items-container');
@@ -473,13 +491,31 @@ function renderWishlist() {
   });
 
   //LOGOUT L
-  logoutBtn.addEventListener("click", function (e) {
-    e.preventDefault();
+  // logoutBtn.addEventListener("click", function (e) {
+  //   e.preventDefault();
 
-    if (confirm("Are you sure you want to log out?")) {
-      localStorage.removeItem("current_user");
-      window.location.href = "home.html";
-    }
+  //   if (confirm("Are you sure you want to log out?")) {
+  //     localStorage.removeItem("current_user");
+  //     window.location.href = "home.html";
+  //   }
+  // });
+  
+// log out confirmation massage
+  const confirmLogout = document.getElementById("confirmLogout");
+
+  // Show modal when logout button clicked
+  logoutBtn.addEventListener("click", () => {
+    const modal = new bootstrap.Modal(document.getElementById("logoutModal"));
+    modal.show();
+  });
+
+  // Confirm logout
+  confirmLogout.addEventListener("click", () => {
+    // Clear user session/localStorage
+    localStorage.removeItem("current_user");
+    
+    // Redirect to login page
+    window.location.href = "login.html";
   });
 
 function initializePage() {
@@ -547,3 +583,4 @@ document.getElementById('wishlist').addEventListener('click', function (e) {
 }
   initializePage();
 });
+

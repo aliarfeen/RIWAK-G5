@@ -234,43 +234,38 @@ window.addEventListener("DOMContentLoaded", function () {
       });
 
       // Save Changes
-      saveBtn.addEventListener("click", () => {
-        if (currentOrderEl) {
-          let newStatus = statusSelect.value;
+saveBtn.addEventListener("click", () => {
+  if (currentOrderEl) {
+    let newStatus = statusSelect.value;
 
-          let statusEl = currentOrderEl.querySelector(".order_id p.status");
-          statusEl.className = "status " + newStatus;
-          statusEl.textContent = newStatus.toUpperCase();
+    // update DOM
+    let statusEl = currentOrderEl.querySelector(".order_id p.status");
+    statusEl.className = "status " + newStatus;
+    statusEl.textContent = newStatus.toUpperCase();
 
-          // update localStorage
-          const orderId = currentOrderEl
-            .querySelector(".order_id h4")
-            .textContent.replace("#", "");
-          const allOrders = JSON.parse(localStorage.getItem("orders")) || [];
+    // Extract orderId (e.g. "RIWAK_001-123")
+    const orderKey = currentOrderEl
+      .querySelector(".order_id h4")
+      .textContent.replace("#", "");
+    const [orderId] = orderKey.split("-"); // we only need the order id now
 
-          allOrders.forEach((o) => {
-            if (o.order_details.id === orderId) {
-              o.order_details.items.forEach((item) => {
-                if (
-                  item.sellerId === sellerId &&
-                  item.productId === productId
-                ) {
-                  item.status = newStatus;
-                }
-              });
-            }
-          });
+    // Get all orders from localStorage
+    const allOrders = JSON.parse(localStorage.getItem("orders")) || [];
 
-          localStorage.setItem("orders", JSON.stringify(allOrders));
+    // Find and update order_details.status
+    allOrders.forEach((o) => {
+      if (o.order_details.id === orderId) {
+        o.order_details.status = newStatus; // ✅ update only the order status
+      }
+    });
 
-          update.style.display = "none";
-        }
-      });
+    // Save back to localStorage
+    localStorage.setItem("orders", JSON.stringify(allOrders));
 
-      // Cancel Btn
-      cancelBtn.addEventListener("click", () => {
-        update.style.display = "none";
-      });
+    update.style.display = "none";
+  }
+});
+
     }
   }
 
