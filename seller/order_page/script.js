@@ -39,40 +39,167 @@ window.addEventListener("DOMContentLoaded", function () {
 
         container.innerHTML = "";
         container.innerHTML = "";
-sellerOrders.forEach(order => {
-    const date = new Date(order.date).toLocaleDateString();
 
-    order.items.forEach(item => {
-        const status = item.status ? item.status.toLowerCase() : "pending";
+        sellerOrders.forEach(order => {
 
-        const itemHTML = `
-            <div class="order_list">
-                <div class="order_id">
-                    <h4>#${order.id}-${item.productId}</h4>
-                    <p class="status ${status}">${status.toUpperCase()}</p>
+
+            const date = new Date(order.date).toLocaleDateString();
+
+            order.items.forEach(item => {
+                const status = item.status ? item.status.toLowerCase() : "pending";
+
+                const itemHTML = `
+                    <div class="order_list">
+                        <div class="order_id">
+                            <h4>#${order.id}-${item.productId}</h4>
+                            <p class="status ${status}">${status.toUpperCase()}</p>
+                        </div>
+
+                        <div class="order_data">
+                            <p>Product: ${item.name || "Unknown Product"}</p>
+                            <p><i class="fa-regular fa-calendar"></i> ${date}</p>
+                            <p>Quantity: ${item.quantity || 1}</p>
+                            <p>Price: $${item.price || 0}</p>
+                            <p>Total: $${item.total || 0}</p>
+                            <p>Payment: <span>${order.paymentStatus || "N/A"}</span></p>
+                        </div>
+
+                        <div class="order_icons">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                        </div>
+                    </div>
+                `;
+
+                container.innerHTML += itemHTML;
+            });
+        });
+
+
+
+    // Filter Using ( Status DropDown / Order ID) 
+
+    function renderOrders() {
+
+        let searchValue = document.getElementById("order_search")?.value.toLowerCase() || "";
+        let statusValue = document.querySelector(".dropdown-wrapper select")?.value || "all";
+        let productValue = document.getElementById("product_search")?.value.toLowerCase().trim() || "";
+
+        container.innerHTML = "";
+
+        let matchedItems = [];
+
+        sellerOrders.forEach(order => {
+
+            let filteredItems = order.items.filter(item => {
+
+                // Matching Data (Status / OrderID / ProductName)
+                
+                const matchOrderId = `${order.id}-${item.productId}`.toLowerCase().includes(searchValue);
+                const matchStatus = (statusValue === "all") || item.status.toLowerCase() === statusValue;
+                const matchProduct = (productValue === "") || item.name.toLowerCase().includes(productValue);
+
+                return matchOrderId && matchStatus && matchProduct;
+            });
+
+            filteredItems.forEach(item => matchedItems.push({ order, item }));
+        });
+
+        if (matchedItems.length === 0) {
+            container.innerHTML = `<p style="text-align:center; color:gray;">No orders found.</p>`;
+            return;
+        }
+
+        matchedItems.forEach(({ order, item }) => {
+            const date = new Date(order.date).toLocaleDateString();
+            const status = item.status ? item.status.toLowerCase() : "pending";
+
+            container.innerHTML += `
+                <div class="order_list">
+                    <div class="order_id">
+                        <h4>#${order.id}-${item.productId}</h4>
+                        <p class="status ${status}">${status.toUpperCase()}</p>
+                    </div>
+                    <div class="order_data">
+                        <p>Product: ${item.name}</p>
+                        <p><i class="fa-regular fa-calendar"></i> ${date}</p>
+                        <p>Quantity: ${item.quantity}</p>
+                        <p>Price: $${item.price}</p>
+                        <p>Total: $${item.total}</p>
+                        <p>Payment: <span>${order.paymentStatus}</span></p>
+                    </div>
+                    <div class="order_icons">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </div>
                 </div>
+            `;
+        });
 
-                <div class="order_data">
-                    <p>Product: ${item.name || "Unknown Product"}</p>
-                    <p><i class="fa-regular fa-calendar"></i> ${date}</p>
-                    <p>Qty: ${item.quantity || 1}</p>
-                    <p>Price: $${item.price || 0}</p>
-                    <p>Total: $${item.total || 0}</p>
-                    <p>Payment: <span>${order.paymentStatus || "N/A"}</span></p>
-                </div>
+        // Generate autocomplete options for products
+        const productSet = new Set();
+        orders.forEach(orderWrapper => {
+            orderWrapper.order_details.items.forEach(item => {
+                if (item.sellerId === sellerId) {
+                    productSet.add(item.name);
+                }
+            });
+        });
 
-                <div class="order_icons">
-                    <i class="fa-solid fa-pen-to-square"></i>
-                </div>
-            </div>
-        `;
+        const datalist = document.getElementById("product_list");
+        datalist.innerHTML = ""; 
+        productSet.forEach(productName => {
+            datalist.innerHTML += `<option value="${productName}"></option>`;
+        });
 
-        container.innerHTML += itemHTML;
+
+    }
+
+
+
+
+    renderOrders()
+    
+    // Refresh .....
+    document.getElementById("refresh_btn")?.addEventListener("click", () => {
+        document.getElementById("order_search").value = "";
+        document.getElementById("product_search").value = "";
+        document.querySelector(".dropdown-wrapper select").value = "all";
+
+        renderOrders();
     });
-});
+
+    // Filter Order ID
+    document.getElementById("order_search")?.addEventListener("input", () => {
+        document.querySelector(".dropdown-wrapper select").value = "all"; // reset status
+        document.getElementById("product_search").value = ""; // reset product
+        renderOrders();
+    });
+
+    // Filter Status
+    document.querySelector(".dropdown-wrapper select")?.addEventListener("change", () => {
+        document.getElementById("order_search").value = ""; // reset order id
+        document.getElementById("product_search").value = ""; // reset product
+        renderOrders();
+    });
+
+    // Filter Product Name
+    document.getElementById("product_search")?.addEventListener("input", () => {
+        document.getElementById("order_search").value = ""; // reset order id
+        document.querySelector(".dropdown-wrapper select").value = "all"; // reset status
+        renderOrders();
+    });
 
 
-        // عناصر المودال
+    document.getElementById("order_search")?.addEventListener("input", renderOrders);
+    document.querySelector(".dropdown-wrapper select")?.addEventListener("change", renderOrders);
+    document.getElementById("product_search")?.addEventListener("input", renderOrders);
+    document.getElementById("product_search")?.addEventListener("change", renderOrders);
+
+
+
+
+
+
+        // عناصر المودال Popup ::
         let update = document.getElementById("update_status");
         let cancelBtn = document.getElementById("cancel_btn");
         let saveBtn = document.getElementById("save_btn");
