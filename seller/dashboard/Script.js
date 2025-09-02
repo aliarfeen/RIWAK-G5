@@ -224,7 +224,8 @@ function displayProducts(filteredProducts) {
     }
 
     const allProducts = filteredProducts || safeParse(localStorage.getItem("products")) || [];
-    const filtered = allProducts.filter(p =>
+    const filtered = allProducts
+  .filter(product => product.current_status !== "binding"  && product.current_status !== "rejected").filter(p =>
         String(p.sellerId) === String(currentSeller.id) &&
         (!p.current_status || p.current_status === "approved")
     );
