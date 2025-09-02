@@ -311,8 +311,7 @@ function loadProductToModal(id) {
     const product = products.find(p => String(p.id) === String(id));
     if (!product) return;
 
-    const nameEl = document.getElementById("name");
-    if (nameEl) nameEl.value = product.name || "";
+    const nameEl = document.getElementById("name-1");if (nameEl)nameEl.value = product.name || "";
     const descEl = document.getElementById("desc"); if (descEl) descEl.value = product.desc || "";
     const catEl = document.getElementById("category"); if (catEl) catEl.value = product.category || "";
     const pathEl = document.getElementById("path"); if (pathEl) pathEl.value = (product.images && product.images[0]) || "";
@@ -333,7 +332,7 @@ function updateProduct(btn) {
     const idx = products.findIndex(p => String(p.id) === String(id));
     if (idx === -1) return;
 
-    products[idx].name = document.getElementById("name")?.value || products[idx].name;
+    products[idx].name = document.getElementById("name-1")?.value || products[idx].name;
     products[idx].desc = document.getElementById("desc")?.value || products[idx].desc;
     products[idx].category = document.getElementById("category")?.value || products[idx].category;
     products[idx].images = products[idx].images || [];
@@ -360,7 +359,7 @@ function resetModalFooter() {
       <input type="button" value="Close" data-bs-dismiss="modal" class="btn-danger">`;
 }
 function resetModal() {
-    const ids = ["name", "desc", "category", "path", "price", "quantity"];
+    const ids = ["name-1", "desc", "category", "path", "price", "quantity"];
     ids.forEach(id => { const el = document.getElementById(id); if (el) el.value = ""; });
     resetModalFooter();
 }
