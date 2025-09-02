@@ -208,3 +208,18 @@
             color: var(--white);
             font-weight: bold;
         }
+ /* هذا الكود يستهدف فقط الأيقونات داخل "icon-circle" الموجودة في الفوتر */
+.footer-section .icon-circle i {
+    font-family: "Font Awesome 6 Free", sans-serif !important;
+    font-weight: 900 !important; /* للأيقونات الـ Solid */
+    color: #ffffff !important; /* لضمان ظهورها باللون الأبيض */
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    font-style: normal !important; 
+}
+
+/* الكود  لإظهار النص بجانب الأيقونات */
+.footer-section .contact-item p {
+    color: #ffffff !important; /* اجعل لون النص أبيض دائمًا */
+}
