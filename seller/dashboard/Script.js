@@ -2,7 +2,11 @@
 
 
 // New handler to load all data into localStorage if it doesn't exist.
-
+let sellers = [];
+let products = [];
+let revenueChart = null;
+let incomeChart = null;
+let targetdiv = null;
 
 
 
@@ -40,7 +44,7 @@ if (window.location.pathname.toLowerCase().includes("login.html")) {
             }));
             
             // This is the corrected redirection path
-            window.location.href = "./dashboard/dashbord.html"; 
+            window.location.href = "dashbord.html"; 
             alert("Login successful!");
         }, false);
     }

@@ -138,6 +138,7 @@ hr{
 .same h5{
   margin-bottom: 0;
   color: var(--sec);
+  background-image: url(dashbord.html);
 }
 .same .special{
   margin-bottom: 20px !important;
