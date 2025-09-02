@@ -11,19 +11,16 @@
 
 // get data from file json (orders.json):
 
-// Promise.all([
-//     fetch("/assets/json/orders.json").then(res => res.json()),
-//     fetch("/assets/json/sellers.json").then(res => res.json())
-// ])
-// .then(([ordersData, sellersData]) => {
-
     let ordersData = JSON.parse(localStorage.getItem("orders"));
     let sellersData = JSON.parse(localStorage.getItem("sellers"));
 
     console.log(ordersData);
     
     let container = document.getElementById("order_lists");
-    let filterSelect = document.querySelector(".dropdown-wrapper select");
+
+    // Filters
+    let statusFilter = document.getElementById("status_filter");
+    let sellerFilter = document.getElementById("seller_filter");
 
 
     // Maping For seller ::
@@ -141,10 +138,22 @@
             statusEl.textContent = newStatus.toUpperCase();
 
             let orderId = currentOrderEl.querySelector(".order_id h4").textContent.replace("#", "");
+
+
+            // Update in orders (the mapped array)
             let orderObj = orders.find(o => o.id == orderId);
             if (orderObj) {
                 orderObj.status = newStatus;
             }
+
+
+            // Update in ordersData (the raw data from localStorage)
+            let orderDataObj = ordersData.find(o => o.order_details.id == orderId);
+            if (orderDataObj) {
+                orderDataObj.order_details.status = newStatus;
+            }
+
+            localStorage.setItem("orders", JSON.stringify(ordersData));
 
             update.style.display = "none"; 
         }
@@ -157,13 +166,18 @@
 
     Orders(orders);
 
+
+
+    // .............Filters...............
+
     // Filter Using Status ::
 
-    filterSelect.addEventListener("change", (e) => {
-        let selectedStatus = e.target.value;
+    statusFilter.addEventListener("change", (e) => {
+        let selectedStatus = e.target.value.toLowerCase();
 
         if (orderSearch) orderSearch.value = "";
         if (productSearch) productSearch.value = "";
+        if (sellerFilter) sellerFilter.value = "all";
 
         if (selectedStatus === "all") {
             Orders(orders);
@@ -204,8 +218,9 @@
     productSearch.addEventListener("input", (e) => {
         let searchText = e.target.value.toLowerCase();
 
-        if (filterSelect) filterSelect.value = "all";
+        if (statusFilter) statusFilter.value = "all";
         if (orderSearch) orderSearch.value = "";
+        if (sellerFilter) sellerFilter.value = "all";
 
         if (searchText === "") {
             Orders(orders);
@@ -221,11 +236,14 @@
 
     // Filter Using OrderId::
     let orderSearch = document.getElementById("order_search");
+
+
     orderSearch.addEventListener("input", (e) => {
     let searchText = e.target.value.trim().toLowerCase();
 
-    if (filterSelect) filterSelect.value = "all";
+    if (statusFilter) statusFilter.value = "all";
     if (productSearch) productSearch.value = "";
+    if (sellerFilter) sellerFilter.value = "all";
 
     
     if (searchText === "") {
@@ -239,9 +257,8 @@
     });
 
     // Filter Using SellerName::
-    let sellerFilter = document.getElementById("seller_filter");
 
-    //SellerName FroM Json 
+    //SellerName From Json 
     sellersData.forEach(seller => {
         let option = document.createElement("option");
         option.value = seller.name; 
@@ -254,7 +271,7 @@
         let selectedSeller = e.target.value;
         
         // Delete All Fiters:
-        if (filterSelect) filterSelect.value = "all";
+        if (statusFilter) statusFilter.value = "all";
         if (orderSearch) orderSearch.value = "";
         if (productSearch) productSearch.value = "";
 
@@ -282,16 +299,15 @@
     let refreshBtn = document.getElementById("refresh_btn");
 
     refreshBtn.addEventListener("click", () => {
-        if (filterSelect) filterSelect.value = "all";
+        if (statusFilter) statusFilter.value = "all";
         if (orderSearch) orderSearch.value = "";
         if (productSearch) productSearch.value = "";
 
         Orders(orders);
     });
 
-// })
 
-//     .catch(error => console.error("Error loading:", error));
+
 
 
 

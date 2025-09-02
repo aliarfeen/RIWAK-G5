@@ -29,3 +29,14 @@ hr {
 .nav-tabs .nav-link {
     border: none;
 }
+
+
+
+
+
+/* Change */
+
+.container {
+    margin-left: 260px;      
+    width: calc(100% - 260px);
+}

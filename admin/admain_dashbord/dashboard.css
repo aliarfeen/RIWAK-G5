@@ -16,6 +16,45 @@
             background-color: #f8f9fc;
         }
 
+
+
+        
+/* Change */
+.sidebar {
+    background-color: var(--prem);
+    width: 250px;
+    height: 100vh;           
+    position: fixed;        
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;         
+}
+
+.main-content {
+    background-color: var(--white);
+    margin-left: 250px;     
+    padding: 20px;
+    flex-grow: 1;
+    min-height: 100vh;       
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         .sidebar {
             background-color: var(--prem);
             width: 250px;

@@ -17,19 +17,24 @@
     --pra-color: rgb(98, 98, 98);
     --font-size: 14px;
 
-    --container-width-lg: 60%;
+    --container-width-lg: 80%;
     --container-width-md: 100%;
     --container-width-sm: 100%;
 
 }
 
-.container_admin {
+/* .container_admin {
     width: var(--container-width-lg);
-    /* margin: 0 auto; */
+    margin: 0 auto; 
     margin-left: 5rem;
+} */
+
+.container_admin {
+    max-width: 1200px;   
+    width: 60%;          
+    margin-left: 250px;
+    padding: 3rem 3rem;
 }
-
-
 
 /* Media Queries (Media Device) */
 
@@ -53,9 +58,9 @@
 
 /* Oreders Page */
 
-.container_admin {
-    padding: 3rem 0;
-}
+/* .container_admin {
+    padding: 3rem ;
+} */
 
 .orders_container {
     display: flex;
@@ -434,6 +439,8 @@ CANCELLED */
         width: 100%;
     }
 
+
+
 }
 
 
@@ -446,4 +453,22 @@ CANCELLED */
     .order_Filters {
         width: 100%;
     }
+
+        body {
+        display: block !important; 
+    }
+
+    .sidebar {
+        width: 100% !important;
+        position: relative !important; 
+        height: auto !important;
+    }
+
+    .container_admin {
+        width: 100% !important;
+        margin-left: 0 !important;
+        padding: 1rem !important;
+    }
+
 }
+
