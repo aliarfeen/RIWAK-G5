@@ -41,8 +41,19 @@ body {
 #changeWidth {
   width: 100%;
 }
+ @media (max-width: 990px){
+    .tab-content{
+      display: flex;
+      flex-wrap: no wrap;
+      overflow-x: auto;
+    }
+    .tab-content > .tab-pane{
+      flex: 0 0 auto;
+    }
+  }
 
-@media (max-width: 768px) {
+
+/*@media (max-width: 768px) {
   * {
     margin: 0;
     padding: 0;
@@ -59,4 +70,4 @@ body {
     font-family: "Roboto";
     font-style: center;
   }
-}
+}*/

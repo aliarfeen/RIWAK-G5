@@ -61,6 +61,7 @@ if (document.querySelector('#sellersGrid').classList.contains('active')) {
 } else {
   currentType = 'sellers'; 
 }
+
 //populate grids + hide row
 function sellersGrid(sellers){
 let sellersBody = document.getElementById("sellersBody");
@@ -68,7 +69,7 @@ sellersBody. innerHTML="";
 sellers.forEach((seller, i) => {              
     sellersBody.innerHTML += `
       <div id="sellersRow${i}" class="row border-bottom py-1">
-        <div class="col-3 d-flex flex-md-row flex-column">
+        <div class="col-3 d-flex flex-lg-row flex-column">
         <span class=" first rounded-circle text-white d-flex justify-content-center align-items-center me-2 p-2" style="width:3rem; height:3rem; font-size:1em;">
          ${seller.name.substring(0,2)}</span>
          <div>
@@ -76,7 +77,9 @@ sellers.forEach((seller, i) => {
          <div class="col-md-2 col">${seller.name}</div>
         <div class="col-md-2 col">${seller.phone}</div>
         <div class="col-md-2 col">${seller.address.street},<br> ${seller.address.city},<br> ${seller.address.country}</div>
-        <div class="col"><span class="badge rounded-0 bg-${seller.status === "Active" ? "success" : "secondary"}">${seller.status}</span></div>          
+
+               
+       
         <div class="col">
        <i id="sellersEye${i}" class="fa fa-eye text-primary border border-primary p-1 mb-1" onclick="toggleRow(${i}, 'sellers')"  aria-hidden="true" style="cursor:pointer;"></i><br>
        <i class="fa-solid fa-pen-to-square border border-secondary p-1 mb-1 " onclick="openEditModal('sellers', ${i})" style="cursor:pointer;"></i><br>
@@ -104,14 +107,14 @@ usersBody.innerHTML="";
 users.forEach((user, i) => {                              
     usersBody.innerHTML += `
       <div  class="row border-bottom py-1" id="usersRow${i}">
-        <div class="col-3 d-flex flex-md-row flex-column ">
+        <div class="col-3 d-flex flex-lg-row flex-column ">
         <span class=" first rounded-circle text-white d-flex justify-content-center align-items-center me-2 p-2" style="width:3rem; height:3rem; font-size:1em;">
          ${user.name.substring(0,2)}</span>
          <div>
         <strong>${user.name}</strong><br><small>${user.email}</small></div></div>
         <div class="col-md-2 col">${user.phone}</div>
         <div class="col-md-2 col">${user.addresses.length}<br> Addresses</div> 
-        <div class="col"><span class="badge rounded-0 bg-${user.status === "Active" ? "success" : "secondary"}">${user.status}</span></div>         
+       
         <div class="col">${user.createdAt}</div>
         <div class="col">
       <i id="usersEye${i}" class="fa fa-eye text-primary border border-primary p-1  mb-1" onclick="toggleRow(${i}, 'users')"  aria-hidden="true" style="cursor:pointer;"></i><br>
@@ -221,7 +224,7 @@ function openAddModal(type){
   document.getElementById("City").value = "";
   document.getElementById("Country").value = "";
   document.getElementById("Zip").value = "";
-  document.getElementById("Status").value = "";
+  //document.getElementById("Status").value = "";
   document.getElementById("addressesContainer").innerHTML = "";
 
   // edit to add , AND type is fetched from here by text content
@@ -245,7 +248,7 @@ function openEditModal(type, i) {
   document.getElementById("Name").value = item.name;
   document.getElementById("Email").value = item.email;
   document.getElementById("Phone").value = item.phone;
-  document.getElementById("Status").value = item.status;
+  //document.getElementById("Status").value = item.status;
    if (type === "sellers") {
   document.getElementById("Street").value = item.address.street || "";
   document.getElementById("City").value = item.address.city || "";
@@ -335,7 +338,7 @@ document.querySelector("#editAddModal form").addEventListener("submit", function
   let name = document.getElementById("Name").value;
   let email = document.getElementById("Email").value;
   let phone = document.getElementById("Phone").value;
-  let status = document.getElementById("Status").value;
+//  let status = document.getElementById("Status").value;
   let street = document.getElementById("Street").value;
   let city = document.getElementById("City").value;
   let country = document.getElementById("Country").value;
@@ -346,12 +349,12 @@ document.querySelector("#editAddModal form").addEventListener("submit", function
   if (editIndex === null) {
     // add
     if (currentType === "sellers") {
-      list.push({ name, email, phone, status, address: { street, city, country, zipCode: zip } });
+      list.push({ name, email, phone, address: { street, city, country, zipCode: zip } });
     } else {
     let today = new Date();
     let formattedDate = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
 
-    list.push({ name, email, phone,createdAt: formattedDate ,status, addresses: [{ street, city, country, zip }] });
+    list.push({ name, email, phone,createdAt: formattedDate, addresses: [{ street, city, country, zip }] });
     }
   } else {
     // edit
@@ -359,7 +362,7 @@ document.querySelector("#editAddModal form").addEventListener("submit", function
       list[editIndex].name = name;
       list[editIndex].email = email;
       list[editIndex].phone = phone;
-      list[editIndex].status = status;
+      //list[editIndex].status = status;
       list[editIndex].address = { street, city, country, zipCode: zip };
     } else {
       list[editIndex].name = name;
