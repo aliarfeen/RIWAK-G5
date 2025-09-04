@@ -175,9 +175,9 @@ async function loadProducts() {
     }
     //carousel buttons
     let cardBtns = document.querySelectorAll(".cardbtns");
-    cardBtns.forEach(btn => {
-        btn.addEventListener("click", async () => {
-            btn.classList.toggle("sucess");
+    cardBtns.forEach(btn => { 
+        btn.addEventListener("click", async () => { 
+            btn.classList.toggle("sucess");  
             let productId = btn.dataset.id;
 
           //  let response = await fetch("products_may.json");
