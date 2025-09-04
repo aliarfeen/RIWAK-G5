@@ -148,3 +148,29 @@ body {
         padding: 15px;
     }
 }
+
+.wrapper{
+    border-color: lightgray;
+    border-radius: 10px;
+}
+hr{
+    background-color: gray;
+}
+.form-control{
+    margin-bottom: 10px;
+}
+
+.nav-tabs {
+    border-bottom: none;
+}
+
+.nav-tabs .nav-link.active {
+    border-bottom: 2px solid #38a1e3 !important;
+    color: #38a1e3 !important;
+    font-weight: 500;
+    background-color: transparent !important;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+}

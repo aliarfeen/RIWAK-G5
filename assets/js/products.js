@@ -123,11 +123,12 @@ function displayProducts(products) {
 
     let card = document.createElement("div");
     card.className =
-      "card h-100 d-flex flex-column align-items-center border-0";
+      "card d-flex flex-column align-items-start border-0 w-100 position-relative";
 
     let img = document.createElement("img");
     img.src = product.images[0];
     img.alt = product.name;
+
     img.addEventListener("mouseenter", () => {
       img.src = product.images[1];
     });
@@ -140,25 +141,32 @@ function displayProducts(products) {
 
     let cardBody = document.createElement("div");
     cardBody.className =
-      "card-body d-flex flex-column align-items-center text-center";
+      "card-body d-flex flex-column align-items-start text-start";
 
+    // let ratDiv = document.createElement("div");
+    // ratDiv.className = "d-flex justify-content-around align-items-center w-100 gap-3";
     let title = document.createElement("h5");
     title.className = "card-title mb-2";
     title.textContent = product.name;
+
+    let rating = document.createElement("p");
+    rating.className = "mb-0 d-flex align-items-center gap-1";
+    rating.innerHTML = `<i class="bi bi-star-fill text-warning"></i> ${product.rating}`;
+
+    // ratDiv.appendChild(title);
+    // ratDiv.appendChild(rating);
 
     let price = document.createElement("p");
     price.className = "card-text fw-bold";
     price.textContent = product.price + " EGP";
 
-    let iconsRow = document.createElement("div");
-    iconsRow.className = "d-flex justify-content-center gap-3 my-2";
-
     let favBtn = document.createElement("button");
     favBtn.className =
-      "btn btn-light rounded-circle d-flex align-items-center justify-content-center shadow-sm fav";
-    favBtn.innerHTML = `<i class="fa fa-heart"></i>`;
-    favBtn.style.width = "60px";
-    favBtn.style.height = "60px";
+      "btn btn-light rounded-circle d-flex align-items-center justify-content-center shadow-sm fav position-absolute top-0 end-0 m-2";
+    favBtn.innerHTML = `<i class="fa-regular fa-heart"></i>`;
+    favBtn.style.width = "45px";
+    favBtn.style.height = "45px";
+    favBtn.style.backgroundColor = "white";
     favBtn.addEventListener("click", function () {
       addToFav(product);
       const wishlistModal = new bootstrap.Modal(
@@ -172,9 +180,9 @@ function displayProducts(products) {
 
     let cartBtn = document.createElement("button");
     cartBtn.className =
-      "btn btn-dark rounded-0 d-flex align-items-center justify-content-center shadow-sm cart";
-    cartBtn.innerHTML = `Add To Cart`;
-    cartBtn.style.width = "120px";
+      "btn rounded d-flex align-items-center justify-content-center shadow-sm cart align-self-center mb-3";
+    cartBtn.innerHTML = `Add to cart`;
+    cartBtn.style.width = "92%";
     cartBtn.style.height = "50px";
     cartBtn.addEventListener("click", () => {
       addToCart(product);
@@ -187,15 +195,14 @@ function displayProducts(products) {
       }, 1000);
     });
 
-    iconsRow.appendChild(favBtn);
-    iconsRow.appendChild(cartBtn);
-
     cardBody.appendChild(title);
+    cardBody.appendChild(rating);
     cardBody.appendChild(price);
 
+    card.appendChild(favBtn);
     card.appendChild(img);
     card.appendChild(cardBody);
-    card.appendChild(iconsRow);
+    card.appendChild(cartBtn);
 
     productDiv.appendChild(card);
     targetdiv.appendChild(productDiv);
