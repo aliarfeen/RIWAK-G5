@@ -375,7 +375,7 @@ input[list]::-webkit-calendar-picker-indicator {
 /* 📚 Sidebar */
 .sidebar {
   width: 310px;
-  min-height: 98vh;
+  min-height: 100vh;
   background: var(--prem);
   color: white;
   display: flex;

@@ -134,6 +134,7 @@ body {
 
 .order-item {
     display: block;
+    cursor: pointer;
 }
 
 .order-item-header {

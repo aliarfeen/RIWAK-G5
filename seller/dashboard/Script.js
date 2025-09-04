@@ -74,13 +74,13 @@ if (window.location.pathname.toLowerCase().includes("dashbord.html") ||
         updateDashboard(currentSeller ? currentSeller.id : null);
 
         // logout handler
-        const logoutBtn = document.getElementById("logoutBtn");
-        if (logoutBtn) {
-            logoutBtn.addEventListener("click", function () {
-                localStorage.removeItem("current_seller");
-                try { window.location.href = "login.html"; } catch (e) { }
-            });
-        }
+         document.getElementById('logoutBtn').addEventListener('click', function(e) { e.preventDefault(); console.log('Logging out...');  
+                localStorage.removeItem('current_seller'); 
+
+            window.location.href = '/home.html'; });
+     
+   
+    
     });
 }
 
@@ -311,7 +311,7 @@ function loadProductToModal(id) {
     const product = products.find(p => String(p.id) === String(id));
     if (!product) return;
 
-    const nameEl = document.getElementById("name1");
+    const nameEl = document.getElementById("name");
     if (nameEl) nameEl.value = product.name || "";
     const descEl = document.getElementById("desc"); if (descEl) descEl.value = product.desc || "";
     const catEl = document.getElementById("category"); if (catEl) catEl.value = product.category || "";
@@ -333,7 +333,7 @@ function updateProduct(btn) {
     const idx = products.findIndex(p => String(p.id) === String(id));
     if (idx === -1) return;
 
-    products[idx].name = document.getElementById("name")?.value || products[idx].name;
+    products[idx].name = document.getElementById("name-1")?.value || products[idx].name;
     products[idx].desc = document.getElementById("desc")?.value || products[idx].desc;
     products[idx].category = document.getElementById("category")?.value || products[idx].category;
     products[idx].images = products[idx].images || [];
@@ -360,7 +360,7 @@ function resetModalFooter() {
       <input type="button" value="Close" data-bs-dismiss="modal" class="btn-danger">`;
 }
 function resetModal() {
-    const ids = ["name", "desc", "category", "path", "price", "quantity"];
+    const ids = ["name-1", "desc", "category", "path", "price", "quantity"];
     ids.forEach(id => { const el = document.getElementById(id); if (el) el.value = ""; });
     resetModalFooter();
 }

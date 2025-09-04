@@ -1,11 +1,10 @@
-  const cart = JSON.parse(localStorage.getItem("cart") || "[]"); // default to []
+const cart = JSON.parse(localStorage.getItem("cart") || "[]"); // default to []
 
 window.addEventListener("DOMContentLoaded", function () {
   if (cart.length === 0) {
     window.location.href = "home.html";
   }
 });
-
 
 const subtotalVal = localStorage.getItem("subtotal");
 const subtotal = document.getElementById("subtotal");
@@ -18,7 +17,7 @@ const confirmOrderBtn = document.getElementById("submiting");
 document.addEventListener("DOMContentLoaded", function () {
   loadUserData();
   loadCosts();
-  if(JSON.parse(subtotalVal) >= 10000){
+  if (JSON.parse(subtotalVal) >= 10000) {
     const shippingAmount = document.getElementById("shipping-amount");
     shippingAmount.innerHTML = "<s>75.00</s>";
   }
@@ -33,7 +32,9 @@ document.addEventListener("DOMContentLoaded", function () {
        <img src="${e.images["0"]}" alt="" style="height: 40px; width: 40px;">
        <p class="item-name">${e.name}</p> 
        <p>${e.orderedquantity || 1} Pcs</p> 
-       <p class="price-tag"><b>${(e.price * (e.orderedquantity || 1)).toFixed(2)}</b> EGP</p>
+       <p class="price-tag"><b>${(e.price * (e.orderedquantity || 1)).toFixed(
+         2
+       )}</b> EGP</p>
     `;
     let checkOutDetails = document.getElementById("check-out-details");
     checkOutDetails.appendChild(newDiv);
@@ -64,9 +65,15 @@ function loadUserData() {
   cards.forEach((e) => {
     let newCard = document.createElement("div");
     newCard.innerHTML = `
-      <input type="radio" class="btn-check" name="card" id="vbtn-radio${e.id}" value="${e.id}" autocomplete="off">
-      <label class="btn btn-outline-dark w-100 mb-5 rounded-0" for="vbtn-radio${e.id}">
-        xxxx-xxxx-xxxx-${e.cardNumber.slice(12)}<br>${e.cardHolder}<br>${e.expiry}
+      <input type="radio" class="btn-check" name="card" id="vbtn-radio${
+        e.id
+      }" value="${e.id}" autocomplete="off">
+      <label class="btn btn-outline-dark w-100 mb-5 rounded-0" for="vbtn-radio${
+        e.id
+      }">
+        xxxx-xxxx-xxxx-${e.cardNumber.slice(12)}<br>${e.cardHolder}<br>${
+      e.expiry
+    }
       </label>
     `;
     cardsGroup.appendChild(newCard);
@@ -76,11 +83,10 @@ function loadUserData() {
 /* loading costs on load */
 function loadCosts() {
   subtotal.innerText = subtotalVal;
-  if(+subtotalVal >= 10000){
-total.textContent = +subtotalVal 
-  }else{
-    
-  total.textContent = +subtotalVal + 75;
+  if (+subtotalVal >= 10000) {
+    total.textContent = +subtotalVal;
+  } else {
+    total.textContent = +subtotalVal + 75;
   }
 }
 
@@ -101,11 +107,9 @@ applyCodeBtn.addEventListener("click", function () {
     let discountVal = subtotalVal;
     subtotal.innerText = subtotalVal;
     discount.innerText = discountVal;
-    if(+subtotalVal>=10000){
-      
-    total.textContent = 0;
-    }else
-    total.textContent = 75;
+    if (+subtotalVal >= 10000) {
+      total.textContent = 0;
+    } else total.textContent = 75;
   } else if (code === "cst-g5") {
     message.innerText = "You Got 10% Discount";
     discountDiv.classList.remove("d-none");
@@ -118,11 +122,9 @@ applyCodeBtn.addEventListener("click", function () {
 
     let discountVal = (subtotalVal * 0.1).toFixed(2);
     discount.innerText = discountVal;
-    if(+subtotalVal>=10000){
-      
-    total.textContent = +newSubTotalVal;
-    }else
-    total.textContent = +newSubTotalVal + 75;
+    if (+subtotalVal >= 10000) {
+      total.textContent = +newSubTotalVal;
+    } else total.textContent = +newSubTotalVal + 75;
   } else {
     message.innerText = "Invalid promo code";
     message.classList.add("alert-txt");
@@ -181,50 +183,59 @@ confirmOrderBtn.addEventListener("click", function (e) {
         quantity: e.orderedquantity || 1,
         price: parseFloat(e.price.toFixed(2)),
         total: e.price * (e.orderedquantity || 1),
-        sellerId: e.sellerId
+        sellerId: e.sellerId,
       };
     });
 
-    alert("accepted");
     const userJson = localStorage.getItem("current_user");
     const user = JSON.parse(userJson);
     let allorders = JSON.parse(localStorage.getItem("orders")) || [];
-   let lastOrder = allorders[allorders.length - 1];
-let lastIdNum = 0;
+    let lastOrder = allorders[allorders.length - 1];
+    let lastIdNum = 0;
 
-if (lastOrder && lastOrder.id) {
-  let parts = lastOrder.id.split("_");
-  if (parts.length > 1 && !isNaN(parts[1])) {
-    lastIdNum = parseInt(parts[1]);
-  }
-}
+    if (lastOrder && lastOrder.id) {
+      let parts = lastOrder.id.split("_");
+      if (parts.length > 1 && !isNaN(parts[1])) {
+        lastIdNum = parseInt(parts[1]);
+      }
+    }
 
-    let orderObj = {"order_details" :{
-      id: "RIWAK_" + String(lastIdNum + 1).padStart(3, "0"),
-      customerId: user.userId,
-      date: `${now.toLocaleString()}`,
-      items: orderItems,
-      status: `CONFIRMED`,
-      statusHistory: [
-        {
-          status: `pending`,
-          timestamp: `${now.toLocaleString()}`,
-          updatedBy: `system`,
+    let orderObj = {
+      order_details: {
+        id: generateUniqueId(),
+        customerId: user.userId,
+        date: `${now.toLocaleString()}`,
+        items: orderItems,
+        status: `confirmed`,
+        statusHistory: [
+          {
+            status: `pending`,
+            timestamp: `${now.toLocaleString()}`,
+            updatedBy: `system`,
+          },
+        ],
+        shippingInfo: {
+          address: `${selectedAddress.city}, ${selectedAddress.street}`,
+          trackingNumber: `${generateUUIDTracking()}`,
         },
-      ],
-      shippingInfo: {
-        address: `${selectedAddress.city}, ${selectedAddress.street}`,
-        trackingNumber: `${generateUUIDTracking()}`,
+        totalAmount: finalTotalVal,
+        paymentStatus: `paid`,
       },
-      totalAmount: finalTotalVal,
-      paymentStatus: `paid`,
-    }};
-      const orders = JSON.parse(localStorage.getItem("orders") || "[]"); 
-    orders.push( orderObj);
-    console.log(orders)
-    localStorage.setItem("orders",JSON.stringify(orders))
-      console.log("orderObj:", orderObj);
-    localStorage.setItem("order_details", JSON.stringify(orderObj));
+    };
+    const orders = JSON.parse(localStorage.getItem("orders") || "[]");
+    orders.push(orderObj);
+    console.log(orders);
+    localStorage.setItem("orders", JSON.stringify(orders));
+    console.log("orderObj:", orderObj);
+    localStorage.setItem("current_order_id", orderObj.order_details.id);
+    
+    let modal = new bootstrap.Modal(document.getElementById("orderCreated"));
+    modal.show();
+
+    setTimeout(() => {
+    modal.hide();
+     window.location.href = "order_tracker.html";
+}, 2000);
   }
 });
 
@@ -234,4 +245,24 @@ function generateUUIDTracking() {
     Math.random().toString(36).substring(2, 15) +
     Math.random().toString(36).substring(2, 15)
   );
+}
+function generateUniqueId(prefix = "RIWAK_", length = 3) {
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+  let sellers = JSON.parse(localStorage.getItem("sellers")) || [];
+  let admins = JSON.parse(localStorage.getItem("admins")) || [];
+  let allAccounts = [...users, ...sellers, ...admins];
+
+  let id;
+  let exists = true;
+
+  while (exists) {
+    let randomNum = Math.floor(Math.random() * Math.pow(10, length))
+      .toString()
+      .padStart(length, "0"); // ensures leading zeros
+    id = prefix + randomNum;
+
+    exists = allAccounts.some((acc) => acc.userId === id);
+  }
+
+  return id;
 }

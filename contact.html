@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riwak</title>
+
+
+    <link rel="stylesheet" href="assets/css/contact.css">
+    <script type="module" src="assets/js/contact.js"></script>
+    <script type="module" src="assets/js/nav.js"></script>
+    
+</head>
+
+<body>
+    <div id="contact">
+        <div class="contact_container">
+            <div class="contact_box">
+                <div class="container contact_header">
+                    <h1 class="title_h1">Contact Us</h1>
+                    <p> If you need anything, just send us a message and we’ll get back to you as soon as possible.</p>
+                </div>
+                <div class="contact_form">
+                    <div id="form">
+                        <form class="container form_container" action="">
+                            <div class="form_box">
+                                <div class="input_box">
+                                    <label for="name">Name</label>
+                                    <input type="text" name="name" id="name" placeholder="Enter your name" required />
+                                </div>
+                                <div class="input_box">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" name="phone" id="phone" placeholder="Enter your phone number"
+                                     pattern="\d{6,15}" title="Phone number must be 6–15 digits" required  />
+                                </div>
+                            </div>
+                            <div class="input_box">
+                                <label for="sub">Subject</label>
+                                <input type="text" name="sub" id="sub" placeholder="Write a subject" required />
+                            </div>
+                            <div class="input_box">
+                                <label for="message">Message</label>
+                                <textarea name="message" id="message" placeholder="Write your message" required></textarea>
+                            </div>
+                            <button class="btn">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact_data">
+            <div class="contant_detials">
+                <div class="contant_row">
+                    <h4>Call Us:</h4>
+                    <p>(+00) 1234 5678</p>
+                </div>
+                <div class="contant_row">
+                    <h4>Hours:</h4>
+                    <div class="row_data">
+                        <p>Sat, Sun: 9am - 10pm</p>
+                        <p>Mon-Fri: 11am - 8pm</p>
+                    </div>
+                </div>
+                <div class="contant_row">
+                    <h4>Our Location:</h4>
+                    <div class="row_data">
+                        <p>203 Fake Street</p>
+                        <p>Mountain View, San Francisco</p>
+                        <p>California, USA</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

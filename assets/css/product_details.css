@@ -32,11 +32,18 @@
 }
 
 .bi {
-    color: #1D1D1Dff;
+    color: #756b2f;
+    /*FBC02D*/
+   /* color: #1D1D1Dff;*/
+}
+
+.dropdown-item{
+    color: #756b2f !important;
 }
 
 .progress-bar {
-    background-color: #1D1D1Dff !important;
+    background-color: #756b2f  !important;
+    /*background-color: #1D1D1Dff !important;*/
 }
 
 .card-title {
@@ -54,8 +61,9 @@
     height: 2.5rem;
    top: 50% !important; 
     transform: translateY(-50%);
-    background-color: black;
-    opacity: 0.8;
+    /*background-color: black;*/
+    background-color: rgb(177, 171, 171) !important;
+   opacity: 0.8;
 }
 
 .carousel-control-prev {
@@ -95,9 +103,13 @@
 .cardbtns,
 .cardbtns:hover,
 #cardbtns:active {
-    background-color: black!important;
+    background-color:  #40826D!important;
+   /* background-color:rgb(51, 102, 51) !important ; */  /* black!important;*/
     color: white!important;
     border-radius: 0;
+}
+.counterbtns{
+    border: 4px solid #40826D;
 }
 
 .cartBtn {
@@ -111,12 +123,16 @@
 }
 
 .sucess {
-    background-color: #CECAC1ff !important;
-    color: black !important;
+    background-color: rgb(31, 65, 41) !important;
+    color: white !important;
+    /*background-color: #CECAC1ff !important;
+    color: black !important;*/
 }
 
-#stock-status {
-    background-color: #1D1D1Dff;
+#stock-status, .filter-modal {
+    background-color:#e2e3e5 !important;
+   /* background-color: rgb(177, 171, 171);*/
+    /*background-color: #1D1D1Dff;*/
 }
 
 #quantity-left {

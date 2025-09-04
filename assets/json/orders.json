@@ -23,6 +23,8 @@
           "status": "shipped"
         }
       ],
+      
+          "status": "shipped",
       "customerId":"7",
       "shippingInfo": {
         "address": "Cairo, 456 Pyramid St",
@@ -47,6 +49,8 @@
           "status": "delivered"
         }
       ],
+      
+          "status": "shipped",
       "customerId":"2",
       "shippingInfo": {
         "address": "Alexandria, 789 Lighthouse Rd",
@@ -71,6 +75,8 @@
           "status": "processing"
         }
       ],
+      
+          "status": "shipped",
       "customerId":"4",
       "shippingInfo": {
         "address": "Luxor, 101 Temple St",
@@ -104,6 +110,8 @@
           "status": "pending"
         }
       ],
+      
+          "status": "shipped",
       "customerId":"9",
       "shippingInfo": {
         "address": "Aswan, 202 Dam Rd",
@@ -138,6 +146,8 @@
           "status": "shipped"
         }
       ],
+      
+          "status": "shipped",
       "customerId":"3",
       "shippingInfo": {
         "address": "Fayoum, 303 Lake Rd",
@@ -171,6 +181,8 @@
           "status": "pending"
         }
       ],
+      
+          "status": "shipped",
       "customerId":"5",
       "shippingInfo": {
         "address": "Ismailia, 404 Canal Dr",
@@ -195,6 +207,8 @@
           "status": "delivered"
         }
       ],
+      
+          "status": "shipped",
       "customerId":"3",
       "shippingInfo": {
         "address": "Minya, 505 Museum Rd",
@@ -228,6 +242,8 @@
           "status": "processing"
         }
       ],
+      
+          "status": "shipped",
       "customerId":"2",
       "shippingInfo": {
         "address": "Suez, 606 Port Rd",
@@ -270,6 +286,8 @@
           "status": "pending"
         }
       ],
+      
+          "status": "shipped",
       "customerId":"1",
       "shippingInfo": {
         "address": "Port Said, 707 Canal St",
@@ -303,6 +321,8 @@
           "status": "shipped"
         }
       ],
+      
+          "status": "shipped",
       "customerId":"1",
       "shippingInfo": {
         "address": "Shubra El Kheima, 808 Factory Rd",

@@ -20,6 +20,7 @@ body {
     min-height: 100vh;
     background: var(--prem);
     color: white;
+    
 }
 
 .sidebar a {

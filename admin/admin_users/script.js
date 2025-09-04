@@ -390,5 +390,20 @@ document.querySelector("#editAddModal form").addEventListener("submit", function
   modal.hide();
 });
 
+// Add this code to the end of your Script.js file
+
+document.getElementById('sign-out-btn').addEventListener('click', function(e) {
+    // Prevents the default behavior of the button/link
+    e.preventDefault(); 
+    
+    // Optional: for debugging purposes
+    console.log('Logging out...');  
+
+    // Remove the admin's data from local storage
+    localStorage.removeItem('current_admin'); 
+
+    // Redirect the user to the home page
+    window.location.href = '/home.html'; 
+});
 
 

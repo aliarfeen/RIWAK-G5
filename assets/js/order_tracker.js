@@ -1,53 +1,55 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const orderJson = localStorage.getItem("order_details");
-  const order = JSON.parse(orderJson).order_details;
-  console.log(order);
+  const orderId = localStorage.getItem("current_order_id");
+  if (!orderId) {
+    console.error("No order id found in localStorage");
+    return;
+  }
+
+  const orders = JSON.parse(localStorage.getItem("orders")) || [];
+  const order = orders.find(o => o.order_details.id === orderId)?.order_details;
+
+  if (!order) {
+    console.error("Order not found for id:", orderId);
+    return;
+  }
+
+  console.log("Loaded order:", order);
   localStorage.setItem("cart", JSON.stringify([]));
-  const orderItems = order.items;
+
   const progress = document.getElementById("progress");
   const trackingProgressDiv = document.getElementById("tracking-progress");
-    if(order.status === "CONFIRMED"){
-        
-  progress.style.width = "0%";
-  
-    }else if(order.status ==="SHIPPED"){
-      
-  progress.style.width = "50%";
-    }else if(order.status ==="DELIVERED"){
-      
-  progress.style.width = "100%";
 
-    } else if(order.status ==="CANCELLED"){
-      
-  trackingProgressDiv.innerHTML = "<h1> YOUR ORDER WAS CANCELLED</h1>"
-    }else{
-  trackingProgressDiv.innerHTML = "<h1> SOMETHING WENT WRONG</h1>"
+  if (order.status === "confirmed") {
+    progress.style.width = "0%";
+  } else if (order.status === "shipped") {
+    progress.style.width = "50%";
+  } else if (order.status === "delivered") {
+    progress.style.width = "100%";
+  } else if (order.status === "cancelled") {
+    trackingProgressDiv.innerHTML = "<h1> YOUR ORDER WAS CANCELLED</h1>";
+  } else {
+    trackingProgressDiv.innerHTML = "<h1> SOMETHING WENT WRONG</h1>";
+  }
 
-    }
+  const checkOutDetails = document.getElementById("check-out-details");
 
-  orderItems.map((e) => {
+  order.items.forEach((e) => {
     let newDiv = document.createElement("div");
-    newDiv.classList.add("mt-3");
-    newDiv.classList.add("d-flex");
-    newDiv.classList.add("justify-content-between");
-
+    newDiv.classList.add("mt-3", "d-flex", "justify-content-between");
     newDiv.innerHTML = `
-      
-       <p class="item-name" >${e.name}</p> <p> ${e.quantity} Pcs</p>
+       <p class="item-name">${e.name}</p> 
+       <p>${e.quantity} Pcs</p>
     `;
-    let checkOutDetails = document.getElementById("check-out-details");
     checkOutDetails.appendChild(newDiv);
   });
 
-  let newDiv = document.createElement("div");
-  newDiv.classList.add("mt-3");
+  let totalDiv = document.createElement("div");
+  totalDiv.classList.add("mt-3");
+  totalDiv.innerHTML = `
+       <p class="item-name"> Total Sum : <b>${order.totalAmount}</b></p>
+  `;
+  checkOutDetails.appendChild(totalDiv);
 
-  newDiv.innerHTML = `
-      
-       <p class="item-name" > Total Sum : <b>${order.totalAmount}</b></p>
-    `;
-  let checkOutDetails = document.getElementById("check-out-details");
-  checkOutDetails.appendChild(newDiv);
-  const orderId = document.getElementById("order_id");
-  orderId.textContent = order.shippingInfo.trackingNumber;
+  const orderIdElement = document.getElementById("order_id");
+  orderIdElement.textContent = order.shippingInfo.trackingNumber;
 });

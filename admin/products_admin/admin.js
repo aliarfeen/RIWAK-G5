@@ -331,4 +331,22 @@ function rejectProduct(id) {
         displayProducts();
         displayBindingAndRejected();
     }
-}
+};
+window.addEventListener('load', function () {
+
+    // ... (الكود الحالي في ملف admin.js)
+
+    // أضف هذا الكود
+    const signOutBtn = document.getElementById('sign-out-btn'); // تأكد من أن زر الخروج في ملف HTML له هذا الـ ID
+    if (signOutBtn) {
+        signOutBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // لمنع السلوك الافتراضي للرابط أو الزر
+            console.log('Logging out...');
+            localStorage.removeItem('current_admin'); // حذف بيانات الأدمن من التخزين المحلي
+            window.location.href = '/home.html'; // إعادة التوجيه إلى الصفحة الرئيسية
+        });
+    }
+
+    // ... (بقية الكود الحالي)
+
+}); //end of load

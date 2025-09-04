@@ -82,7 +82,7 @@ function loadProduct() {
         let row = document.createElement("div");
         row.className = "d-flex align-items-center mb-2";
         row.innerHTML = `
-      <div class="me-2">${"★".repeat(i)}</div>
+      <div class="me-2 bi">${"★".repeat(i)}</div>
      <div class="flex-grow-1">
       <div class="progress" style="height: 8px;">
      <div class="progress-bar" role="progressbar" style="width: ${percentage.toFixed(1)}%"></div>
@@ -154,7 +154,7 @@ async function loadProducts() {
     <img src="${product.images[0]}" class="card-img-top product-img" alt="${product.name}" style="cursor: pointer;">
     <div class="card-body">
       <h5 class="card-title ">${product.name}</h5>
-    <span class="small">${starsHtml} <span class="text-muted small">(${product.reviews.total})</span>
+    <span class="small">${starsHtml} <span class="text-muted small">(${product.reviews?.total??0})</span>
     </span>
     <p class="card-text m-0"> EGP ${product.price}</p>
     <button id="cardbtns" class="border btn cardbtns w-100" data-id="${product.id}"> Add to cart</button>
@@ -175,9 +175,9 @@ async function loadProducts() {
     }
     //carousel buttons
     let cardBtns = document.querySelectorAll(".cardbtns");
-    cardBtns.forEach(btn => {
-        btn.addEventListener("click", async () => {
-            btn.classList.toggle("sucess");
+    cardBtns.forEach(btn => { 
+        btn.addEventListener("click", async () => { 
+            btn.classList.toggle("sucess");  
             let productId = btn.dataset.id;
 
           //  let response = await fetch("products_may.json");

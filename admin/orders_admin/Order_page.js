@@ -305,6 +305,19 @@
 
         Orders(orders);
     });
+    // Add this code to the end of your Order_page.js file
+
+document.getElementById('sign-out-btn').addEventListener('click', function(e) { 
+    e.preventDefault(); // To prevent default link behavior
+    
+    console.log('Logging out...');  
+    
+    // Remove the admin's session data from local storage
+    localStorage.removeItem('current_admin'); 
+    
+    // Redirect to the home page
+    window.location.href = '/home.html'; 
+});
 
 
 
