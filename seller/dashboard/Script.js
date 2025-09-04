@@ -311,7 +311,7 @@ function loadProductToModal(id) {
     const product = products.find(p => String(p.id) === String(id));
     if (!product) return;
 
-    const nameEl = document.getElementById("name");
+    const nameEl = document.getElementById("name1");
     if (nameEl) nameEl.value = product.name || "";
     const descEl = document.getElementById("desc"); if (descEl) descEl.value = product.desc || "";
     const catEl = document.getElementById("category"); if (catEl) catEl.value = product.category || "";
