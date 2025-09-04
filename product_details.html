@@ -35,7 +35,7 @@
           <div class="lh-2">
             <span class="fw-bolder text-uppercase" id="brand"></span><br>
             <span id="name"></span>
-            <span class="ms-md-4 p-2 ms-4 text-white" id="stock-status">In-stock</span>
+            <span class="ms-md-4 p-2 ms-4 text-black" id="stock-status">In-stock</span>
           </div>
           <div class=" price pt-2 pb-3 px-4 mt-3 d-flex justify-content-center">
             <p class="fw-bolder fs-4  m-auto" id="price"><sup class="fw-bold fs-5 me-1">Egp</sup></p>
@@ -50,10 +50,10 @@
           <div class="row my-3 ms-lg-4">
             <div class=" col-12 col-lg-2 d-flex justify-content-center align-items-center ms-3 ms-md-auto">
               <div
-                class="counterbtns bg-black d-flex align-items-center justify-content-between justify-content-md-center border border-1 border-secondary-subtle ">
-                <button id="minusBtn" class="btn btn-outline-dark rounded-0 border-0 m-1 bg-black text-white">-</button>
-                <span id="counter" class="mx-0 text-white">1</span>
-                <button id="plusBtn" class="btn btn-outline-dark rounded-0 border-0 m-1 bg-black text-white">+</button>
+                class="counterbtns bg-secondary-subtle d-flex align-items-center justify-content-between justify-content-md-center border border-1 border-secondary-subtle ">
+                <button id="minusBtn" class="btn btn-outline-dark rounded-0 border-0 m-1 bg-secondary-subtle text-black">-</button>
+                <span id="counter" class="mx-0 text-black">1</span>
+                <button id="plusBtn" class="btn btn-outline-dark rounded-0 border-0 m-1 bg-secondary-subtle text-black">+</button>
               </div>
             </div>
 
@@ -123,15 +123,15 @@
       <h1 class="related-products mb-md-5 display-4">Related Products</h1>
 
       <div class="carousel-inner" id="carousel-inner"></div>
-      <button class="carousel-control-prev bg-black" type="button" data-bs-target="#productCarousel"
+      <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel"
         data-bs-slide="prev">
         <span class="carousel-control-prev-icon"></span>
         <span class="visually-hidden">Previous</span>
       </button>
 
-      <button class="carousel-control-next bg-black ms-5" type="button" data-bs-target="#productCarousel"
+      <button class="carousel-control-next ms-5" type="button" data-bs-target="#productCarousel"
         data-bs-slide="next">
-        <span class="carousel-control-next-icon text-black"></span>
+        <span class="carousel-control-next-icon"></span>
         <span class="visually-hidden">Next</span>
       </button>
     </div>
@@ -164,7 +164,7 @@
 
                   <!-- filter dropdown -->
                   <div class="dropdown">
-                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                    <button class="btn filter-modal dropdown-toggle" type="button" data-bs-toggle="dropdown">
                       <i class="bi bi-funnel"></i> Filter
                     </button>
                     <ul class="dropdown-menu">

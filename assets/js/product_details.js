@@ -82,7 +82,7 @@ function loadProduct() {
         let row = document.createElement("div");
         row.className = "d-flex align-items-center mb-2";
         row.innerHTML = `
-      <div class="me-2">${"★".repeat(i)}</div>
+      <div class="me-2 bi">${"★".repeat(i)}</div>
      <div class="flex-grow-1">
       <div class="progress" style="height: 8px;">
      <div class="progress-bar" role="progressbar" style="width: ${percentage.toFixed(1)}%"></div>
