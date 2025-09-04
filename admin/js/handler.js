@@ -100,3 +100,9 @@ window.addEventListener("DOMContentLoaded", function () {
   }
 
 });
+
+  if (!localStorage.getItem('current_admin')) {
+            // إذا لم يتم العثور على بيانات المدير، قم بإعادة التوجيه فوراً
+            // استخدام "replace" يمنع المستخدم من الضغط على "رجوع" والعودة لهذه الصفحة مرة أخرى
+            window.location.replace('/login.html'); // <-- تأكد من وضع المسار الصحيح لصفحة تسجيل الدخول
+        }
