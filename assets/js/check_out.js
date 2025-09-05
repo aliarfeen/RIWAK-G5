@@ -53,7 +53,7 @@ function loadUserData() {
     let newAddress = document.createElement("div");
     newAddress.innerHTML = `
       <input type="radio" class="btn-check" name="address" id="vbtn-radio${e.id}" value="${e.id}" autocomplete="off">
-      <label class="btn btn-outline-dark w-100 mb-5 rounded-0" for="vbtn-radio${e.id}">
+      <label class="btn btn-outline-dark w-100 mb-5 rounded-3" for="vbtn-radio${e.id}">
         ${e.city}<br>${e.street}
       </label>
     `;
@@ -68,7 +68,7 @@ function loadUserData() {
       <input type="radio" class="btn-check" name="card" id="vbtn-radio${
         e.id
       }" value="${e.id}" autocomplete="off">
-      <label class="btn btn-outline-dark w-100 mb-5 rounded-0" for="vbtn-radio${
+      <label class="btn btn-outline-dark w-100 mb-5 rounded-3" for="vbtn-radio${
         e.id
       }">
         xxxx-xxxx-xxxx-${e.cardNumber.slice(12)}<br>${e.cardHolder}<br>${

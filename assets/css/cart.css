@@ -1,7 +1,24 @@
 :root {
 --prem: #1D1D1Dff; 
---sec: #CECAC1ff; 
---white: #FEFCFBff;
+
+    --color-primary: #40826D;
+    /* --color-primary: rgb(90, 140, 60); */
+    --color-white: #FFFFFF;
+
+    --color_font-heading: #2C2F24;
+    --color_font-pra: #2C2F24;
+
+    --heading-font-color: #2C2F24;
+    --menu-border-color: #DBDFD0;
+
+    --button-font-color: #182226;
+    --icon-bg-color: #4d592b12;
+
+    --bg-color-primary: #F9F9F7;
+    --bg-color-second: #474747;
+
+
+  
 }
 *{
     margin: 0;
@@ -56,10 +73,14 @@ color: var(--prem);
 }
 
 #submiting{
-    background-color: var(--prem);
+    background-color: var(--color-primary);
     color: var(--white);
     width: 100%;
     font-size: 18px;
     font-weight: bold;
     border-radius: 0;
+}
+
+.progress-bar{
+    background-color: var(--color-primary) !important;
 }

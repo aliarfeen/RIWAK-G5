@@ -6,7 +6,6 @@
     <title>Check out</title>
     <script type="module" src="assets/js/check_out.js"></script>
     <script type="module" src="assets/js/nav.js"></script>
-    <link rel="stylesheet" href="assets/css/check_out.css" />
     <!-- calling ROBOTO font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,6 +25,10 @@
       defer
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
     ></script>
+
+
+    
+    <link rel="stylesheet" href="assets/css/check_out.css" />
   </head>
 
   <body>
@@ -39,7 +42,7 @@
   </div>
 
     <div
-      class="d-flex flex-column-reverse flex-md-row g-3 align-items-center align-items-xl-start justify-content-around my-5"
+      class="d-flex flex-column-reverse flex-xl-row g-3 align-items-center align-items-xl-start justify-content-around my-5"
     >
       <section class="d-flex flex-column align-items-start justify-content-start">
         <div class="d-flex  align-items-center justify-content-between w-100 mb-3">
@@ -48,7 +51,7 @@
             <h3>Delivery</h3>
         </div>  
   <a href="user_profile.html">      
-<button id="add-address" type="button" class="btn btn-outline-dark rounded-0 ">Add Address</button>
+<button id="add-address" type="button" class="btn btn-outline-dark rounded-1 ">Add Address</button>
         </div></a>
         
 
@@ -60,13 +63,13 @@
             <h3> Payment Method</h3>
         </div>  
         <a href="user_profile.html">   
-<button id="add-card" type="button" class="btn btn-outline-dark rounded-0 ">Add Card</button>
+<button id="add-card" type="button" class="btn btn-outline-dark rounded-1 ">Add Card</button>
         </div> </a>
         
 
 <div id="cards-group" class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
 <input type="radio" class="btn-check" name="card" id="vbtn-radio" autocomplete="off">
-      <label class="btn btn-outline-dark w-100 mb-5 rounded-0" for="vbtn-radio">
+      <label class="btn btn-outline-dark w-100 mb-5 rounded-3" for="vbtn-radio">
         Cash on delivery
       </label>
 
@@ -74,7 +77,7 @@
 </div>
     <input
               type="submit"
-              class="btn"
+              class="btn rounded-1"
               name=""
               id="submiting"
               value="Confirm Order"
@@ -94,13 +97,7 @@
             aria-label="Enter promo code"
             aria-describedby="button-addon2"
           />
-          <button
-            class="btn btn-outline-secondary"
-            type="button"
-            id="apply-code"
-          >
-            Apply
-          </button>
+          <button class="btn btn-outline" type="button" id="apply-code">Apply</button>
         </div>
         <b id="message"></b>
 

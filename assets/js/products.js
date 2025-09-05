@@ -64,35 +64,32 @@ window.addEventListener("load", function () {
   range.value = maxProductPrice;
   label.innerHTML = `Price: ${minProductPrice} EGP - ${range.value} EGP`;
 
-  range.addEventListener("input", function () {
-    label.innerHTML = `Price: ${minProductPrice} EGP - ${this.value} EGP`;
-    let filtered = products.filter((p) => p.price <= Number(this.value));
-    targetdiv.innerHTML = "";
-    displayProducts(filtered);
-  });
 
-  // handle category filters
-  document.querySelectorAll(".form-check-input").forEach((cat) => {
-    cat.addEventListener("change", filterProductsByCategory);
-  });
-}); // end of load
+
+  /// الفلتر الجديد والصحيح
+  // price filter
+range.addEventListener("input", function () {
+  label.innerHTML = `Price: ${minProductPrice} EGP - ${this.value} EGP`;
+  applyAllFilters();
+});
 
 // color filter
 function changecolor(e) {
-  var oldselectedcolor = document.getElementsByClassName("active")[0];
-  if (oldselectedcolor != null) oldselectedcolor.className = "colors";
+  var oldselectedcolor = document.querySelector(".colors.active");
+  if (oldselectedcolor) oldselectedcolor.classList.remove("active");
+
   newclickdone = e.target;
-  newclickdone.className += " active ";
-  localStorage.setItem("selectedcolor", newclickdone.style.backgroundColor);
+  newclickdone.classList.add("active");
+  localStorage.setItem("selectedcolor", newclickdone.dataset.color);
 
-  let selectedColor = newclickdone.dataset.color;
-  let allProducts = JSON.parse(localStorage.getItem("products")) || [];
-  let filtered = allProducts.filter((p) => p.colors.includes(selectedColor));
-
-  targetdiv.innerHTML = "";
-  displayProducts(filtered);
+  applyAllFilters();
 }
 
+// category filter
+document.querySelectorAll(".form-check-input").forEach((cat) => {
+  cat.addEventListener("change", applyAllFilters);
+});
+})
 // load products from JSON (first time) then localStorage
 function loadProducts() {
   if (!localStorage.getItem("products")) {
@@ -260,7 +257,9 @@ let currentUser = JSON.parse(localStorage.getItem("current_user"));
 //     }
 //   }
 // }
-// الكود الجديد والصحيح
+
+
+
 function addToFav(product) {
   if (!currentUser) {
     const logInRequiredModal = new bootstrap.Modal(
@@ -273,7 +272,41 @@ function addToFav(product) {
     if (!isFound) {
       fav.push(product);
       currentUser.favourites = fav;
-      updateCurrentUser(currentUser); // <--- هذا هو التعديل الصحيح
+      updateCurrentUser(currentUser); 
     }
   }
+}
+
+
+
+function applyAllFilters() {
+  let allProducts = JSON.parse(localStorage.getItem("products")) || [];
+
+  // --- price filter ---
+  const range = document.getElementById("priceRange");
+  const maxPrice = Number(range.value);
+
+  // --- color filter ---
+  const selectedColor = localStorage.getItem("selectedcolor");
+
+  // --- category filters ---
+  let selectedCategories = [];
+  document.querySelectorAll(".form-check-input:checked").forEach((cb) => {
+    selectedCategories.push(cb.value);
+  });
+
+  // --- apply filters in sequence ---
+  let filtered = allProducts.filter((p) => {
+    let passPrice = Number(p.price) <= maxPrice;
+    let passColor = !selectedColor || p.colors.includes(selectedColor);
+    let passCategory =
+      selectedCategories.length === 0 ||
+      selectedCategories.includes(p.category);
+
+    return passPrice && passColor && passCategory;
+  });
+
+  // render
+  targetdiv.innerHTML = "";
+  displayProducts(filtered);
 }

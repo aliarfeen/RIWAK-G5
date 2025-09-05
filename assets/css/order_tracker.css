@@ -2,6 +2,8 @@
 --prem: #1D1D1Dff; 
 --sec: #CECAC1ff; 
 --white: #FEFCFBff;
+
+    --color-primary: #40826D;
 }
 *{
     margin: 0;
@@ -29,7 +31,7 @@
     .progress-fill {
       height: 100%;
       width: 0;
-      background: #000;
+      background: var(--color-primary);
       border-radius: 5px;
       transition: width 1s ease-in-out;
     }
@@ -63,7 +65,7 @@
 
 
     .check-out-info{
-    border: 3px solid var(--sec);
+    border: 3px solid var(--color-primary);
     
     border-radius: 1rem;
     max-width: 70%;

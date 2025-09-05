@@ -1,7 +1,24 @@
 :root {
 --prem: #1D1D1Dff; 
---sec: #CECAC1ff; 
---white: #FEFCFBff;
+
+    --color-primary: #40826D;
+    /* --color-primary: rgb(90, 140, 60); */
+    --color-white: #FFFFFF;
+
+    --color_font-heading: #2C2F24;
+    --color_font-pra: #2C2F24;
+
+    --heading-font-color: #2C2F24;
+    --menu-border-color: #DBDFD0;
+
+    --button-font-color: #182226;
+    --icon-bg-color: #4d592b12;
+
+    --bg-color-primary: #F9F9F7;
+    --bg-color-second: #474747;
+
+
+  
 }
 *{
     margin: 0;
@@ -20,7 +37,7 @@ hr {
 }
 
 .check-out-info{
-    border: 3px solid var(--sec);
+    border: 3px solid var(--color-primary);
     
     border-radius: 1rem;
     max-width: 70%;
@@ -28,19 +45,39 @@ hr {
     
 
 }
+.input-group>button{
+    background-color: var(--color-primary) !important;
+    color: var(--color-white);
+    border-color: var(--color-primary) !important
+}
 
 #promo{
     
-  border-color: #636363;
+  border-color: var(--color-primary);
 }
 .btn-outline-dark{
    min-width: 600px;
 }
+.btn-outline-dark + .btn:hover {
+  background-color: var(--color-primary,) !important;
+  color: #fff;
+  border-color: var(--color-primary,) !important;
+}
+.btn-check:checked + .btn {
+  background-color: var(--color-primary) !important;
+  color: #fff !important;
+  border-color: var(--color-primary) !important;
+}
 #add-address,#add-card{
     min-width: 100px;
 }
+.btn-outline{
+    
+    background-color: var(--color-primary);
+
+}
 #promo:focus {
-  border-color: #636363; /* Optional: set a different border color */
+  border-color: var(--color-primary); /* Optional: set a different border color */
   box-shadow: none;   /* Remove the box shadow */
   outline: none;      /* Remove the outline */
 }
@@ -49,9 +86,14 @@ hr {
     color: black !important;
 }
 #order-pre-check-out p,#order-pre-check-out span{
-    background-color: var(--sec);
+    background-color: var(--color-primary);
     color: var(--prem);
     
+}
+#add-card:hover ,#add-address:hover {
+  background-color: var(--color-primary, #0d6efd); /* your custom color */
+  color: #fff; /* make text white */
+  border-color: var(--color-primary, #0d6efd);
 }
 
 td{
@@ -62,11 +104,11 @@ td{
 
 /*end of check-out-details section*/
 #button-group{
-background-color: var(--sec);
-color: var(--prem);
+background-color: var(--color-primary);
+color: var(--color-primary);
 }
 #add-note-text-area{
-    color: var(--sec);
+    color: var(--color-primary);
     border-radius: 0;
 }
 .alert-txt{
@@ -78,12 +120,11 @@ color: var(--prem);
     height: 16px;
 }
 #submiting{
-    background-color: var(--prem);
+    background-color: var(--color-primary);
     color: var(--white);
     width: 200px;
     font-size: 18px;
     font-weight: bold;
-    border-radius: 0;
 }
 
 .item-name{
