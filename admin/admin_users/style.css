@@ -50,8 +50,13 @@ body {
     .tab-content > .tab-pane{
       flex: 0 0 auto;
     }
-  }
+     #changeWidth_container {
+  margin-left: 0px; 
+  width: 100%;
+}
 
+  }
+ 
 
 /*@media (max-width: 768px) {
   * {

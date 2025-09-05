@@ -40,3 +40,51 @@ hr {
     margin-left: 260px;      
     width: calc(100% - 260px);
 }
+.wrapper {
+    border-color: lightgray;
+    border-radius: 10px;
+}
+
+.warning {
+    background-color: rgb(214, 214, 7);
+}
+
+hr {
+    background-color: gray;
+}
+
+.form-control {
+    margin-bottom: 10px;
+}
+
+.nav-tabs {
+    border-bottom: none;
+}
+
+.nav-tabs .nav-link.active {
+    border-bottom: 2px solid #38a1e3 !important;
+    color: #38a1e3 !important;
+    font-weight: 500;
+    background-color: transparent !important;
+}
+
+.nav-tabs .nav-link {
+    border: none;
+}
+
+/* Style for large screens (Desktop) */
+.container {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+    transition: margin-left 0.3s, width 0.3s; /* Optional: Adds a smooth transition */
+}
+
+/* ===================================== */
+/* Responsive style for smaller screens (Tablets and Mobiles) */
+/* ===================================== */
+@media (max-width: 991.98px) {
+    .container {
+        margin-left: 0;
+        width: 100%;
+    }
+}

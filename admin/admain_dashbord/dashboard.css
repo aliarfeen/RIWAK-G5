@@ -202,3 +202,69 @@
         .modal-footer { border-top: 1px solid var(--white); }
 
     
+@media (max-width: 991.98px) {
+
+    /* Stack the sidebar and main content vertically instead of side-by-side */
+    body>.d-flex {
+        flex-direction: column;
+    }
+
+    /* Convert the sidebar to a top navigation bar */
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        align-items: center;
+    }
+
+    .sidebar-header {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+
+    /* Updated: Use Flexbox to properly center the footer content */
+    .sidebar-footer {
+        width: 100%;
+        margin-top: 15px;
+        padding-top: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px; /* Adds a small space between the admin name and sign out button */
+    }
+}
+
+
+@media (max-width: 576px) {
+    /* Make summary card titles and padding smaller on very small screens */
+    .summary-card {
+        padding: 20px 25px;
+        height: auto;
+        min-height: 130px;
+    }
+
+    .summary-card h2 {
+        font-size: 1.8rem;
+    }
+
+    /* Stack chart/list headers vertically for better fit */
+    .chart-header,
+    .list-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .chart-header select {
+        width: 100% !important;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+}
