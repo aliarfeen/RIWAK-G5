@@ -26,78 +26,210 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
     ></script>
 
-
-    
     <link rel="stylesheet" href="assets/css/check_out.css" />
+    <script type="module" src="assets/js/checkout_updates.js"></script>
   </head>
 
   <body>
     <!-- order created modal -->
-     <div class="modal fade" id="orderCreated" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content text-center p-4">
-        <h5 class="modal-title"> Your Order Was Placed</h5>
+    <div class="modal fade" id="orderCreated" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-center p-4">
+          <h5 class="modal-title">Your Order Was Placed</h5>
+        </div>
       </div>
     </div>
-  </div>
 
     <div
       class="d-flex flex-column-reverse flex-xl-row g-3 align-items-center align-items-xl-start justify-content-around my-5"
     >
-      <section class="d-flex flex-column align-items-start justify-content-start">
-        <div class="d-flex  align-items-center justify-content-between w-100 mb-3">
-            
-        <div id="address-alert" class="d-flex flex-column  align-items-start justify-content-center ">
+      <section
+        class="d-flex flex-column align-items-start justify-content-start"
+      >
+        <div
+          class="d-flex align-items-center justify-content-between w-100 mb-3"
+        >
+          <div
+            id="address-alert"
+            class="d-flex flex-column align-items-start justify-content-center"
+          >
             <h3>Delivery</h3>
-        </div>  
-  <a href="user_profile.html">      
-<button id="add-address" type="button" class="btn btn-outline-dark rounded-1 ">Add Address</button>
-        </div></a>
-        
+          </div>
 
-<div id="addresses-group" class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
-
-</div>
-<div class="d-flex  align-items-center justify-content-between w-100 mb-3">
-        <div id="payment-alert" class="d-flex flex-column  align-items-start justify-content-center ">
-            <h3> Payment Method</h3>
-        </div>  
-        <a href="user_profile.html">   
-<button id="add-card" type="button" class="btn btn-outline-dark rounded-1 ">Add Card</button>
-        </div> </a>
-        
-
-<div id="cards-group" class="btn-group-vertical" role="group" aria-label="Vertical radio toggle button group">
-<input type="radio" class="btn-check" name="card" id="vbtn-radio" autocomplete="off">
-      <label class="btn btn-outline-dark w-100 mb-5 rounded-3" for="vbtn-radio">
-        Cash on delivery
-      </label>
-
-
-</div>
-    <input
-              type="submit"
-              class="btn rounded-1"
-              name=""
-              id="submiting"
-              value="Confirm Order"
+          <button
+            id="add-address"
+            type="button"
+            class="btn btn-outline-dark rounded-1"
+          >
+            Add Address
+          </button>
+        </div>
+        <form id="add-address-form" class="m-4" style="display: none">
+          <h5 id="address-form-title">Add New Address</h5>
+          <input type="hidden" id="address-edit-index" />
+          <div class="mb-3">
+            <label for="streetAddress" class="form-label"
+              >Street Address *</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="streetAddress"
+              required
             />
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="mb-3">
+            <label for="city" class="form-label">City *</label>
+            <input type="text" class="form-control" id="city" required />
+            <div class="invalid-feedback"></div>
+          </div>
 
+          <div class="mb-3">
+            <label for="country" class="form-label">Country *</label>
+            <input type="text" class="form-control" id="country" required />
+            <div class="invalid-feedback"></div>
+          </div>
+          <button type="submit" id="saveAddressBtn" class="btn btn-dark">
+            Save Address
+          </button>
+          <button
+            type="button"
+            id="cancelAddAddressBtn"
+            class="btn btn-secondary"
+          >
+            Cancel
+          </button>
+        </form>
 
+        <div
+          id="addresses-group"
+          class="btn-group-vertical"
+          role="group"
+          aria-label="Vertical radio toggle button group"
+        ></div>
+        <div
+          class="d-flex align-items-center justify-content-between w-100 mb-3"
+        >
+          <div
+            id="payment-alert"
+            class="d-flex flex-column align-items-start justify-content-center"
+          >
+            <h3>Payment Method</h3>
+          </div>
+
+          <button
+            id="add-card"
+            type="button"
+            class="btn btn-outline-dark rounded-1"
+          >
+            Add Card
+          </button>
+        </div>
+
+        <form id="add-card-form" class="m-4" style="display: none">
+          <h5 class="mb-4">Add New Card</h5>
+          <div class="mb-3">
+            <label for="cardNumber" class="form-label">Card Number *</label>
+            <input
+              type="text"
+              class="form-control"
+              id="cardNumber"
+              placeholder="0000 0000 0000 0000"
+              required
+            />
+            <div class="invalid-feedback"></div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <label for="cardCvv" class="form-label">CVV*</label>
+              <input
+                type="text"
+                class="form-control"
+                id="cardCvv"
+                placeholder="000"
+                required
+              />
+              <div class="invalid-feedback"></div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="cardExpiry" class="form-label">Expiry Date*</label>
+              <input
+                type="text"
+                class="form-control"
+                id="cardExpiry"
+                placeholder="MM/YY"
+                required
+              />
+              <div class="invalid-feedback"></div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label for="cardName" class="form-label">Name on the Card*</label>
+              <input
+                type="text"
+                class="form-control"
+                id="cardName"
+                placeholder="Enter Name"
+                required
+              />
+              <div class="invalid-feedback"></div>
+            </div>
+          </div>
+          <div class="mt-3">
+            <button type="submit" class="btn btn-dark">Add Card</button>
+            <button
+              type="button"
+              id="cancelAddCardBtn"
+              class="btn btn-secondary"
+            >
+              Cancel
+            </button>
+          </div>
+        </form>
+
+        <div
+          id="cards-group"
+          class="btn-group-vertical"
+          role="group"
+          aria-label="Vertical radio toggle button group"
+        >
+          <input
+            type="radio"
+            class="btn-check"
+            name="card"
+            id="vbtn-radio"
+            autocomplete="off"
+          />
+          <label
+            class="btn btn-outline-dark w-100 mb-5 rounded-3"
+            for="vbtn-radio"
+          >
+            Cash on delivery
+          </label>
+        </div>
+        <input
+          type="submit"
+          class="btn rounded-1"
+          name=""
+          id="submiting"
+          value="Confirm Order"
+        />
       </section>
       <section class="check-out-info p-5 m-5 w-30">
         <div id="check-out-details"></div>
 
         <div class="input-group mb-3">
           <input
-          id="promo"
+            id="promo"
             type="text"
             class="form-control"
             placeholder="Enter promo code"
             aria-label="Enter promo code"
             aria-describedby="button-addon2"
           />
-          <button class="btn btn-outline" type="button" id="apply-code">Apply</button>
+          <button class="btn btn-outline" type="button" id="apply-code">
+            Apply
+          </button>
         </div>
         <b id="message"></b>
 
@@ -115,7 +247,7 @@
           </div>
           <div id="discount-div" class="d-none w-100 justify-content-between">
             <p>Discount</p>
-            <p>&minus; <b id="discount" >75</b> EGP</p>
+            <p>&minus; <b id="discount">75</b> EGP</p>
           </div>
           <hr />
           <div id class="d-flex w-100 justify-content-between">
@@ -125,7 +257,6 @@
         </div>
       </section>
     </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

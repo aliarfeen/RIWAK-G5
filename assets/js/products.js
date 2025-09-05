@@ -66,7 +66,6 @@ window.addEventListener("load", function () {
 
 
 
-  /// الفلتر الجديد والصحيح
   // price filter
 range.addEventListener("input", function () {
   label.innerHTML = `Price: ${minProductPrice} EGP - ${this.value} EGP`;
@@ -166,13 +165,7 @@ function displayProducts(products) {
     favBtn.style.backgroundColor = "white";
     favBtn.addEventListener("click", function () {
       addToFav(product);
-      const wishlistModal = new bootstrap.Modal(
-        document.getElementById("wishlistModal")
-      );
-      wishlistModal.show();
-      setTimeout(() => {
-        wishlistModal.hide();
-      }, 1000);
+     
     });
 
     let cartBtn = document.createElement("button");
@@ -265,14 +258,25 @@ function addToFav(product) {
     const logInRequiredModal = new bootstrap.Modal(
       document.getElementById("logInRequiredModal")
     );
+    
     logInRequiredModal.show();
-  } else {
+  }
+  
+  if(currentUser) {
+    
     let fav = currentUser.favourites || [];
     let isFound = fav.find((e) => e.id == product.id);
     if (!isFound) {
       fav.push(product);
       currentUser.favourites = fav;
       updateCurrentUser(currentUser); 
+       const wishlistModal = new bootstrap.Modal(
+        document.getElementById("wishlistModal")
+      );
+      wishlistModal.show();
+      setTimeout(() => {
+        wishlistModal.hide();
+      }, 1000);
     }
   }
 }
