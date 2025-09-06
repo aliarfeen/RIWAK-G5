@@ -1,3 +1,15 @@
+
+document.addEventListener('DOMContentLoaded', function () {
+      // ...
+const adminDataString = localStorage.getItem('current_admin');
+
+if (adminDataString) {
+    const adminUser = JSON.parse(adminDataString);
+    document.getElementById('admin-username').textContent = adminUser.name;
+}
+});
+
+
 window.addEventListener('load', function () {
 
     targetdiv = this.document.getElementById('targetdiv');
