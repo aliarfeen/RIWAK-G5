@@ -124,10 +124,11 @@ function updateDashboard(sellerIdParam) {
 
         const totalProductsEl = document.getElementById("totalProducts");
         if (totalProductsEl) totalProductsEl.textContent = approvedProducts.length;
-
+     
         const totalRevenueEl = document.getElementById("totalRevenue");
         if (totalRevenueEl) totalRevenueEl.textContent =
-            (productStats.reduce((sum, x) => sum + x.revenue, 0)).toLocaleString() + " EGP";
+            (
+                 productStats.reduce((sum, x) => sum + x.revenue, 0)).toLocaleString() + " EGP";
 
         const topProductEl = document.getElementById("topProduct");
         if (topProductEl) {
@@ -458,3 +459,10 @@ function displayBindingAndRejected() {
         }
     });
 }
+
+
+
+document.getElementById("sign-out-btn").addEventListener("click", function () {
+  localStorage.removeItem("current_seller");
+  window.location.href = "../../login.html";
+});

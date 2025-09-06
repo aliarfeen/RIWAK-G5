@@ -1,4 +1,13 @@
 
+document.addEventListener('DOMContentLoaded', function () {
+      // ...
+const adminDataString = localStorage.getItem('current_admin');
+
+if (adminDataString) {
+    const adminUser = JSON.parse(adminDataString);
+    document.getElementById('admin-username').textContent = adminUser.name;
+}
+});
 //when tab cusromer is clicked, everything seller is turned customer
 document.querySelector('a[href="#customersGrid"]').addEventListener("click", () => {
 document.querySelectorAll(".sellerToCustomer").forEach(el => {

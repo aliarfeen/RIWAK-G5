@@ -12,10 +12,11 @@
 }
 
  tbody tr:nth-child(even) {
-  background-color:  #CECAC1ff                 
+  background-color:  #CECAC1ff  
+                 
 }
 .report, .revenue{
-   max-width:90rem;
+   max-width:75rem;
     width: 100%;
 }
 .thead1{                                  

@@ -11,6 +11,16 @@
 
 // get data from file json (orders.json):
 
+
+document.addEventListener('DOMContentLoaded', function () {
+      // ...
+const adminDataString = localStorage.getItem('current_admin');
+
+if (adminDataString) {
+    const adminUser = JSON.parse(adminDataString);
+    document.getElementById('admin-username').textContent = adminUser.name;
+}
+});
     let ordersData = JSON.parse(localStorage.getItem("orders"));
     let sellersData = JSON.parse(localStorage.getItem("sellers"));
 
