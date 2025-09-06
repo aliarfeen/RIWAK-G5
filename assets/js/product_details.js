@@ -173,7 +173,14 @@ async function loadProducts() {
         `;
             row.appendChild(col);
 
-
+               //change img on hover
+             let img = col.querySelector("img");
+              img.addEventListener("mouseenter", () => {
+              img.src = product.images[1];
+              });
+             img.addEventListener("mouseleave", () => {
+             img.src = product.images[0];
+              });
             // click on image, opens the details page
             col.querySelector("img").addEventListener("click", () => {
                 localStorage.setItem("details", JSON.stringify(product));
