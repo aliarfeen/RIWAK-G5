@@ -10,6 +10,7 @@
     <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/admin/admain_dashbord/dashboard.css">
     <script src="Script.js"></script>
     <title>Product Management</title>
 </head>
@@ -17,18 +18,20 @@
 <body>
     <div class="d-flex flex-column flex-xl-row main2">
     <!-- 🔹 Sidebar -->
-    <div class="col-12 col-md-3 col-lg-2 sidebar p-3 d-flex flex-column">
-        <h2 class="text-center">RIWAK</h2>
-        <hr class="bg-light">
-        <div class="links flex-grow-1">
-          <a href="dashbord.html"><i class="fa-solid fa-chart-line"></i>  Dashboard</a>
-          <a href="products.html"><i class="fa-brands fa-product-hunt"></i>  Products</a>
-          <a href="../order_page/orders.html"><i class="fa-solid fa-sort"></i>  Orders</a>
-          <a href="../report_page/report.html"><i class="fa-solid fa-flag"></i>  Reports</a>
-        </div>
-        <div  id="name" class="name mt-auto fw-bold text-center p-2 border-top"></div>
-        <button id="logoutBtn" class="btn btn-danger mt-3"><i class="fa-solid fa-right-from-bracket"></i>  Logout</button>
-      </div>
+    <nav class="sidebar">
+            <h3 class="sidebar-header">RIWAK</h3>
+            <ul class="nav flex-column">
+                <li class="nav-item active"><a href="Dashbord.html" class="nav-link" data-target="dashboard-page"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+                <li class="nav-item"><a href="products.html" class="nav-link" data-target="users-page"><i class="fa-brands fa-product-hunt"></i>Products</a></li>
+                <li class="nav-item"><a href="../order_page/orders.html" class="nav-link" data-target="products-page"><i class="fa-solid fa-sort"></i> Orders</a></li>
+                <li class="nav-item"><a href="../report_page/report.html" class="nav-link" data-target="orders-page"><i class="fa-solid fa-flag"></i>  Reports</a></li>
+
+            </ul>
+            <div class="sidebar-footer">
+                 <div class="admin-info"><small id="name">seller</small></div>
+                <a href="#" id="sign-out-btn" class="sign-out"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+            </div>
+        </nav>
     <div class="container py-3">
         <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
             <h3><i class="fa fa-cubes"></i> Product Management</h3>

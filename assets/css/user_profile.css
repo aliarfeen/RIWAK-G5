@@ -3,6 +3,7 @@
     --sec: #CECAC1;
     --white: #FEFCFB;
     --font-main: 'Roboto';
+    --color-primary: #40826d;
 }
 
 body {
@@ -150,8 +151,8 @@ body {
 }
 
 .btn-dark {
-    background-color: var(--prem);
-    border-color: var(--prem);
+    background-color: var(--color-primary)!important;
+    border-color: var(--color-primary)!important;
     color: var(--white);
     padding: 10px 25px;
     font-weight: 700;
@@ -160,8 +161,9 @@ body {
 }
 
 .btn-dark:hover:not(:disabled) {
-    background-color: #333;
-    border-color: #333;
+    background-color: transparent!important;
+    border-color: var( --color-primary) !important;
+    color:var(--color-primary)
 }
 
 .btn-dark:disabled {

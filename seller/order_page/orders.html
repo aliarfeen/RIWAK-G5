@@ -19,6 +19,7 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="/admin/admain_dashbord/dashboard.css">
 
 </head>
 
@@ -27,18 +28,20 @@
 
     <div>
     <!-- 🔹 Sidebar -->
-    <div class=" sidebar">
-        <h2 class="text-center">RIWAK</h2>
-        <hr class="bg-light">
-        <div class="links flex-grow-1 ">
-          <a href="../dashboard/dashbord.html"><i class="fa-solid fa-chart-line"></i>  Dashboard</a>
-          <a href="../dashboard/products.html"><i class="fa-brands fa-product-hunt"></i>  Products</a>
-          <a href="orders.html"><i class="fa-solid fa-sort"></i>  Orders</a>
-          <a href="../report_page/report.html"><i class="fa-solid fa-flag"></i>  Reports</a>
-        </div>
-        <div  id="name" class="name"></div>
-        <button id="logoutBtn" class="btn btn-danger mt-3"><i class="fa-solid fa-right-from-bracket"></i>  Logout</button>
-    </div>
+   <nav class="sidebar">
+            <h3 class="sidebar-header">RIWAK</h3>
+            <ul class="nav flex-column">
+                <li class="nav-item active"><a href="../dashboard/Dashbord.html" class="nav-link" data-target="dashboard-page"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+                <li class="nav-item"><a href="../dashboard/products.html" class="nav-link" data-target="users-page"><i class="fa-brands fa-product-hunt"></i>Products</a></li>
+                <li class="nav-item"><a href="orders.html" class="nav-link" data-target="products-page"><i class="fa-solid fa-sort"></i> Orders</a></li>
+                <li class="nav-item"><a href="../report_page/report.html" class="nav-link" data-target="orders-page"><i class="fa-solid fa-flag"></i>  Reports</a></li>
+
+            </ul>
+            <div class="sidebar-footer">
+                 <div class="admin-info"><small id="name">Seller Name</small></div>
+                <a href="#" id="sign-out-btn" class="sign-out"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+            </div>
+        </nav>
     <div class="container">
 
         <div class="orders_container">
@@ -145,6 +148,7 @@
 
 
     <script src="script.js"></script>
+    
       <script type="module" src="../../assets/js/handler.js"></script>
    
 </body>

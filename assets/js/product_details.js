@@ -7,6 +7,15 @@ if (localStorage.getItem("product")) {
 
 //populate from local storage
 let product = JSON.parse(localStorage.getItem("details"));
+//if the item is a favourite the fa heart is green on load
+  let currentUser = JSON.parse(localStorage.getItem("current_user"));
+  if (currentUser && currentUser.favourites?.some(f => f.id === product.id)) {
+    let favHeart = document.getElementById("favHeart");
+    favHeart.classList.remove("fa-heart-o");
+    favHeart.classList.add("fa-heart");
+    favHeart.style.color = "#40826D";
+  };
+let currentProductId = product.id;
 function loadProduct() {
 
     let mainImg = document.getElementById("mainImage");
@@ -158,12 +167,20 @@ async function loadProducts() {
     </span>
     <p class="card-text m-0"> EGP ${product.price}</p>
     <button id="cardbtns" class="border btn cardbtns w-100" data-id="${product.id}"> Add to cart</button>
+     <button class="border btn w-100 fav-btn" data-id="${product.id}" onclick= "AddToFav('${product.id}', this)"> Add to favoutite</button>
     </div>
       </div>
         `;
             row.appendChild(col);
 
-
+               //change img on hover
+             let img = col.querySelector("img");
+              img.addEventListener("mouseenter", () => {
+              img.src = product.images[1];
+              });
+             img.addEventListener("mouseleave", () => {
+             img.src = product.images[0];
+              });
             // click on image, opens the details page
             col.querySelector("img").addEventListener("click", () => {
                 localStorage.setItem("details", JSON.stringify(product));
@@ -207,8 +224,10 @@ async function loadProducts() {
 
 }
 
-loadProducts();
+
 loadProduct();
+loadProducts();
+CardStates();
 
 
 //the zoom in effect
@@ -260,7 +279,7 @@ function updateStock() {
     } else if (left === 0) {
         stockStatus.textContent = "Out of stock";
         quantity.textContent = "";
-        cartBtn.textContent = "Available soon...";         /*here is where i had "Add to favourite"*/
+        cartBtn.textContent = "Available soon...";         
         cartBtn.style.pointerEvents = "none";
         plusBtn.disabled = "true"
 
@@ -332,5 +351,84 @@ cartBtn.addEventListener("click", () => {
 updateCartBtnText();
 updateStock();
 
+//wishlist
+function AddToFav(productId, el) {     
+ let currentUser = JSON.parse(localStorage.getItem("current_user"));    
+  if (!currentUser) {
+    const logInRequiredModal = new bootstrap.Modal(
+      document.getElementById("logInRequiredModal")
+    );
+    logInRequiredModal.show();
+    return;                           
+  }
+
+
+  let allProducts = JSON.parse(localStorage.getItem("products")) || [];
+  let product = allProducts.find(p => p.id == productId);
+  if (!product) return;               
+
+  let fav = currentUser.favourites || [];
+  const index = fav.findIndex(item => item.id == product.id);
+
+  if (index === -1) {
+    // not in favourites, add
+    fav.push(product);
+
+    if (el.tagName==="I"){
+      el.classList.remove("fa-heart-o");
+      el.classList.add("fa-heart");
+      el.style.color = "#40826D";
+    } else {
+      // button
+      el.classList.add("sucess");
+      el.textContent = "Added";
+    }
+    const wishlistModal = new bootstrap.Modal(
+      document.getElementById("wishlistModal")
+    );
+    wishlistModal.show();
+    setTimeout(() => wishlistModal.hide(), 1000);
+  } else {
+    //if in favourite, remove
+    fav.splice(index, 1);
+   if (el.tagName === "I") {
+      el.classList.remove("fa-heart");
+      el.classList.add("fa-heart-o");
+      el.style.color = "rgb(218,214,214)";
+    } else {
+      el.classList.remove("sucess");
+      el.textContent = "Add to favourite";
+    }
+  }
+  currentUser.favourites = fav;
+  localStorage.setItem("current_user", JSON.stringify(currentUser));
+}
+//end
+
+
+//if the item is in cart or favourite, it's already dark green on load
+function CardStates() {
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const currentUser = JSON.parse(localStorage.getItem("current_user"));
+  const favourites = currentUser?.favourites || [];
+
+  // add to cart btn
+  document.querySelectorAll(".cardbtns").forEach(btn => {
+    const productId = btn.dataset.id;
+    if (cart.some(item => item.id == productId)) {
+      btn.classList.add("sucess");
+      btn.textContent = "Added";
+    } 
+  });
+
+  // add to favourite
+  document.querySelectorAll(".fav-btn").forEach(btn => {
+  const productId = btn.dataset.id;
+  if (favourites.some(item => item.id == productId)) {
+    btn.classList.add("sucess");
+    btn.textContent = "Added";
+  }
+});
+}
 
 
