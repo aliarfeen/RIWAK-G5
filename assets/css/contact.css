@@ -78,7 +78,7 @@ a {
     color: var(--color_font-heading);
 }
 
-.btn {
+.btns {
     padding: 15px 20px;
     background: var(--color-primary);
     border: 1px solid var(--color-primary);
@@ -98,7 +98,7 @@ a {
     -o-transition: .5s;
 }
 
-.btn_primary {
+.btns_primary {
     padding: 15px 20px;
     background: var(--white-color);
     border: 1px solid var(--color-primary);
@@ -169,14 +169,16 @@ a {
 
 
 
+
+
 /* Box Form */
 
 #contact {
-    background:white ;
+    background: white;
 }
 
 .contact_header {
-    padding:2rem 0rem ;
+    padding: 2rem 0rem;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -185,7 +187,8 @@ a {
     align-items: center;
 
 }
-.contact_header > p{
+
+.contact_header>p {
     color: #495460;
     font-size: 18px;
     width: 440px;
@@ -193,7 +196,7 @@ a {
 }
 
 .contact_container {
-    background:var(--bg-color-primary) ;
+    background: var(--bg-color-primary);
     margin-bottom: 13rem;
 }
 
@@ -211,14 +214,15 @@ a {
 }
 
 .contact_data {
-    background:white;
+    background: white;
     display: grid;
     place-items: center;
-    padding: 2rem 0rem 5rem 0rem;
+    padding: 4rem 0rem 5rem 0rem;
 }
+
 .contant_detials {
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 3rem;
     justify-content: center;
     align-items: flex-start;
@@ -231,45 +235,61 @@ a {
     justify-content: center;
 }
 
-.contant_row > h4 {
+.contant_row>h4 {
+    font-size: 18px !important;
     color: var(--heading-font-color);
     font-weight: bold;
 }
-.contant_row > p {
+
+.contant_row>p {
     color: var(--color-primary);
     font-weight: bold;
     font-size: 19px;
-
+    margin: 0 !important;
 }
 
-.row_data{
+.row_data {
     display: flex;
     flex-direction: column;
     gap: 4px;
 
 }
-.row_data > p {
+
+.row_data>p {
     color: var(--heading-font-color);
+    margin: 0 !important;
+    font-size: 17px !important;
 }
 
 
 /* Media Queries (Small Device) */
 
+@media screen and (max-width:1024px) {
+    .contant_detials {
+        gap: 0rem;
+    }
+
+}
+
+/* Media Queries (Small Device) */
+
 @media screen and (max-width:600px) {
 
-    .contact_header > p{
+    .contact_header>p {
         color: #495460;
         font-size: var(--font-size);
         width: 350px;
     }
+
     .contant_detials {
-        grid-template-columns: repeat(1 ,1fr);
+        grid-template-columns: repeat(1, 1fr);
         gap: 1.5rem;
     }
 
     .contact_data {
-        padding: 6rem 0rem 5rem 0rem;
+        padding: 8rem 0rem 5rem 0rem !important;
     }
+
     .contant_row {
         gap: .7rem;
     }
@@ -279,13 +299,15 @@ a {
 
 
 
+
+
 /* Contact From */
 
 .form_container {
     background: white;
-    padding: 2.5rem 2rem;
+    padding: 2.5rem 2rem !important;
     position: relative;
-    width: 650px;
+    width: 800px !important;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -300,7 +322,7 @@ a {
 .form_box {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    justify-self:center;
+    justify-self: center;
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem;
@@ -310,18 +332,22 @@ a {
 
 .input_box {
     display: flex;
-    justify-self:center;
+    justify-self: center;
     flex-direction: column;
     gap: .4rem;
     width: 100%;
 
 }
-.input_box > label {
+
+.input_box>label {
     font-size: 15px;
     font-weight: 500;
     color: var(--heading-font-color);
 }
-.input_box > input, select, textarea {
+
+.input_box>input,
+select,
+textarea {
     border: 1px solid var(--menu-border-color);
     outline: none;
     border-radius: 10px;
@@ -332,7 +358,7 @@ a {
     padding: .8rem 1rem;
 }
 
-.input_box > textarea {
+.input_box>textarea {
     height: 100px;
     border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -350,8 +376,10 @@ a {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
     }
+
     .form_container {
-        width: 320px;
+        width: 320px !important;
     }
 }
-/* END FORM STYLE */
+
+/* End Form Style */
