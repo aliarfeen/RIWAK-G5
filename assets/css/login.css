@@ -84,11 +84,16 @@ textarea {
 }
 
 .container_form .toggle_img {
-    height: 500px;
+    height: 540px;
 }
 
 .container_form .toggle_img img {
     height: 100%;
+    border-radius: 5px !important;
+    -webkit-border-radius: 5px !important;
+    -moz-border-radius: 5px !important;
+    -ms-border-radius: 5px !important;
+    -o-border-radius: 5px !important;
 }
 
 .form_box form {
@@ -187,8 +192,8 @@ textarea {
 
 
 .btn {
-    padding: .8rem 0;
-    background-color:var(--color-primary) !important;
+    padding: .8rem 0 !important;
+    background-color: var(--color-primary) !important;
     color: white !important;
     border: none !important;
     cursor: pointer;
@@ -198,10 +203,12 @@ textarea {
     -moz-border-radius: 5px !important;
     -ms-border-radius: 5px !important;
     -o-border-radius: 5px !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
 }
 
 .btn_primary {
-    background-color: white !important;
+    background-color: transparent !important;
     border: 1.5px solid var(--color-primary) !important;
     color: var(--color-primary) !important;
     font-weight: bold !important;
@@ -251,7 +258,7 @@ textarea {
         color: var(--pra-color);
         gap: 5px;
 
-        p{
+        p {
             margin: 0;
         }
 
