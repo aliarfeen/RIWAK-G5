@@ -15,7 +15,7 @@
   background-color:  #CECAC1ff                 
 }
 .report, .revenue{
-   max-width:70rem;
+   max-width:90rem;
     width: 100%;
 }
 .thead1{                                  
@@ -47,25 +47,7 @@ padding-bottom: 1rem;
 .table-wrapper table {
   width: 100%;   
 }
- .sidebar {
-      min-height: 100vh;
-      background: var(--prem);
-      color: white;
-    }
-  .sidebar a {
-      display: block;
-      padding: 10px;
-      color: #ddd;
-      text-decoration: none;
-      font-size: 20px;
-    }
-    .sidebar a:hover {
-      
-      color: #fff;
-    }
-    .main-content {
-      padding: 20px;
-    }
+
 
 @media (max-width: 768px) {        
 .report, .revenue{
@@ -127,25 +109,7 @@ display: flex;
 .row.flex-nowrap{
   flex-direction: column;
 }
-.sidebar {
-    min-height: auto;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
-  }
 
-  .sidebar .links {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-
-  .sidebar .links a {
-    padding: 8px 15px;
-    font-size: 14px;
-  }
 
   .name {
     width: 100%;
@@ -156,59 +120,7 @@ display: flex;
   .main-content {
     padding: 15px;
   }
-/* .sidebar {
-    min-height: auto;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
-  }
-
-  .sidebar .links {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-
-  .sidebar .links a {
-    padding: 8px 15px;
-    font-size: 14px;
-  }
-
-  .name {
-    width: 100%;
-    text-align: center;
-    margin-top: 10px;
-  }
-
-  .main-content {
-    padding: 15px;
-  }*/
-
 }
-
-/*.sidebar {
-      min-height: 100vh;
-      background: var(--prem);
-      color: white;
-    }
-  .sidebar a {
-      display: block;
-      padding: 10px;
-      color: #ddd;
-      text-decoration: none;
-      font-size: 20px;
-        
-        font-family: Arial, Helvetica, sans-serif;
-    }
-    .sidebar a:hover {
-     
-      color: #fff;
-    }
-    .main-content {
-      padding: 20px;
-    }*/
 
 
 

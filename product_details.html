@@ -28,6 +28,11 @@
         <!-- Main image -->
         <div class="zoom-container col-lg-6 d-flex justify-content-center align-items-center ms-lg-3 m-0">
           <img id="mainImage" src="" class="img-fluid" alt="Main product">
+           <i id="favHeart" 
+         class="fa fa-heart-o position-absolute" 
+        style="top: 10px; right: 20px; font-size: 2rem; color: rgb(179, 174, 174); cursor: pointer;"
+        onclick="AddToFav(currentProductId, this)">
+       </i>
         </div>
         <!-- price box -->
         <div class="title-box col-12 col-lg-3 ms-md-4 fs-5">
@@ -190,6 +195,36 @@
         </div>
       </div>
     </div>
+
+<!-- Login Required Modal -->
+<div class="modal fade" id="logInRequiredModal" tabindex="-1" aria-labelledby="emptyCartLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="emptyCartLabel">Login Required</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        You have to have an account to be able to add items to wishlist.
+      </div>
+      <div class="modal-footer">
+        <a href="login.html"><button type="button" class="btn btn-dark rounded-0" data-bs-dismiss="modal">Log In </button></a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End of modal -->
+
+<!-- added to wishlist modal -->
+     <div class="modal fade" id="wishlistModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content text-center p-4">
+        <h5 class="modal-title">Item Added to Wishlist &hearts;</h5>
+      </div>
+    </div>
+  </div>
+
+<!-- End of modal -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
