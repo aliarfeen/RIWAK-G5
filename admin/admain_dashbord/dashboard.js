@@ -1,6 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
-        const loggedInUser = "Ahmed";
-        document.getElementById('admin-username').textContent = loggedInUser;
+      // ...
+const adminDataString = localStorage.getItem('current_admin');
+
+if (adminDataString) {
+    const adminUser = JSON.parse(adminDataString);
+    document.getElementById('admin-username').textContent = adminUser.name;
+}
         
         let categoriesChart, sellersChart, calculatedMetrics;
         let allProductsData = [], allOrdersData = [], sellerNameMap = new Map(), productNameMap = new Map();
