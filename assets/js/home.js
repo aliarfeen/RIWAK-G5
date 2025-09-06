@@ -98,7 +98,7 @@ Alldata.slice(0, 12).forEach((data) => {
 
           <div class="port_card_img">
             <img src="${data.images[c]}" alt="${data.name}"/>
-            <button class=' btn_details '
+            <button class='btn_details'
             data-id="${data.id}">Detalis</button>
           </div>
 
@@ -124,7 +124,7 @@ Alldata.slice(0, 12).forEach((data) => {
       `;
 });
 
-document.querySelectorAll(".buy-btn").forEach((btn) => {
+document.querySelectorAll(".btn_details").forEach((btn) => {
   btn.addEventListener("click", (e) => {
     const productId = e.target.dataset.id;
     const product = Alldata.find((p) => p.id == productId);
