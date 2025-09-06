@@ -233,6 +233,11 @@ footer {
         flex-wrap: wrap;
         gap: .5rem;
     }
+    .footer_imgs {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
 
 }
 
@@ -249,5 +254,8 @@ footer {
 
     .footer_copy {
         text-align: center;
+    }
+    .footer_imgs {
+        grid-template-columns: repeat(1, 1fr);
     }
 }
