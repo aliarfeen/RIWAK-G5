@@ -55,13 +55,13 @@
 
 
 
-        .sidebar {
+        /* .sidebar {
             background-color: var(--prem);
             width: 250px;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-        }
+        } */
         .sidebar-header {
             color: var(--white);
             padding: 20px;
