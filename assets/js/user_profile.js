@@ -1,3 +1,9 @@
+currentUser = localStorage.getItem("current_user");
+window.addEventListener("DOMContentLoaded", function () {
+  if (JSON.parse(currentUser) == null) {
+    window.location.href = "login.html";
+  }
+});
 document.addEventListener("DOMContentLoaded", function () {
   // Selectors
   const navLinks = document.querySelectorAll(
@@ -132,7 +138,7 @@ function updateCurrentUser(userData) {
   <div class="order-item mb-3 p-3 border rounded" data-id="${order.order_details.id}">
       <div class="order-item-header">
           <h6 class="mb-0 fw-bold">Order #${order.order_details.id}</h6>
-          <span class="badge bg-secondary order-status">${order.order_details.items[0].status}</span>
+          <span class="badge bg-info order-status">${order.order_details.status}</span>
       </div>
       <div class="order-item-body text-muted">
           <p class="mb-1">Date: ${order.order_details.date}</p>

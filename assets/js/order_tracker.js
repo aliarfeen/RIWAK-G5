@@ -52,4 +52,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const orderIdElement = document.getElementById("order_id");
   orderIdElement.textContent = order.shippingInfo.trackingNumber;
-});
+  
+  const orderNoteData = order.order_note;
+  if(!orderNoteData){
+    const orderParagraph = document.getElementById("order_note_p")
+    orderParagraph.style.display = "none";
+  }else{
+   
+  const ordernote= document.getElementById("order_note");
+  ordernote.textContent = orderNoteData;
+ 
+  }});

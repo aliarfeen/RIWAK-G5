@@ -95,6 +95,9 @@ button[type="submit"] {
 td{
     vertical-align: middle;
 }
+#streetAddress,#city,#country{
+    min-width: 550px;
+}
 
 /*--------------end of order-pre-check-out div*/
 

@@ -188,6 +188,10 @@ confirmOrderBtn.addEventListener("click", function (e) {
     });
 
     const userJson = localStorage.getItem("current_user");
+    const orderNote = localStorage.getItem("order_note");
+    // const orderNoteMsg =JSON.parse(orderNote)
+    console.log(orderNote)
+
     const user = JSON.parse(userJson);
     let allorders = JSON.parse(localStorage.getItem("orders")) || [];
     let lastOrder = allorders[allorders.length - 1];
@@ -220,7 +224,9 @@ confirmOrderBtn.addEventListener("click", function (e) {
         },
         totalAmount: finalTotalVal,
         paymentStatus: `paid`,
+        order_note: orderNote,
       },
+
     };
     const orders = JSON.parse(localStorage.getItem("orders") || "[]");
     orders.push(orderObj);
