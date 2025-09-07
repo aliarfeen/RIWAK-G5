@@ -108,7 +108,7 @@ async function salesReport() {
 
 salesReport();
 
-document.getElementById("logoutBtn").addEventListener("click", function () {
+document.getElementById("sign-out-btn").addEventListener("click", function () {
   localStorage.removeItem("current_seller");
-  window.location.href = "../dashboard/login.html";
+  window.location.href = "../../login.html";
 });

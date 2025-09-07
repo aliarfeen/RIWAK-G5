@@ -271,3 +271,8 @@ saveBtn.addEventListener("click", () => {
 
   runOrdersPage();
 });
+
+document.getElementById("sign-out-btn").addEventListener("click", function () {
+  localStorage.removeItem("current_seller");
+  window.location.href = "../../login.html";
+});
