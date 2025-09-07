@@ -16,29 +16,6 @@ body {
 /* =================================================================
    Original Sidebar Styling
    ================================================================= */
-.sidebar {
-    min-height: 100vh;
-    background: var(--prem);
-    color: white;
-    
-}
-
-.sidebar a {
-    display: block;
-    padding: 10px 15px;
-    color: #ddd;
-    text-decoration: none;
-    font-size: 18px;
-    transition: color 0.2s;
-}
-
-.sidebar a:hover {
-    color: #fff;
-}
-
-.sidebar a i {
-    margin-right: 10px;
-}
 
 /* =================================================================
    Main Content & General
