@@ -16,7 +16,7 @@
                  
 }
 .report, .revenue{
-   max-width:75rem;
+   max-width:65rem;
     width: 100%;
 }
 .thead1{                                  
@@ -50,7 +50,7 @@ padding-bottom: 1rem;
 }
 
 
-@media (max-width: 768px) {        
+@media (max-width: 990px) {        
 .report, .revenue{
     max-width:81rem;
     width: 100%;
