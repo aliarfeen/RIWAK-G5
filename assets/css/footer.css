@@ -117,7 +117,7 @@ footer {
 
 .footer_col1>p {
     font-size: 16px;
-    color: #dcdcdcff;
+    color: #dcdcdcff ;
     width: 300px;
 
 }
@@ -129,7 +129,9 @@ footer {
     align-items: center;
 
 }
-
+h4{
+    color: white !important;
+}
 .footer_socail .footer_icons a {
 
     display: flex;
