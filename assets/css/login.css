@@ -127,7 +127,7 @@ textarea {
 
     label {
         color: var(--pra-color);
-        font-size: var(--font-size);
+        /* font-size: var(--font-size); */
         margin-bottom: 2px;
 
         span {
@@ -183,12 +183,19 @@ textarea {
 }
 
 /* End password icon */
-
+.forgot_link {
+    margin-top:5px;
+    text-align: right !important;
+}
 .forgot_link a {
     color: var(--pra-color);
-    font-size: var(--font-size);
+    font-size: 16.5px !important;
+    text-decoration: underline !important;
+    transition:all .5s;
 }
-
+.forgot_link a:hover {
+    color:rgb(126, 0, 0);
+}
 
 
 .btn {
@@ -285,7 +292,7 @@ textarea {
 .error {
     display: block;
     color: rgb(182, 0, 0);
-    font-size: 12px;
+    /* font-size: 12px; */
     margin-top: 2px;
 }
 

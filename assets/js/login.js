@@ -13,6 +13,53 @@ let loginForm = document.querySelector(".form_box.login form");
 let registerForm = document.querySelector(".form_box.register form");
 let createAccountBtn = document.querySelector(".btn_primary");
 
+
+// Select the password input and the feedback element for registration form
+const registerPasswordInput = document.getElementById("pw");
+const strengthFeedbackDisplay = document.getElementById("password-strength-feedback");
+
+// Add event listener to check password strength on input
+if (registerPasswordInput && strengthFeedbackDisplay) {
+  registerPasswordInput.addEventListener("input", function () {
+    const password = this.value;
+    let strength = 0;
+
+    // 1. Check length
+    if (password.length >= 8) strength++;
+    // 2. Check for lowercase letters
+    if (password.match(/[a-z]/)) strength++;
+    // 3. Check for uppercase letters
+    if (password.match(/[A-Z]/)) strength++;
+    // 4. Check for numbers
+    if (password.match(/[0-9]/)) strength++;
+
+    let feedbackText = "Strength: ";
+    if (password.length === 0) {
+      strengthFeedbackDisplay.textContent = "";
+      return;
+    }
+
+    switch (strength) {
+      case 1:
+        strengthFeedbackDisplay.textContent = feedbackText + "Weak";
+        strengthFeedbackDisplay.style.color = "red";
+        break;
+      case 2:
+      case 3:
+        strengthFeedbackDisplay.textContent = feedbackText + "Medium";
+        strengthFeedbackDisplay.style.color = "orange";
+        break;
+      case 4:
+        strengthFeedbackDisplay.textContent = feedbackText + "Strong";
+        strengthFeedbackDisplay.style.color = "green";
+        break;
+      default:
+        strengthFeedbackDisplay.textContent = feedbackText + "Very Weak";
+        strengthFeedbackDisplay.style.color = "red";
+    }
+  });
+}
+
 // password toggle
 let passwords = document.querySelectorAll("#pass, #pw");
 passwords.forEach((password) => {
