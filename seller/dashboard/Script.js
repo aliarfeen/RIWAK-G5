@@ -104,18 +104,25 @@ function updateDashboard(sellerIdParam) {
             (!p.current_status || p.current_status === "approved")
         );
 
-        const productStats = approvedProducts.map(p => {
-            const quantity = p.totalQuantity ?? p.total_quantity ?? p.quantity ?? p.stock ?? 0;
-            const ordered = p.orderedItems ?? p.ordered_items ?? p.ordered ?? 0;
-            const price = Number(p.price ?? 0) || 0;
-            const cost = Number(p.cost ?? 0) || 0;
-            return {
-                id: p.id ?? p.sku ?? null,
-                name: p.name ?? "-",
-                quantity, ordered, price, cost,
-                revenue: price * ordered
-            };
-        });
+       const productStats = approvedProducts.map(p => {
+  const quantity = p.totalQuantity ?? p.total_quantity ?? p.quantity ?? 0;
+  const ordered  = p.orderedItems ?? p.ordered_items ?? 0;
+  const price    = Number(p.price ?? 0) || 0;
+  const cost     = Number(p.cost ?? 0) || 0;
+
+  return {
+    id: p.id ?? p.sku,
+    name: p.name ?? "-",
+    quantity,
+    ordered,
+    price,
+    cost,
+    revenue: ordered * price 
+  };
+});
+
+
+
 
         const sellerObj = sellers.find(s => String(s.id) === String(sellerId));
         // عناصر الـ dashboard قد لا تكون موجودة على صفحة products فقط -> تحقق
