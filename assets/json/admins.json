@@ -1,10 +1,10 @@
 [
   {
     "id": 1,
-    "name": "Admin User",
+    "name": "Ahmed Saad",
     "email": "admin@example.com",
     "phone": "+201234567890",
-    "password": "$2b$10$extremelyStrongHashedPassword123",
+    "password": "Password123",
     "role": "admin",
     "adminLevel": "super_admin",
     "permissions": [
