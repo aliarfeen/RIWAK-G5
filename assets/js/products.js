@@ -24,7 +24,7 @@ window.addEventListener("load", function () {
       offcanvasBody.appendChild(filterContainer);
       filterContainer.classList.remove("d-none");
     } else if (!isMobile && filterContainer.parentElement === offcanvasBody) {
-      document.querySelector(".col-md-3").appendChild(filterContainer);
+      document.querySelector(".col-md-2").appendChild(filterContainer);
       filterContainer.classList.remove("d-none");
     }
   }

@@ -176,7 +176,9 @@ confirmOrderBtn.addEventListener("click", function (e) {
     const orderJson = localStorage.getItem("cart");
     const order = JSON.parse(orderJson);
 
+ 
     const orderItems = order.map((e) => {
+
       return {
         productId: e.id,
         name: e.name,
@@ -186,6 +188,30 @@ confirmOrderBtn.addEventListener("click", function (e) {
         sellerId: e.sellerId,
       };
     });
+    // === Update products in localStorage ===
+let products = JSON.parse(localStorage.getItem("products")) || [];
+
+order.forEach((cartItem) => {
+  products = products.map((p) => {
+    if (p.id === cartItem.id) {
+      const quantity = cartItem.orderedquantity || 1;
+
+      // Prevent negative stock
+      const newTotalQuantity = Math.max(p.totalQuantity - quantity, 0);
+      const addedQuantity = p.totalQuantity - newTotalQuantity;
+
+      return {
+        ...p,
+        orderedItems: p.orderedItems + addedQuantity,
+        modifyAt: new Date().toISOString()
+      };
+    }
+    return p;
+  });
+});
+
+// Save updated products back to localStorage
+localStorage.setItem("products", JSON.stringify(products));
 
     const userJson = localStorage.getItem("current_user");
     const orderNote = localStorage.getItem("order_note");
